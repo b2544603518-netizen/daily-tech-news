@@ -170,15 +170,82 @@
     font-size: 12.5px;
     color: #aaa;
   }
+  /* 日期切换导航 */
+  .date-nav {
+    background: #1a1a2e;
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .date-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
+  .date-nav .nav-label {
+    color: #8899bb;
+    font-size: 13px;
+    margin-right: 4px;
+  }
+  .date-nav a {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    color: #c0ccdd;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .date-nav a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+  .date-nav a.active {
+    background: #4a7dff;
+    color: #fff;
+    font-weight: 600;
+    border-color: #4a7dff;
+  }
+  .date-nav .nav-arrow {
+    color: #8899bb;
+    font-size: 18px;
+    padding: 2px 8px;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+  }
+  .date-nav .nav-arrow:hover { color: #fff; }
+  .date-nav .nav-arrow.disabled { color: #444; pointer-events: none; }
   @media (max-width: 640px) {
     .container { padding: 20px 16px; }
     h1 { font-size: 22px; }
     h2 { font-size: 18px; }
     table { font-size: 12px; }
+    .date-nav a { padding: 3px 10px; font-size: 12px; }
   }
 </style>
 </head>
 <body>
+
+<!-- 日期切换导航栏 -->
+<div class="date-nav" id="dateNav">
+  <div class="date-nav-inner">
+    <span class="nav-label">往期回顾：</span>
+    <a class="nav-arrow disabled" id="navPrev">‹</a>
+    <!-- 日期按钮由 JS 动态生成 -->
+    <a class="nav-arrow disabled" id="navNext">›</a>
+  </div>
+</div>
+
 <div class="container">
 
 <h1>ALM/PLM行业新闻简报</h1>
@@ -435,5 +502,93 @@
 </div>
 
 </div>
+
+<script>
+// 日期导航：从 dates.json 加载所有可用日期
+(function() {
+  const navInner = document.querySelector('.date-nav-inner');
+  const navPrev = document.getElementById('navPrev');
+  const navNext = document.getElementById('navNext');
+
+  // 获取当前页面的日期（从文件名或 URL 推断）
+  const path = window.location.pathname;
+  let currentDate = null;
+  const match = path.match(/(\d{4}-\d{2}-\d{2})/);
+  if (match) {
+    currentDate = match[1];
+  }
+
+  // 加载日期列表
+  fetch('dates.json')
+    .then(r => r.json())
+    .then(dates => {
+      if (!dates || dates.length === 0) return;
+
+      // 如果是 index.html，当前日期就是最新的
+      if (!currentDate) {
+        currentDate = dates[dates.length - 1];
+      }
+
+      const currentIdx = dates.indexOf(currentDate);
+
+      // 清空导航内容重新构建
+      navInner.innerHTML = '<span class="nav-label">往期回顾：</span>';
+
+      // 上一期箭头
+      const prev = document.createElement('a');
+      prev.className = 'nav-arrow' + (currentIdx <= 0 ? ' disabled' : '');
+      prev.textContent = '‹';
+      prev.title = '上一期';
+      if (currentIdx > 0) {
+        prev.href = dates[currentIdx - 1] + '.html';
+      }
+      navInner.appendChild(prev);
+
+      // 日期按钮（最多显示最近7期）
+      const startIdx = Math.max(0, dates.length - 7);
+      for (let i = startIdx; i < dates.length; i++) {
+        const a = document.createElement('a');
+        const d = dates[i];
+        // 格式化显示：02-25
+        const parts = d.split('-');
+        a.textContent = parts[1] + '-' + parts[2];
+        a.title = d;
+        if (d === currentDate) {
+          a.className = 'active';
+          a.href = 'javascript:void(0)';
+        } else {
+          a.href = d + '.html';
+        }
+        navInner.appendChild(a);
+      }
+
+      // 下一期箭头
+      const next = document.createElement('a');
+      next.className = 'nav-arrow' + (currentIdx >= dates.length - 1 ? ' disabled' : '');
+      next.textContent = '›';
+      next.title = '下一期';
+      if (currentIdx < dates.length - 1) {
+        next.href = dates[currentIdx + 1] + '.html';
+      }
+      navInner.appendChild(next);
+
+      // 最新一期快捷入口
+      if (currentDate !== dates[dates.length - 1]) {
+        const latest = document.createElement('a');
+        latest.textContent = '最新 →';
+        latest.href = 'index.html';
+        latest.style.marginLeft = '8px';
+        latest.style.color = '#ffd700';
+        latest.style.fontWeight = '600';
+        navInner.appendChild(latest);
+      }
+    })
+    .catch(() => {
+      // 如果 dates.json 不存在，隐藏导航栏
+      document.getElementById('dateNav').style.display = 'none';
+    });
+})();
+</script>
+
 </body>
 </html>
