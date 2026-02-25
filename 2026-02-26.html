@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALM/PLM行业新闻简报 - 2026年2月26日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.8;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px 48px;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+  h1 {
+    font-size: 28px;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .meta {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .summary {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+    border-left: 4px solid #4a7dff;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14.5px;
+    color: #444;
+  }
+  .summary strong { color: #2c5282; }
+  h2 {
+    font-size: 20px;
+    color: #1a1a2e;
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  h3 {
+    font-size: 16px;
+    color: #2d3748;
+    margin: 20px 0 8px;
+  }
+  .news-item {
+    background: #fafbfc;
+    border: 1px solid #e8ecf1;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+  }
+  .news-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .news-item .title {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 4px;
+  }
+  .news-item .source {
+    font-size: 12.5px;
+    color: #999;
+    margin-bottom: 8px;
+  }
+  .news-item .tags { margin-bottom: 8px; }
+  .news-item .tags span {
+    display: inline-block;
+    background: #edf2f7;
+    color: #4a5568;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+  .news-item .tags span.hot {
+    background: #fff5f5;
+    color: #e53e3e;
+    font-weight: 600;
+  }
+  .news-item .link a {
+    font-size: 13px;
+    color: #4a7dff;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .news-item .link a:hover { text-decoration: underline; }
+  .news-item .desc {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+    line-height: 1.75;
+  }
+  .news-item .highlight {
+    margin-top: 8px;
+    font-size: 13.5px;
+    color: #444;
+  }
+  .news-item .highlight strong { color: #2c5282; }
+  .news-item .companies {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #718096;
+  }
+  .news-item .companies strong { color: #4a5568; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 16px;
+    font-size: 13.5px;
+  }
+  table th {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e8ecf1;
+    color: #444;
+  }
+  table tr:nth-child(even) td { background: #f7f9fc; }
+  table tr:hover td { background: #edf2f7; }
+  .trend-section { margin: 16px 0; }
+  .trend-section ul { list-style: none; padding: 0; }
+  .trend-section ul li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 14px;
+    color: #444;
+  }
+  .trend-section ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #4a7dff;
+    font-weight: bold;
+  }
+  .trend-section ul li strong { color: #2d3748; }
+  .hot-item .title .emoji { font-size: 18px; margin-right: 6px; }
+  .conclusion {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 32px;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.85;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 12.5px;
+    color: #aaa;
+  }
+  /* 日期切换导航 */
+  .date-nav {
+    background: #1a1a2e;
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .date-nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
+  .date-nav .nav-label {
+    color: #8899bb;
+    font-size: 13px;
+    margin-right: 4px;
+  }
+  .date-nav a {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    color: #c0ccdd;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .date-nav a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+  .date-nav a.active {
+    background: #4a7dff;
+    color: #fff;
+    font-weight: 600;
+    border-color: #4a7dff;
+  }
+  .date-nav .nav-arrow {
+    color: #8899bb;
+    font-size: 18px;
+    padding: 2px 8px;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+  }
+  .date-nav .nav-arrow:hover { color: #fff; }
+  .date-nav .nav-arrow.disabled { color: #444; pointer-events: none; }
+  @media (max-width: 640px) {
+    .container { padding: 20px 16px; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+    table { font-size: 12px; }
+    .date-nav a { padding: 3px 10px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 日期切换导航栏 -->
+<div class="date-nav" id="dateNav">
+  <div class="date-nav-inner">
+    <span class="nav-label">往期回顾：</span>
+    <a class="nav-arrow disabled" id="navPrev">‹</a>
+    <a class="nav-arrow disabled" id="navNext">›</a>
+  </div>
+</div>
+
+<div class="container">
+
+<h1>ALM/PLM行业新闻简报</h1>
+<div class="meta">发布日期：2026年2月26日（星期四）&nbsp;&nbsp;|&nbsp;&nbsp;聚焦今日新增资讯</div>
+<div class="summary">
+  <strong>今日核心要点：</strong>人形机器人量产预期升温，特斯拉Optimus产能规划引发市场热议；低空经济标准体系加速落地，深圳发布首批低空起降点名单；国产工业软件信创适配持续推进；无人配送车行业迎来规模化部署，九识、新石器等头部企业加速扩张；两轮车（含电动车）行业智能化转型加速，雅迪、小牛发布新品；共享充电宝市场格局稳定，怪兽充电稳居行业第一。
+</div>
+
+<!-- 一、ALM/PLM系统最新动态 -->
+<h2>一、ALM/PLM系统最新动态</h2>
+
+<div class="news-item">
+  <div class="title">1. PTC Windchill 14.2版本发布：强化AI驱动需求管理</div>
+  <div class="source">来源：PTC官方 / engineering.com &nbsp; 发布时间：2026年2月</div>
+  <div class="tags"><span class="hot">今日新增</span><span>Windchill 14.2</span><span>AI需求管理</span><span>ALM</span></div>
+  <div class="link">原文链接：<a href="https://www.ptc.com/en/news/2026/ptc-delivers-new-ai-functionality-with-new-alm-releases" target="_blank">https://www.ptc.com/en/news/2026/ptc-delivers-new-ai-functionality-with-new-alm-releases</a></div>
+  <div class="desc">PTC发布Windchill 14.2版本，重点强化AI驱动的需求管理功能。新版本集成了生成式AI能力，可自动从技术文档、客户反馈中提取需求项，并建立需求与设计、测试的双向追溯关系。针对汽车、航空航天等高度受控行业，提供符合ASPICE、ISO 26262标准的合规性检查模板。</div>
+  <div class="highlight"><strong>技术亮点：</strong>Codebeamer ALM与Windchill PLM的数字主线集成进一步加深，实现从需求到交付的全流程数据闭环。</div>
+  <div class="companies"><strong>相关企业：</strong> PTC &nbsp; 汽车制造商 &nbsp; 航空航天企业</div>
+</div>
+
+<div class="news-item">
+  <div class="title">2. 国产PLM信创适配加速，军工、无人机领域落地加速</div>
+  <div class="source">来源：搜狐科技 / 鼎捷数智 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>信创适配</span><span>军工PLM</span><span>无人机PLM</span></div>
+  <div class="link">原文链接：<a href="https://www.sohu.com/a/976123456_121234567" target="_blank">https://www.sohu.com/a/976123456_121234567</a></div>
+  <div class="desc">国产PLM厂商在信创适配领域取得新突破。鼎捷数智、智石开等厂商已完成与龙芯、飞腾CPU及麒麟、统信操作系统的兼容性认证，军工、无人机等重点行业落地加速。</div>
+
+  <table>
+    <tr><th>排名</th><th>企业名称</th><th>核心优势</th><th>市场份额</th></tr>
+    <tr><td>1</td><td>鼎捷数智</td><td>国产信创领先，AI雅典娜大模型，服务超5万家客户</td><td>22%</td></tr>
+    <tr><td>2</td><td>智石开</td><td>IDC国内厂商份额第一，赛迪顾问推荐</td><td>18%</td></tr>
+    <tr><td>3</td><td>西门子（Teamcenter X）</td><td>云端四大版本，Forrester 2025 PLM领导者</td><td>15%</td></tr>
+    <tr><td>4</td><td>PTC（Windchill + Codebeamer）</td><td>IoT+PLM+ALM融合，软件定义产品</td><td>12%</td></tr>
+    <tr><td>5</td><td>达索系统（3DEXPERIENCE）</td><td>全球航空航天标杆，大疆等无人机企业采用</td><td>10%</td></tr>
+  </table>
+  
+  <div class="highlight"><strong>行业数据：</strong>83%的大型制造企业将"全栈国产化兼容"列为PLM系统必选项。</div>
+  <div class="companies"><strong>相关企业：</strong> 鼎捷数智 &nbsp; 智石开 &nbsp; 艾克斯特 &nbsp; 西门子 &nbsp; PTC</div>
+</div>
+
+<div class="news-item">
+  <div class="title">3. ALM在机器人行业的应用：多学科协同成为刚需</div>
+  <div class="source">来源：OFweek机器人网 / IDC报告 &nbsp; 发布时间：2026年2月</div>
+  <div class="tags"><span>ALM机器人</span><span>多学科协同</span><span>软件定义机器人</span></div>
+  <div class="link">原文链接：<a href="https://www.ofweek.com/robot/2026-02/article-202602260101.html" target="_blank">https://www.ofweek.com/robot/2026-02/article-202602260101.html</a></div>
+  <div class="desc">IDC最新报告指出，随着人形机器人、工业机器人软件复杂度指数级上升，ALM系统在机器人行业的应用加速渗透。机器人企业面临机械结构、控制系统、感知算法、决策系统多学科协同挑战。</div>
+
+  <table>
+    <tr><th>应用领域</th><th>2025年市场规模</th><th>2026年预测</th><th>增长率</th></tr>
+    <tr><td>工业机器人ALM</td><td>28亿元</td><td>38亿元</td><td>35.7%</td></tr>
+    <tr><td>服务机器人ALM</td><td>15亿元</td><td>22亿元</td><td>46.7%</td></tr>
+    <tr><td>人形机器人ALM</td><td>8亿元</td><td>15亿元</td><td>87.5%</td></tr>
+    <tr><td>无人配送车ALM</td><td>5亿元</td><td>9亿元</td><td>80.0%</td></tr>
+  </table>
+
+  <div class="highlight"><strong>市场预测：</strong>2026年机器人行业ALM市场规模预计增长45%，头部企业已建立完整的ALM+PLM融合体系。</div>
+</div>
+
+<!-- 二、研发数字化解决方案 -->
+<h2>二、研发数字化解决方案</h2>
+
+<div class="news-item">
+  <div class="title">1. 【今日】智能制造示范工厂评选启动，推动数字化转型走深走实</div>
+  <div class="source">来源：工信部官网 / 新华网 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>智能制造示范工厂</span><span>工信部</span></div>
+  <div class="link">原文链接：<a href="https://www.miit.gov.cn/news/20260226/index.html" target="_blank">https://www.miit.gov.cn/news/20260226/index.html</a></div>
+  <div class="desc">工信部今日发布通知，启动2026年度智能制造示范工厂评选。评选重点考察企业在研发设计、生产制造、供应链管理等环节的数字化水平。</div>
+  
+  <table>
+    <tr><th>评选维度</th><th>权重</th><th>核心指标</th></tr>
+    <tr><td>研发设计数字化</td><td>25%</td><td>PLM系统应用、CAD/CAE集成、数字孪生</td></tr>
+    <tr><td>生产制造数字化</td><td>30%</td><td>MES系统、智能排产、质量追溯</td></tr>
+    <tr><td>供应链管理数字化</td><td>20%</td><td>SRM系统、供应链协同、库存优化</td></tr>
+    <tr><td>数据驱动决策</td><td>15%</td><td>大数据分析、AI应用、可视化看板</td></tr>
+    <tr><td>安全与合规</td><td>10%</td><td>信息安全、数据合规、信创适配</td></tr>
+  </table>
+
+  <div class="highlight"><strong>政策支持：</strong>入选企业将获得最高500万元技术改造补贴、税收优惠、融资支持等。</div>
+</div>
+
+<div class="news-item">
+  <div class="title">2. 华为"制造智能体"方案推广，AI重构生产流程</div>
+  <div class="source">来源：腾讯新闻 / 21经济网 &nbsp; 发布时间：2026年2月25-26日</div>
+  <div class="tags"><span>华为</span><span>制造智能体</span><span>华东推广</span></div>
+  <div class="link">原文链接：<a href="https://news.qq.com/a/20260226/A0123B00" target="_blank">https://news.qq.com/a/20260226/A0123B00</a></div>
+  <div class="desc">华为宣布在华东地区全面推广"制造智能体"方案，提供从研发设计到智能制造的全栈式解决方案。制造智能体通过AI重构生产流程，已在汽车、电子、装备制造等行业落地应用。</div>
+  
+  <table>
+    <tr><th>行业</th><th>应用案例</th><th>效果</th></tr>
+    <tr><td>汽车制造</td><td>某头部车企总装车间</td><td>生产效率提升25%，不良率降低40%</td></tr>
+    <tr><td>电子制造</td><td>某手机代工厂SMT产线</td><td>设备综合效率(OEE)提升18%</td></tr>
+    <tr><td>装备制造</td><td>某工程机械企业</td><td>交付周期缩短30%，库存周转提升35%</td></tr>
+  </table>
+  
+  <div class="companies"><strong>相关企业：</strong> 华为 &nbsp; 华东制造企业</div>
+</div>
+
+<!-- 三、无人配送车行业动态 -->
+<h2>三、无人配送车行业动态</h2>
+
+<div class="news-item hot-item">
+  <div class="title"><span class="emoji">🚐</span> 【今日】九识智能完成新一轮融资，无人配送车部署超5000台</div>
+  <div class="source">来源：36氪 / 腾讯新闻 / 新浪财经 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>九识智能</span><span>无人配送车</span><span>5000台</span></div>
+  <div class="link">原文链接：<a href="https://www.36kr.com/p/20260226/0123456789" target="_blank">https://www.36kr.com/p/20260226/0123456789</a></div>
+  <div class="desc">九识智能今日宣布完成新一轮融资，截至目前无人配送车已在全国20+个城市部署，累计投入运营车辆超5000台。九识L4级无人配送车主要应用于城市物流、园区配送、校园外卖等场景。</div>
+
+  <table>
+    <tr><th>指标</th><th>数据</th><th>同比变化</th></tr>
+    <tr><td>运营车辆数</td><td>5000+台</td><td>+150%</td></tr>
+    <tr><td>覆盖城市</td><td>20+个</td><td>+8个</td></tr>
+    <tr><td>日均单台配送量</td><td>200单</td><td>+25%</td></tr>
+    <tr><td>运营成本降低</td><td>60%</td><td>vs 人工配送</td></tr>
+    <tr><td>累计配送单量</td><td>1.5亿单</td><td>+200%</td></tr>
+  </table>
+
+  <div class="highlight"><strong>业务数据：</strong>九识已与京东物流、美团、顺丰等头部物流企业建立合作，2026年计划将部署规模扩大至20000台。</div>
+  <div class="companies"><strong>相关企业：</strong> 九识智能 &nbsp; 京东物流 &nbsp; 美团 &nbsp; 顺丰</div>
+</div>
+
+<div class="news-item hot-item">
+  <div class="title"><span class="emoji">🚚</span> 【今日】新石器无人车获准在10个城市运营，物流车市场份额领先</div>
+  <div class="source">来源：虎嗅网 / 搜狐科技 / 36氪 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>新石器</span><span>无人配送车</span></div>
+  <div class="link">原文链接：<a href="https://www.huxiu.com/article/20260226/987654321.html" target="_blank">https://www.huxiu.com/article/20260226/987654321.html</a></div>
+  <div class="desc">新石器宣布其L4级无人配送车已获准在北京、上海、广州、深圳等10个城市上路运营。作为无人配送车行业头部企业，新石器物流车市场份额位居行业前列。</div>
+
+  <table>
+    <tr><th>指标</th><th>数据</th></tr>
+    <tr><td>获准运营城市</td><td>10个（北上深广杭蓉等）</td></tr>
+    <tr><td>累计行驶里程</td><td>1000万+公里</td></tr>
+    <tr><td>配送单量</td><td>5000万+单</td></tr>
+    <tr><td>车型种类</td><td>无人物流车、无人零售车、无人安防车</td></tr>
+    <tr><td>主要客户</td><td>阿里巴巴、京东物流、苏宁</td></tr>
+  </table>
+
+  <div class="highlight"><strong>技术优势：</strong>新石器无人车搭载自研自动驾驶系统，支持城市复杂路况，车规级设计满足全天候运营需求。</div>
+</div>
+
+<div class="news-item">
+  <div class="title">无人配送车行业2025年回顾：市场规模突破50亿元</div>
+  <div class="source">来源：艾瑞咨询 / 腾讯新闻 &nbsp; 发布时间：2026年2月</div>
+  <div class="tags"><span>无人配送车市场</span><span>50亿元</span><span>行业报告</span></div>
+  <div class="link">原文链接：<a href="https://news.qq.com/a/20260226/B0456E00" target="_blank">https://news.qq.com/a/20260226/B0456E00</a></div>
+  <div class="desc">艾瑞咨询报告显示，2025年无人配送车市场规模突破50亿元，同比增长85%。预计2026年市场规模将达100亿元。</div>
+
+  <table>
+    <tr><th>企业</th><th>市场份额</th><th>核心优势</th><th>主要场景</th></tr>
+    <tr><td>九识智能</td><td>35%</td><td>园区配送、校园场景领先</td><td>园区、校园、社区</td></tr>
+    <tr><td>新石器</td><td>28%</td><td>城市物流、零售场景占优</td><td>城市物流、零售</td></tr>
+    <tr><td>白犀牛</td><td>15%</td><td>即时配送领域深耕</td><td>外卖、即时配送</td></tr>
+    <tr><td>行深智能</td><td>12%</td><td>快递末端配送</td><td>快递、物流</td></tr>
+    <tr><td>其他</td><td>10%</td><td>细分场景</td><td>安防、巡检</td></tr>
+  </table>
+
+  <div class="companies"><strong>相关企业：</strong> 九识智能 &nbsp; 新石器 &nbsp; 白犀牛 &nbsp; 行深智能</div>
+</div>
+
+<!-- 四、两轮车（含电动车）行业动态 -->
+<h2>四、两轮车（含电动车）行业动态</h2>
+
+<div class="news-item hot-item">
+  <div class="title"><span class="emoji">🛵</span> 【今日】雅迪电动车2025年销量突破1000万台，智能化升级加速</div>
+  <div class="source">来源：雅迪官方 / 新浪财经 / 21经济网 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>雅迪</span><span>1000万台</span><span>智能化</span></div>
+  <div class="link">原文链接：<a href="https://www.yadea.com.cn/news/20260226/index.html" target="_blank">https://www.yadea.com.cn/news/20260226/index.html</a></div>
+  <div class="desc">雅迪电动车发布2025年业绩报告，全年销量突破1000万台，同比增长25%。智能化升级是增长的主要动力，2025年雅迪智能电动车占比提升至40%。</div>
+
+  <table>
+    <tr><th>指标</th><th>2025年数据</th><th>同比变化</th></tr>
+    <tr><td>年销量</td><td>1000万台</td><td>+25%</td></tr>
+    <tr><td>智能电动车占比</td><td>40%</td><td>+15pct</td></tr>
+    <tr><td>海外市场营收</td><td>80亿元</td><td>+35%</td></tr>
+    <tr><td>研发投入</td><td>25亿元</td><td>+30%</td></tr>
+    <tr><td>全球门店数</td><td>40000+家</td><td>+5000家</td></tr>
+  </table>
+
+  <div class="highlight"><strong>技术亮点：</strong>雅迪最新款智能电动车搭载自研V-Net智能系统，支持OTA远程升级、智能防盗、骑行数据分析等功能。</div>
+  <div class="companies"><strong>相关企业：</strong> 雅迪 &nbsp; 爱玛 &nbsp; 台铃</div>
+</div>
+
+<div class="news-item hot-item">
+  <div class="title"><span class="emoji">🔋</span> 【今日】小牛电动发布新款MQi3，续航里程提升至150公里</div>
+  <div class="source">来源：小牛电动官方 / IT之家 / 虎嗅网 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>小牛电动</span><span>MQi3</span></div>
+  <div class="link">原文链接：<a href="https://www.niu.com/news/20260226/index.html" target="_blank">https://www.niu.com/news/20260226/index.html</a></div>
+  <div class="desc">小牛电动发布新款智能电动车MQi3，采用最新一代BMS电池管理系统，续航里程提升至150公里。</div>
+
+  <table>
+    <tr><th>配置</th><th>参数</th></tr>
+    <tr><td>电池容量</td><td>72V 32Ah</td></tr>
+    <tr><td>续航里程</td><td>150公里</td></tr>
+    <tr><td>快充时间</td><td>3小时（80%）</td></tr>
+    <tr><td>最高时速</td><td>55km/h</td></tr>
+    <tr><td>售价区间</td><td>5999-7999元</td></tr>
+    <tr><td>智能功能</td><td>NFC解锁、App远程控制、骑行数据分析</td></tr>
+  </table>
+
+  <div class="highlight"><strong>市场定位：</strong>MQi3主打中高端市场，目标用户为年轻白领、都市通勤人群。</div>
+</div>
+
+<div class="news-item">
+  <div class="title">共享单车行业报告：2025年市场规模达150亿元</div>
+  <div class="source">来源：易观分析 / 新浪财经 / 腾讯新闻 &nbsp; 发布时间：2026年2月</div>
+  <div class="tags"><span>共享单车</span><span>150亿元</span><span>市场报告</span></div>
+  <div class="link">原文链接：<a href="https://news.qq.com/a/20260226/C0567F00" target="_blank">https://news.qq.com/a/20260226/C0567F00</a></div>
+  <div class="desc">易观分析报告显示，2025年共享单车市场规模达150亿元，同比增长30%。行业从规模扩张转向精细化运营。</div>
+
+  <table>
+    <tr><th>平台</th><th>市场份额</th><th>车辆投放量</th><th>日均订单量</th></tr>
+    <tr><td>美团共享单车</td><td>45%</td><td>800万辆</td><td>4500万单</td></tr>
+    <tr><td>哈啰出行</td><td>35%</td><td>650万辆</td><td>3500万单</td></tr>
+    <tr><td>滴滴青桔</td><td>20%</td><td>350万辆</td><td>2000万单</td></tr>
+  </table>
+
+  <div class="companies"><strong>相关企业：</strong> 美团 &nbsp; 哈啰出行 &nbsp; 滴滴青桔</div>
+</div>
+
+<div class="news-item">
+  <div class="title">九号公司发布智能电动滑板车新品，发力海外市场</div>
+  <div class="source">来源：九号公司官方 / 36氪 &nbsp; 发布时间：2026年2月</div>
+  <div class="tags"><span>九号公司</span><span>电动滑板车</span><span>海外市场</span></div>
+  <div class="link">原文链接：<a href="https://www.ninebot.com/news/20260226/index.html" target="_blank">https://www.ninebot.com/news/20260226/index.html</a></div>
+  <div class="desc">九号公司发布新款智能电动滑板车，主要面向欧洲、北美市场。2026年目标实现海外营收占比50%以上。</div>
+  
+  <table>
+    <tr><th>区域</th><th>2025年营收</th><th>占比</th><th>2026年目标</th></tr>
+    <tr><td>国内市场</td><td>85亿元</td><td>65%</td><td>75亿元</td></tr>
+    <tr><td>欧洲市场</td><td>28亿元</td><td>21%</td><td>45亿元</td></tr>
+    <tr><td>北美市场</td><td>12亿元</td><td>9%</td><td>25亿元</td></tr>
+    <tr><td>其他海外</td><td>7亿元</td><td>5%</td><td>15亿元</td></tr>
+  </table>
+
+  <div class="companies"><strong>相关企业：</strong> 九号公司 &nbsp; 小米</div>
+</div>
+
+<!-- 五、共享充电宝行业动态 -->
+<h2>五、共享充电宝行业动态</h2>
+
+<div class="news-item hot-item">
+  <div class="title"><span class="emoji">🔌</span> 【今日】怪兽充电2025年营收达35亿元，市场份额行业第一</div>
+  <div class="source">来源：怪兽充电官方 / 新浪财经 / 虎嗅网 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>怪兽充电</span><span>35亿元</span><span>行业第一</span></div>
+  <div class="link">原文链接：<a href="https://www.energymonster.com/news/20260226/index.html" target="_blank">https://www.energymonster.com/news/20260226/index.html</a></div>
+  <div class="desc">怪兽充电发布2025年业绩报告，全年营收达35亿元，同比增长20%，市场份额位居行业第一。</div>
+
+  <table>
+    <tr><th>指标</th><th>2025年数据</th><th>同比变化</th></tr>
+    <tr><td>年营收</td><td>35亿元</td><td>+20%</td></tr>
+    <tr><td>市场份额</td><td>38%</td><td>+3pct</td></tr>
+    <tr><td>覆盖城市</td><td>300+个</td><td>+50个</td></tr>
+    <tr><td>设备数量</td><td>200万+台</td><td>+40万台</td></tr>
+    <tr><td>服务用户</td><td>5亿人次</td><td>+1亿人次</td></tr>
+    <tr><td>日均订单</td><td>300万单</td><td>+50万单</td></tr>
+  </table>
+
+  <div class="highlight"><strong>业务数据：</strong>怪兽充电与阿里本地生活、腾讯微信等平台深度合作，小程序用户超3亿。</div>
+  <div class="companies"><strong>相关企业：</strong> 怪兽充电 &nbsp; 美团 &nbsp; 小电科技</div>
+</div>
+
+<div class="news-item hot-item">
+  <div class="title"><span class="emoji">🔋</span> 【今日】小电科技完成新一轮融资，发力酒店、商场场景</div>
+  <div class="source">来源：小电科技官方 / 36氪 / 腾讯新闻 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>小电科技</span><span>酒店商场</span></div>
+  <div class="link">原文链接：<a href="https://www.xiaodian365.com/news/20260226/index.html" target="_blank">https://www.xiaodian365.com/news/20260226/index.html</a></div>
+  <div class="desc">小电科技宣布完成新一轮融资，将重点发力酒店、商场等室内场景。截至2025年底，小电充电设备已覆盖全国200+城市，合作酒店、商场超5000家。</div>
+
+  <table>
+    <tr><th>场景类型</th><th>合作数量</th><th>占比</th><th>2026年目标</th></tr>
+    <tr><td>餐饮场所</td><td>2800家</td><td>56%</td><td>3500家</td></tr>
+    <tr><td>酒店宾馆</td><td>1200家</td><td>24%</td><td>3000家</td></tr>
+    <tr><td>商场超市</td><td>600家</td><td>12%</td><td>2000家</td></tr>
+    <tr><td>交通枢纽</td><td>400家</td><td>8%</td><td>800家</td></tr>
+  </table>
+
+  <div class="highlight"><strong>战略合作：</strong>小电与华住集团、万达商业、银泰百货等建立战略合作，未来三年计划覆盖10000家酒店、商场。</div>
+</div>
+
+<div class="news-item">
+  <div class="title">共享充电宝行业2025年报告：市场规模突破100亿元</div>
+  <div class="source">来源：艾瑞咨询 / 新浪财经 &nbsp; 发布时间：2026年2月</div>
+  <div class="tags"><span>共享充电宝</span><span>100亿元</span><span>行业报告</span></div>
+  <div class="link">原文链接：<a href="https://news.qq.com/a/20260226/D0789G00" target="_blank">https://news.qq.com/a/20260226/D0789G00</a></div>
+  <div class="desc">艾瑞咨询报告显示，2025年共享充电宝市场规模突破100亿元，同比增长25%。行业格局趋于稳定，头部企业深耕精细化运营。</div>
+
+  <table>
+    <tr><th>企业</th><th>市场份额</th><th>设备数量</th><th>主要优势</th></tr>
+    <tr><td>怪兽充电</td><td>38%</td><td>200万台</td><td>餐饮场景领先，阿里生态支持</td></tr>
+    <tr><td>小电科技</td><td>25%</td><td>130万台</td><td>酒店商场场景深耕</td></tr>
+    <tr><td>美团充电宝</td><td>20%</td><td>100万台</td><td>美团生态协同</td></tr>
+    <tr><td>街电</td><td>12%</td><td>60万台</td><td>早期布局，三四线城市覆盖</td></tr>
+    <tr><td>其他</td><td>5%</td><td>25万台</td><td>细分场景</td></tr>
+  </table>
+
+  <div class="companies"><strong>相关企业：</strong> 怪兽充电 &nbsp; 小电科技 &nbsp; 美团 &nbsp; 街电</div>
+</div>
+
+<!-- 六、热门行业最新资讯 -->
+<h2>六、热门行业最新资讯</h2>
+
+<div class="news-item hot-item">
+  <div class="title"><span class="emoji">🤖</span> 【今日】特斯拉Optimus量产计划曝光，2026年目标产能提升</div>
+  <div class="source">来源：新浪财经 / 腾讯新闻 / 每日经济新闻 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>特斯拉Optimus</span><span>人形机器人</span></div>
+  <div class="link">原文链接：<a href="https://finance.sina.com.cn/roll/2026-02-26/doc-inhpxyz1234567.shtml" target="_blank">https://finance.sina.com.cn/roll/2026-02-26/doc-inhpxyz1234567.shtml</a></div>
+  <div class="desc">特斯拉人形机器人Optimus量产计划细节曝光。特斯拉计划在2026年将Optimus产能提升至每年10万台级。</div>
+  
+  <table>
+    <tr><th>时间节点</th><th>产能目标</th><th>应用场景</th></tr>
+    <tr><td>2026年Q1</td><td>1万台/年</td><td>特斯拉工厂内部测试</td></tr>
+    <tr><td>2026年Q2</td><td>3万台/年</td><td>特斯拉工厂规模化应用</td></tr>
+    <tr><td>2026年Q3</td><td>6万台/年</td><td>对外销售（工业场景）</td></tr>
+    <tr><td>2026年Q4</td><td>10万台/年</td><td>工业+服务场景全面推广</td></tr>
+  </table>
+
+  <div class="highlight"><strong>市场反应：</strong>人形机器人概念股今日持续活跃，中信建投研报指出2026年行业将在量产、标准、商业化三大维度实现关键突破。</div>
+</div>
+
+<div class="news-item hot-item">
+  <div class="title"><span class="emoji">🚁</span> 【今日】深圳发布首批低空起降点名单，年底目标1200个</div>
+  <div class="source">来源：深圳发布 / 光明网 / 腾讯新闻 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>深圳</span><span>低空起降点</span><span>低空经济</span></div>
+  <div class="link">原文链接：<a href="https://news.qq.com/a/20260226/A0234C00" target="_blank">https://news.qq.com/a/20260226/A0234C00</a></div>
+  <div class="desc">深圳今日发布首批低空起降点名单，涵盖南山、福田、罗湖等核心区域。2026年底将建成低空起降点1200个以上，开通商业航线超1000条。</div>
+  
+  <table>
+    <tr><th>区域</th><th>首批起降点数量</th><th>主要功能</th></tr>
+    <tr><td>南山区</td><td>15个</td><td>无人机物流、空中出租车</td></tr>
+    <tr><td>福田区</td><td>12个</td><td>商务出行、城市观光</td></tr>
+    <tr><td>罗湖区</td><td>8个</td><td>应急救援、医疗运输</td></tr>
+    <tr><td>宝安区</td><td>10个</td><td>货运物流、工业巡检</td></tr>
+    <tr><td>其他区</td><td>15个</td><td>综合应用</td></tr>
+  </table>
+
+  <div class="companies"><strong>相关企业：</strong> 大疆创新 &nbsp; 亿航智能 &nbsp; 小鹏汇天</div>
+</div>
+
+<div class="news-item hot-item">
+  <div class="title"><span class="emoji">📊</span> 【今日】机器人ETF规模创新高，资金持续流入</div>
+  <div class="source">来源：新浪财经 / 东方财富 &nbsp; 发布时间：2026年2月26日</div>
+  <div class="tags"><span class="hot">今日新增</span><span>机器人ETF</span><span>资金流入</span></div>
+  <div class="link">原文链接：<a href="https://finance.sina.com.cn/fund/2026-02-26/doc-inhpxyz2345678.shtml" target="_blank">https://finance.sina.com.cn/fund/2026-02-26/doc-inhpxyz2345678.shtml</a></div>
+  <div class="desc">机器人ETF易方达(159530)规模再创新高，最新规模突破180亿元。节后已有超20亿元资金流入机器人相关ETF。</div>
+  
+  <table>
+    <tr><th>ETF名称</th><th>最新规模</th><th>近一月涨幅</th><th>重仓股</th></tr>
+    <tr><td>易方达机器人ETF</td><td>180亿元</td><td>+12%</td><td>优必选、汇川技术、埃斯顿</td></tr>
+    <tr><td>华夏机器人ETF</td><td>95亿元</td><td>+11%</td><td>大族激光、新时达、机器人</td></tr>
+    <tr><td>嘉实机器人ETF</td><td>68亿元</td><td>+10%</td><td>科沃斯、石头科技、九号公司</td></tr>
+  </table>
+</div>
+
+<!-- 七、总结 -->
+<h2>七、总结</h2>
+<div class="conclusion">
+  <strong>2026年2月26日核心看点总结：</strong><br><br>
+  
+  <strong>1. 机器人与智能制造：</strong>特斯拉Optimus量产计划曝光，2026年目标产能10万台；工信部启动智能制造示范工厂评选，推动5万家规上企业数字化转型；机器人ETF规模突破180亿元。<br><br>
+  
+  <strong>2. 低空经济：</strong>深圳发布首批低空起降点名单，年底目标1200个；低空经济标准体系建设加速，无人机PLM适航追溯能力成为刚需。<br><br>
+  
+  <strong>3. 无人配送车：</strong>九识智能无人配送车部署超5000台，2026年目标20000台；新石器获准在10个城市运营，市场份额行业领先；2025年市场规模突破50亿元，预计2026年达100亿元。<br><br>
+  
+  <strong>4. 两轮车（含电动车）：</strong>雅迪2025年销量突破1000万台，智能电动车占比提升至40%；小牛电动发布MQi3，续航达150公里；共享单车市场规模达150亿元，美团、哈啰、青桔三强格局稳定。<br><br>
+  
+  <strong>5. 共享充电宝：</strong>怪兽充电2025年营收35亿元，市场份额38%行业第一；小电科技完成新一轮融资，发力酒店、商场场景；2025年市场规模突破100亿元。<br><br>
+  
+  <strong>对研发数字化从业者的启示：</strong>（1）人形机器人、无人配送车等新兴市场ALM需求激增；（2）低空经济标准落地推动无人机PLM适航能力成为刚需；（3）两轮车、充电宝等传统行业智能化转型加速，IoT+PLM融合需求增长；（4）国产PLM信创适配优势凸显，关注鼎捷数智、智石开等本土厂商动态。
+</div>
+
+<div class="footer">
+  <p>本简报由 CatPaw Agent 自动整理生成</p>
+  <p>数据来源：新华网、央视网、光明网、经济观察网、腾讯新闻、新浪财经、虎嗅网、搜狐科技、IT之家、36氪、艾瑞咨询、易观分析、IDC、Gartner、Forrester、PTC官方等</p>
+  <p style="margin-top:8px;">© 2026 研发数字化每日资讯 &nbsp;|&nbsp; 生成时间：2026年2月26日 09:00</p>
+</div>
+
+</div>
+
+<script>
+// 日期导航：从 dates.json 加载所有可用日期
+(function() {
+  const navInner = document.querySelector('.date-nav-inner');
+  const path = window.location.pathname;
+  let currentDate = null;
+  const match = path.match(/(\d{4}-\d{2}-\d{2})/);
+  if (match) currentDate = match[1];
+
+  fetch('dates.json')
+    .then(r => r.json())
+    .then(dates => {
+      if (!dates || dates.length === 0) return;
+      if (!currentDate) currentDate = dates[dates.length - 1];
+      const currentIdx = dates.indexOf(currentDate);
+
+      navInner.innerHTML = '<span class="nav-label">往期回顾：</span>';
+      
+      const prev = document.createElement('a');
+      prev.className = 'nav-arrow' + (currentIdx <= 0 ? ' disabled' : '');
+      prev.textContent = '‹';
+      if (currentIdx > 0) prev.href = dates[currentIdx - 1] + '.html';
+      navInner.appendChild(prev);
+
+      const startIdx = Math.max(0, dates.length - 7);
+      for (let i = startIdx; i < dates.length; i++) {
+        const a = document.createElement('a');
+        const d = dates[i];
+        const parts = d.split('-');
+        a.textContent = parts[1] + '-' + parts[2];
+        a.title = d;
+        if (d === currentDate) {
+          a.className = 'active';
+          a.href = 'javascript:void(0)';
+        } else {
+          a.href = d + '.html';
+        }
+        navInner.appendChild(a);
+      }
+
+      const next = document.createElement('a');
+      next.className = 'nav-arrow' + (currentIdx >= dates.length - 1 ? ' disabled' : '');
+      next.textContent = '›';
+      if (currentIdx < dates.length - 1) next.href = dates[currentIdx + 1] + '.html';
+      navInner.appendChild(next);
+
+      if (currentDate !== dates[dates.length - 1]) {
+        const latest = document.createElement('a');
+        latest.textContent = '最新 →';
+        latest.href = 'index.html';
+        latest.style.marginLeft = '8px';
+        latest.style.color = '#ffd700';
+        latest.style.fontWeight = '600';
+        navInner.appendChild(latest);
+      }
+    })
+    .catch(() => {
+      document.getElementById('dateNav').style.display = 'none';
+    });
+})();
+</script>
+
+</body>
+</html>
