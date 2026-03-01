@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研发数字化每日资讯 - 2026年3月1日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.8;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px 48px;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+  h1 {
+    font-size: 28px;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .meta {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .summary {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+    border-left: 4px solid #4a7dff;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14.5px;
+    color: #444;
+  }
+  .summary strong { color: #2c5282; }
+  h2 {
+    font-size: 20px;
+    color: #1a1a2e;
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .news-item {
+    background: #fafbfc;
+    border: 1px solid #e8ecf1;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+  }
+  .news-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .news-item .title {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 4px;
+  }
+  .news-item .source {
+    font-size: 12.5px;
+    color: #999;
+    margin-bottom: 8px;
+  }
+  .news-item .tags { margin-bottom: 8px; }
+  .news-item .tags span {
+    display: inline-block;
+    background: #edf2f7;
+    color: #4a5568;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+  .news-item .tags span.hot {
+    background: #fff5f5;
+    color: #e53e3e;
+    font-weight: 600;
+  }
+  .news-item .link a {
+    font-size: 13px;
+    color: #4a7dff;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .news-item .link a:hover { text-decoration: underline; }
+  .news-item .desc {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+    line-height: 1.75;
+  }
+  .news-item .companies {
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 13px;
+  }
+  .data-table th {
+    background: #f0f4ff;
+    color: #2c5282;
+    padding: 6px 10px;
+    text-align: left;
+    border: 1px solid #d0d8e8;
+  }
+  .data-table td {
+    padding: 6px 10px;
+    border: 1px solid #e2e8f0;
+  }
+  .conclusion {
+    background: linear-gradient(135deg, #f0fff4 0%, #e6ffed 100%);
+    border-left: 4px solid #38a169;
+    padding: 20px 24px;
+    margin-top: 40px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.9;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+  .date-nav {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .date-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .date-nav a {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #4a7dff;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s;
+  }
+  .date-nav a:hover { background: #edf2f7; }
+  .date-nav a.active {
+    background: #4a7dff;
+    color: #fff;
+    border-color: #4a7dff;
+  }
+  .nav-label {
+    font-size: 13px;
+    color: #888;
+    margin-right: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>📡 研发数字化每日资讯</h1>
+<div class="meta">2026年3月1日 星期日 ｜ 第61期</div>
+
+<div class="date-nav">
+  <div class="date-nav-inner">
+    <span class="nav-label">日期切换：</span>
+  </div>
+</div>
+
+<div class="summary">
+  <strong>今日速览：</strong>
+  🤖 央视网今日深度解读我国首个《人形机器人与具身智能标准体系（2026版）》，覆盖6大板块，标志产业进入规范化发展新阶段；🛩️ 低空经济进入"政策+适航+场景"三重加速期，民航局发布大型无人机适航标准征求意见稿，29省布局低空产业；💻 PLM/ALM领域，PTC Windchill AI零部件优化功能发布，万字深度分析探讨PLM与ALM殊途同归趋势；🏭 "AI+制造"专项行动持续推进，工业互联网平台高质量发展行动方案（2026-2028）落地；🚐 九识智能完成超3亿美元融资成百亿独角兽，与菜鸟无人车战略合并，无人配送车单价降至2万元；🛵 电动两轮车新国标深度执行，工信部第404批新车公告曝光雅迪、九号多款新品；🔋 共享充电宝行业怪兽充电推进私有化，美团充电宝市占率反超，行业进入存量博弈。
+</div>
+
+<h2>🤖 人形机器人 / 具身智能</h2>
+
+<div class="news-item">
+  <div class="title">央视网深度解读：我国首个国家级人形机器人与具身智能标准体系发布</div>
+  <div class="source">央视网 ｜ 2026-03-01</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>人形机器人</span>
+    <span>标准体系</span>
+  </div>
+  <div class="desc">央视网3月1日深度报道，工信部人形机器人与具身智能标准化技术委员会于2月28日正式发布《人形机器人与具身智能标准体系（2026版）》。这是我国首个覆盖人形机器人全产业链、全生命周期的标准顶层设计。体系设有基础共性、类脑与智算、肢体与部组件、整机与系统、应用、安全伦理6个部分。标委会副主任委员江磊表示，行业已发展到万台级规模化前期，标准制定周期争取在6个月内完成。2025年国内整机企业超140家，发布产品超330款。行业仍面临AI模型泛化能力不足、核心零部件部分依赖进口、场景碎片化与成本高企等瓶颈。</div>
+  <table class="data-table">
+    <tr><th>标准板块</th><th>核心内容</th><th>产业意义</th></tr>
+    <tr><td>基础共性</td><td>通用性、指导性标准规范</td><td>为技术演进提供合规保障</td></tr>
+    <tr><td>类脑与智算</td><td>具身智能"大小脑"与智能计算</td><td>规范数据全生命周期、模型训推部署</td></tr>
+    <tr><td>肢体与部组件</td><td>类人躯干、灵巧手、感知通信模组</td><td>推动模块化发展</td></tr>
+    <tr><td>整机与系统</td><td>整机、系统软件及软硬件协同</td><td>实现软硬件集成融合</td></tr>
+    <tr><td>应用标准</td><td>不同场景开发、运行和维护</td><td>规范商业化落地</td></tr>
+    <tr><td>安全伦理</td><td>贯穿全生命周期</td><td>提供安全与合规保障</td></tr>
+  </table>
+  <div class="companies"><strong>相关机构：</strong>工信部标委会、宇树科技、银河通用、优必选、智元机器人等140+整机企业</div>
+  <div class="link">🔗 <a href="https://news.cctv.com/2026/03/01/ARTIbXD8De5pudw4GuYxCo6S260301.shtml" target="_blank">https://news.cctv.com/2026/03/01/ARTIbXD8De5pudw4GuYxCo6S260301.shtml</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">新华网：我国首个人形机器人与具身智能标准体系发布，产业进入规范化新阶段</div>
+  <div class="source">新华网 ｜ 2026-02-28</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>人形机器人</span>
+    <span>政策</span>
+  </div>
+  <div class="desc">新华社2月28日电，人形机器人与具身智能标准化（HEIS）年会在北京召开，这是标委会2025年12月成立后的首届年会。会上发布的标准体系覆盖全产业链、全生命周期，标志着产业进入规范化发展新阶段。业界普遍认为，具身智能正从研究阶段转向产业落地阶段，人形机器人有望成为继智能手机、新能源汽车之后的新一代超级终端。文体娱乐、工业服务和银发经济等有望成为中短期新增长点。</div>
+  <div class="companies"><strong>相关机构：</strong>工信部、人形机器人与具身智能标委会</div>
+  <div class="link">🔗 <a href="https://www.news.cn/fortune/20260228/ea76c668284d4a05ab50f3e44fcd0b76/c.html" target="_blank">https://www.news.cn/fortune/20260228/ea76c668284d4a05ab50f3e44fcd0b76/c.html</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">中国人形机器人频频"破圈"，IDC报告：2025年全球出货量约1.8万台</div>
+  <div class="source">新华网 ｜ 2026-02-26</div>
+  <div class="tags">
+    <span>人形机器人</span>
+    <span>市场数据</span>
+  </div>
+  <div class="desc">新华网国际观察报道，据IDC 1月发布的报告，人形机器人已正式迈入规模化商用阶段，2025年全球出货量达约1.8万台，中国占主要份额。2026年全球出货量预计突破5.1万台，整机成本从百万级降至15-30万元。摩根士丹利上调中国市场预期，销量从1.4万台翻倍至2.8万台，企业端采购占比将攀升至70%以上。国产工业机器人市场份额已从2018年的29%提升至2025年的54%，埃斯顿登顶国内出货量第一。</div>
+  <table class="data-table">
+    <tr><th>指标</th><th>数据</th><th>来源</th></tr>
+    <tr><td>2025年全球人形机器人出货量</td><td>约1.8万台</td><td>IDC</td></tr>
+    <tr><td>2026年全球预计出货量</td><td>5.1万台</td><td>行业预测</td></tr>
+    <tr><td>整机成本</td><td>15-30万元（从百万级降低）</td><td>行业数据</td></tr>
+    <tr><td>国产工业机器人市场份额</td><td>54%（2025年）</td><td>MIR睿工业</td></tr>
+    <tr><td>2025年工业机器人出货量</td><td>突破30万台，同比增长超13%</td><td>MIR睿工业</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>埃斯顿、汇川技术、宇树科技、优必选、特斯拉Optimus</div>
+  <div class="link">🔗 <a href="https://www3.xinhuanet.com/world/20260226/163db45492a44a7b9dfc45d1dbe22cbc/c.html" target="_blank">https://www3.xinhuanet.com/world/20260226/163db45492a44a7b9dfc45d1dbe22cbc/c.html</a></div>
+</div>
+
+<h2>🛩️ 低空经济 / 无人机</h2>
+
+<div class="news-item">
+  <div class="title">29省同时押注低空经济，2026年成为"爆发年"</div>
+  <div class="source">腾讯新闻 ｜ 2026-02-25</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>低空经济</span>
+    <span>政策</span>
+  </div>
+  <div class="desc">腾讯新闻报道，全国已有29个省份在2026年政府工作报告或专项规划中明确布局低空经济。2026年低空经济正迎来政策、技术、需求的三重爆发期，市场规模预计达1.5万亿元，无人机运营企业近2万家，eVTOL订单超300亿元。新修订的《民用航空法》将于2026年7月1日起施行，中央空管委已选定合肥、杭州、深圳、苏州、成都、重庆六城作为eVTOL全国首批试点。</div>
+  <table class="data-table">
+    <tr><th>指标</th><th>数据</th></tr>
+    <tr><td>布局低空经济省份</td><td>29个</td></tr>
+    <tr><td>市场规模预计</td><td>1.5万亿元</td></tr>
+    <tr><td>无人机运营企业</td><td>近2万家</td></tr>
+    <tr><td>eVTOL订单</td><td>超300亿元</td></tr>
+    <tr><td>专利申请数量</td><td>17.9万余件</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业/机构：</strong>亿航智能、峰飞航空、沃兰特航空、御风未来</div>
+  <div class="link">🔗 <a href="https://news.qq.com/rain/a/20260225A01UP900" target="_blank">https://news.qq.com/rain/a/20260225A01UP900</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">民航局发布大型无人机适航标准征求意见稿，低空经济迎来"定海神针"</div>
+  <div class="source">中国无人机网 ｜ 2026-02-26</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>适航标准</span>
+    <span>无人机</span>
+  </div>
+  <div class="desc">2026年2月26日，中国民航局适航审定司发布《正常类动力提升无人驾驶航空器系统不载人适航标准征求意见稿》。这份长达百页的文件为150公斤以上的大型无人机划定了清晰的安全边界，为万亿级低空经济赛道铺平了法规跑道。业内认为，2026年将成为低空行业"跨越鸿沟"的关键节点，eVTOL从概念验证迈入商业化冲刺阶段。</div>
+  <div class="companies"><strong>相关机构：</strong>中国民航局适航审定司</div>
+  <div class="link">🔗 <a href="https://www.youuav.com/news/detail/202602/62811.html" target="_blank">https://www.youuav.com/news/detail/202602/62811.html</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">低空经济2.0：72小时内三项重磅政策密集落地</div>
+  <div class="source">知乎专栏 ｜ 2026-02</div>
+  <div class="tags">
+    <span>低空经济</span>
+    <span>政策</span>
+  </div>
+  <div class="desc">2026年2月，工信部等五部门、市场监管总局等十部门、国家发改委等三部门在72小时内连续发布三项重磅文件，分别锁定低空通信基建覆盖率、全国统一标准体系、强制责任险三大核心领域。光明网报道指出，低空经济发展正迎来政策、技术、需求等多重支撑，有望成为万亿级新兴产业。广东省在开年第一天明确提出"最大限度为技术创新和市场探索'松绑'，让低空经济'飞'起来"。</div>
+  <div class="companies"><strong>相关机构：</strong>工信部、市场监管总局、国家发改委、广东省政府</div>
+  <div class="link">🔗 <a href="https://economy.gmw.cn/2026-02/25/content_38607718.htm" target="_blank">https://economy.gmw.cn/2026-02/25/content_38607718.htm</a></div>
+</div>
+
+<h2>💻 PLM / ALM / 研发数字化</h2>
+
+<div class="news-item">
+  <div class="title">万字深度分析：PLM与ALM会殊途同归吗？</div>
+  <div class="source">UML中国 ｜ 2026-03-01</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>PLM</span>
+    <span>ALM</span>
+    <span>深度分析</span>
+  </div>
+  <div class="desc">3月1日发布的万字长文深度分析指出，汽车研发经历了从机械为主到以硬件为主，再到全面软件化的迭代浪潮。PLM与ALM在汽车行业的导入，对应了"硬件定义汽车"到"软件定义汽车"的产业迭代。文章认为，两者的深度整合是汽车智能化、数字化发展的必然趋势——所谓"殊途同归"，并非PLM替代ALM，也不是ALM覆盖PLM，而是两者打破边界、深度融合，形成统一的产品全生命周期管理体系。</div>
+  <div class="companies"><strong>相关企业：</strong>PTC、西门子、达索系统、国产PLM厂商</div>
+  <div class="link">🔗 <a href="http://www.uml.org.cn/car/202603011.asp?artid=27270" target="_blank">http://www.uml.org.cn/car/202603011.asp?artid=27270</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">PTC推出Windchill AI零部件优化功能，AI嵌入PLM工作流</div>
+  <div class="source">至顶网 ｜ 2026-01-28</div>
+  <div class="tags">
+    <span>PLM</span>
+    <span>AI</span>
+    <span>PTC</span>
+  </div>
+  <div class="desc">PTC于1月28日宣布推出Windchill AI零部件优化功能，将AI直接融入零部件管理工作流程。该功能可检测相似零部件以防止新增重复件，识别企业系统中已有的冗余零部件，并通过变更工作流推动零部件整合。以插件形式部署，使客户能够快速采用新的AI功能。此前PTC还发布了Codebeamer 3.2与Codebeamer AI 1.0，强化受监管行业ALM能力。PTC携手兰博基尼在CES 2026展示"智能产品生命周期"愿景。</div>
+  <div class="companies"><strong>相关企业：</strong>PTC、兰博基尼</div>
+  <div class="link">🔗 <a href="https://cio.zhiding.cn/cio/2026/0128/3177952.shtml" target="_blank">https://cio.zhiding.cn/cio/2026/0128/3177952.shtml</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">2026年PLM市场：AI+SaaS成研发创新引擎，中国市场规模突破35亿元</div>
+  <div class="source">搜狐科技 ｜ 2026-02</div>
+  <div class="tags">
+    <span>PLM</span>
+    <span>市场数据</span>
+  </div>
+  <div class="desc">多家媒体发布2026年PLM系统排名与选型分析。据IDC报告，2024年中国PLM软件市场规模达35.1亿元，同比增长21.6%。市场份额前三名仍为西门子（11.3%）、达索系统（8.0%）和PTC，但份额均出现下滑。国内厂商如用友智石开、金蝶、鼎捷数智等位列第四至第九名。云服务模式PLM（SaaS）市场规模为1.81亿元，仅占总规模的5.25%，但增速略高于整体市场。</div>
+  <table class="data-table">
+    <tr><th>厂商</th><th>市场份额</th><th>变化趋势</th></tr>
+    <tr><td>西门子</td><td>11.3%</td><td>从14.3%下降</td></tr>
+    <tr><td>达索系统</td><td>8.0%</td><td>从10.2%下降</td></tr>
+    <tr><td>PTC</td><td>前三</td><td>AI能力持续强化</td></tr>
+    <tr><td>国产厂商（用友/金蝶/鼎捷等）</td><td>第4-9名</td><td>份额持续提升</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>西门子、达索系统、PTC、用友智石开、金蝶、鼎捷数智、璞华科技</div>
+  <div class="link">🔗 <a href="https://m.sohu.com/a/978273719_122514444" target="_blank">https://m.sohu.com/a/978273719_122514444</a></div>
+</div>
+
+<h2>🏭 智能制造 / 工业互联网</h2>
+
+<div class="news-item">
+  <div class="title">工信部发布《推动工业互联网平台高质量发展行动方案（2026-2028年）》</div>
+  <div class="source">工信部官网 ｜ 2026-01</div>
+  <div class="tags">
+    <span>工业互联网</span>
+    <span>政策</span>
+  </div>
+  <div class="desc">工信部发布《推动工业互联网平台高质量发展行动方案（2026-2028年）》，提出释放工业数据要素价值，支持平台提升数据采集与汇聚能力，构建以业务场景为核心的工业数据标签体系。同时发布的《工业互联网和人工智能融合赋能行动方案》提出，到2028年满足AI工业应用高通量、低时延、高可靠通信需求的新型工业网络规模持续扩大。当前工业互联网平台超340家，连接设备超1亿台（套）。</div>
+  <table class="data-table">
+    <tr><th>政策文件</th><th>核心目标</th><th>时间节点</th></tr>
+    <tr><td>工业互联网平台行动方案</td><td>平台高质量发展、数据要素释放</td><td>2026-2028年</td></tr>
+    <tr><td>AI融合赋能行动方案</td><td>新型工业网络规模扩大</td><td>到2028年</td></tr>
+    <tr><td>"AI+制造"专项行动</td><td>3-5个通用大模型深度落地制造业</td><td>到2027年</td></tr>
+  </table>
+  <div class="companies"><strong>相关机构：</strong>工信部、中国工业互联网研究院</div>
+  <div class="link">🔗 <a href="https://www.miit.gov.cn/jgsj/xxjsfzs/gzdt/art/2026/art_926b6c211725491ca89ca218379405e1.html" target="_blank">https://www.miit.gov.cn/jgsj/xxjsfzs/gzdt/art/2026/art_926b6c211725491ca89ca218379405e1.html</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">八部门联合印发"AI+制造"专项行动：2027年推动500个典型场景</div>
+  <div class="source">央视网 ｜ 2026-01-08</div>
+  <div class="tags">
+    <span>AI+制造</span>
+    <span>政策</span>
+  </div>
+  <div class="desc">工信部等八部门联合印发《"人工智能+制造"专项行动实施意见》，提出到2027年推动3-5个通用大模型在制造业深度应用，打造100个工业领域高质量数据集，推广500个典型应用场景，培育1000个工业智能体。AI已渗透领航工厂70%以上的业务场景，沉淀超6000个垂直领域模型，带动1700多项关键智能制造装备与工业软件规模化应用。</div>
+  <div class="companies"><strong>相关机构：</strong>工信部等八部门</div>
+  <div class="link">🔗 <a href="https://news.cctv.com/2026/01/08/ARTIxTtz2kLN45TObGs9pCW2260108.shtml" target="_blank">https://news.cctv.com/2026/01/08/ARTIxTtz2kLN45TObGs9pCW2260108.shtml</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">深化"AI+制造"，各地两会密集布局智造热点</div>
+  <div class="source">新浪财经 ｜ 2026-02-25</div>
+  <div class="tags">
+    <span>智能制造</span>
+    <span>地方政策</span>
+  </div>
+  <div class="desc">2025年12月中央经济工作会议提出"深化拓展'人工智能+'"，为"十五五"开局吹起政策东风。2026年1月以来，地方两会陆续召开，多地将"人工智能+制造"列为重点工作。上海召开"工赋上海"创新大会，重点攻坚高端装备行业研发设计智能化能力不足等共性难题。产业竞争焦点已从行业本体技术领先转向数智技术与实体经济融合应用的效率和规模。</div>
+  <div class="companies"><strong>相关机构：</strong>各地方政府、工业互联网平台企业</div>
+  <div class="link">🔗 <a href="https://finance.sina.com.cn/jjxw/2026-02-25/doc-inhnzmmq2297421.shtml" target="_blank">https://finance.sina.com.cn/jjxw/2026-02-25/doc-inhnzmmq2297421.shtml</a></div>
+</div>
+
+<h2>🚐 无人配送车</h2>
+
+<div class="news-item">
+  <div class="title">九识智能完成超3亿美元融资，成全球RoboVan首家百亿独角兽</div>
+  <div class="source">36氪 / 新浪财经 ｜ 2026-02-25</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>无人配送车</span>
+    <span>融资</span>
+  </div>
+  <div class="desc">九识智能近日完成新一轮超3亿美元融资，估值突破百亿人民币，成为全球RoboVan领域首家百亿独角兽。本轮投资方涵盖大型产业方、多个一线城市政府基金。此前九识与菜鸟无人车业务完成战略合并，整合后同时运营"九识智能"与"菜鸟无人车"双品牌，RoboVan车队总规模跃升至超过2万台，覆盖全球超300座城市。九识深耕自动驾驶全栈自研技术，菜鸟聚焦特定场景和KA客户。</div>
+  <table class="data-table">
+    <tr><th>指标</th><th>数据</th></tr>
+    <tr><td>本轮融资</td><td>超3亿美元</td></tr>
+    <tr><td>估值</td><td>突破百亿人民币</td></tr>
+    <tr><td>累计融资轮次</td><td>6轮</td></tr>
+    <tr><td>车队总规模（合并后）</td><td>超2万台</td></tr>
+    <tr><td>覆盖城市</td><td>超300座</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>九识智能、菜鸟无人车</div>
+  <div class="link">🔗 <a href="https://www.36kr.com/p/3697210914549632" target="_blank">https://www.36kr.com/p/3697210914549632</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">无人配送车单价从百万暴跌至2万元，阿里/美团/京东贴身肉搏</div>
+  <div class="source">搜狐汽车 ｜ 2026-02-28</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>无人配送车</span>
+    <span>价格战</span>
+  </div>
+  <div class="desc">搜狐汽车报道，无人配送车领域资本与产业消息密集爆发。从2018年单车百万元到如今裸车价1.98万元（九识E6），降幅超过98%。行业已从"技术验证驱动"转向"订单与路权双约束驱动"。新石器2025年已累计交付L4车辆超1万辆，单月交付超2000辆，预计2026年交付10万台。2025年无人配送赛道融资近百亿元，头部企业加速出海，新石器获阿联酋全球首张公开道路无人车牌照。</div>
+  <table class="data-table">
+    <tr><th>企业</th><th>融资规模</th><th>交付/部署量</th></tr>
+    <tr><td>九识智能</td><td>累计6轮，最新超3亿美元</td><td>超2万台（含菜鸟合并）</td></tr>
+    <tr><td>新石器</td><td>D轮超6亿美元</td><td>累计超1万辆，2026年目标10万台</td></tr>
+    <tr><td>白犀牛</td><td>B+轮近5亿元</td><td>持续扩张中</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>九识智能、新石器、白犀牛、美团、京东、菜鸟</div>
+  <div class="link">🔗 <a href="https://business.sohu.com/a/991062220_430289" target="_blank">https://business.sohu.com/a/991062220_430289</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">一年"吸金"近百亿！无人配送行业开启"加速跑"，路权与标准仍是挑战</div>
+  <div class="source">每日经济新闻 / 东方财富 ｜ 2026-02-26</div>
+  <div class="tags">
+    <span>无人配送</span>
+    <span>行业趋势</span>
+  </div>
+  <div class="desc">每日经济新闻报道，2025年以来新石器、九识智能、白犀牛等头部企业相继完成多轮融资，累计金额近百亿元。无人配送车成本持续下探，交付量突破万辆大关。但行业仍面临技术长尾、法规缺位与盈利压力等关键挑战。路权问题是行业合规化进程中最为关键的一环，部分客户反映购车后因无路权导致车辆闲置。行业普遍认为1万台是规模化应用的"临界点"。</div>
+  <div class="companies"><strong>相关企业：</strong>新石器、九识智能、白犀牛、行深智能</div>
+  <div class="link">🔗 <a href="https://finance.eastmoney.com/a/202602263655724787.html" target="_blank">https://finance.eastmoney.com/a/202602263655724787.html</a></div>
+</div>
+
+<h2>🛵 两轮车 / 电动车 / 共享单车</h2>
+
+<div class="news-item">
+  <div class="title">工信部第404批新车公告：雅迪、爱玛、九号多款电动两轮摩托车新品曝光</div>
+  <div class="source">网易 ｜ 2026-02</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>两轮电动车</span>
+    <span>新品</span>
+  </div>
+  <div class="desc">2026年2月，工信部第404批《道路机动车辆生产企业及产品公告》公示信息中，雅迪、爱玛、九号三大头部品牌多款电动两轮摩托车新品亮相。不同定位的车型在动力、规格、配置上各展所长，正式拉开2026年高性能电摩市场竞争序幕。九号计划2026年推出约10款新国标产品，在智能电动两轮车领域已连续三年销量第一。</div>
+  <div class="companies"><strong>相关企业：</strong>雅迪、爱玛、九号公司</div>
+  <div class="link">🔗 <a href="https://www.163.com/dy/article/KML3CJAN0552MNSI.html" target="_blank">https://www.163.com/dy/article/KML3CJAN0552MNSI.html</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">电动两轮车2026：新国标下谁主沉浮？九号崛起，雅迪霸主地位动摇</div>
+  <div class="source">雪球 / 腾讯新闻 ｜ 2026-02</div>
+  <div class="tags">
+    <span>两轮电动车</span>
+    <span>市场格局</span>
+  </div>
+  <div class="desc">2025年12月1日新国标全面实施后，行业彻底告别粗放式增长。九号公司在智能电动两轮车领域连续三年销量第一，4000元以上高端价格带以超60万台销量领跑。雅迪2024年利润腰斩，电动两轮车销量下滑约21%。九号公司凭借智能化与全球化破局，走出新行情。行业竞争从量的扩张转向质的较量，智能化、第二增长曲线与政策合规成为核心变量。</div>
+  <table class="data-table">
+    <tr><th>品牌</th><th>定位</th><th>关键数据</th></tr>
+    <tr><td>九号公司</td><td>智能化新势力</td><td>智能电动两轮车销量三连冠，高端市场领跑</td></tr>
+    <tr><td>雅迪</td><td>行业龙头</td><td>2024年利润腰斩，与华为/高德合作智能化</td></tr>
+    <tr><td>爱玛</td><td>传统头部</td><td>渠道与耐用性优势</td></tr>
+    <tr><td>台铃</td><td>传统品牌</td><td>新国标合规布局</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>九号公司、雅迪、爱玛、台铃、小牛电动</div>
+  <div class="link">🔗 <a href="https://xueqiu.com/9775593698/372252167" target="_blank">https://xueqiu.com/9775593698/372252167</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">共享单车再涨价：哈啰、青桔半小时3.5元，松果出行冲刺港股IPO</div>
+  <div class="source">新浪财经 ｜ 2026-02-25 / 2026-01-09</div>
+  <div class="tags">
+    <span>共享单车</span>
+    <span>涨价</span>
+  </div>
+  <div class="desc">成都实测显示，哈啰与青桔起步价为10分钟1.5元，骑行半小时约3.5元。共享单车价格持续上涨，骑一小时约5.5元，接近公交车3倍。与此同时，专注下沉市场的松果出行于2026年1月2日向港交所递交IPO申请，2025年前三季度首次实现经调整净利润2640万元。共享电单车行业形成青桔、美团、哈啰、松果四家"全国性规模品牌"主导格局。</div>
+  <div class="companies"><strong>相关企业：</strong>哈啰、滴滴青桔、美团单车、松果出行</div>
+  <div class="link">🔗 <a href="https://finance.sina.com.cn/jjxw/2026-02-25/doc-inhnzrtk5116572.shtml" target="_blank">https://finance.sina.com.cn/jjxw/2026-02-25/doc-inhnzrtk5116572.shtml</a></div>
+</div>
+
+<h2>🔋 共享充电宝</h2>
+
+<div class="news-item">
+  <div class="title">怪兽充电推进私有化退市，美团充电宝市占率实现反超</div>
+  <div class="source">新浪财经 / 36氪 ｜ 2026-02</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>共享充电宝</span>
+    <span>私有化</span>
+  </div>
+  <div class="desc">"共享充电宝第一股"怪兽充电正推进私有化退市。董事会拒绝高瓴资本每ADS 1.77美元的溢价要约，选择信宸资本与管理层1.25美元/ADS的低价方案，较发行价8.50美元缩水超85%。2024年全年营收从29.59亿元暴跌至18.94亿元，降幅36%。据媒体报道，美团共享充电宝市占率已实现对怪兽充电的反超，支付宝小程序使用人数达400万以上，远超怪兽的200万。</div>
+  <table class="data-table">
+    <tr><th>指标</th><th>怪兽充电</th><th>行业情况</th></tr>
+    <tr><td>私有化报价</td><td>1.25美元/ADS</td><td>较发行价缩水85%+</td></tr>
+    <tr><td>2024年营收</td><td>18.94亿元（同比-36%）</td><td>行业整体承压</td></tr>
+    <tr><td>市场格局</td><td>市占率被美团反超</td><td>前五品牌占96.6%</td></tr>
+    <tr><td>行业规模</td><td>-</td><td>2024年约150亿元</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>怪兽充电、美团充电宝、街电、小电科技</div>
+  <div class="link">🔗 <a href="https://www.36kr.com/p/3112658671767042" target="_blank">https://www.36kr.com/p/3112658671767042</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">怪兽充电以全新姿态应对行业困境：22.5W快充、蓝牙借还等技术升级</div>
+  <div class="source">搜狐 ｜ 2026-02-26</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>共享充电宝</span>
+    <span>技术升级</span>
+  </div>
+  <div class="desc">搜狐报道，中国共享充电宝市场用户规模已达4亿以上，但行业集体陷入困境。怪兽充电以技术驱动持续加码研发，通过22.5W超级快充、蓝牙借还、柜机反向供电等功能，解决充电慢、归还难等核心痛点。行业收入模式单一，高度依赖租金，"充电宝刺客"标签被消费者默认。北京已有怪兽、美团、街电等8家企业签署自律公约，承诺满5分钟再收费、明确公示收费规则。</div>
+  <div class="companies"><strong>相关企业：</strong>怪兽充电、美团、街电</div>
+  <div class="link">🔗 <a href="https://www.sohu.com/a/990311958_122530756" target="_blank">https://www.sohu.com/a/990311958_122530756</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">2026-2030共享充电宝市场前景：规模近200亿元，头部效应明显</div>
+  <div class="source">行业研究报告 ｜ 2026-02</div>
+  <div class="tags">
+    <span>共享充电宝</span>
+    <span>市场数据</span>
+  </div>
+  <div class="desc">研究报告显示，2021至2025年期间中国共享充电宝市场规模由约90亿元增长至近200亿元，年均复合增长率超过20%。当前市场已形成以街电、怪兽充电、小电等头部企业为主导的竞争格局，前五大品牌占据96.6%市场份额。行业面临涨价引发用户流失、代理商利润被压缩、设备故障率高等问题，未来竞争将聚焦快充升级、精细化运营和出海拓展。</div>
+  <div class="companies"><strong>相关企业：</strong>怪兽充电、街电、小电科技、美团充电宝、来电科技</div>
+  <div class="link">🔗 <a href="https://max.book118.com/html/2026/0224/6225240114012103.shtm" target="_blank">https://max.book118.com/html/2026/0224/6225240114012103.shtm</a></div>
+</div>
+
+<div class="conclusion">
+  <strong>📊 今日总结：</strong><br><br>
+  3月1日资讯呈现出"标准引领+资本加速+格局重塑"三大主线。人形机器人领域，央视网今日深度解读首个国家级标准体系，6大板块覆盖全产业链，标志着从"万台级试验"迈向"规范化量产"的关键转折，2025年全球出货1.8万台、2026年预计5.1万台的数据印证了产业加速态势。低空经济方面，29省布局、民航局适航标准发布、72小时三项重磅政策落地，1.5万亿市场规模预期下eVTOL正从概念验证冲刺商业化。PLM/ALM领域，万字深度分析探讨"殊途同归"趋势，PTC Windchill AI零部件优化功能发布，中国PLM市场35.1亿元规模中国产厂商份额持续提升。智能制造方面，"AI+制造"专项行动持续推进，2027年目标明确。无人配送车赛道最为火热——九识智能百亿估值、与菜鸟合并后2万台车队、单价降至2万元，行业进入规模化商用区间。两轮电动车新国标深度执行，九号与雅迪的智能化vs渠道之争持续升温。共享充电宝行业则进入存量博弈，怪兽充电私有化退市、美团反超市占率，行业从"点位争夺"转向"运营模型优化"。
+</div>
+
+<div class="footer">
+  研发数字化每日资讯 ｜ 数据来源：央视网、新华网、光明网、腾讯新闻、新浪财经、36氪、搜狐、东方财富、每日经济新闻等<br>
+  自动生成于 2026-03-01 ｜ Powered by CatPaw
+</div>
+
+</div>
+
+<script>
+(async function() {
+  try {
+    const resp = await fetch('dates.json');
+    if (!resp.ok) return;
+    const dates = await resp.json();
+    const nav = document.querySelector('.date-nav-inner');
+    if (!nav || !dates.length) return;
+    const current = '2026-03-01';
+    nav.innerHTML = '<span class="nav-label">日期切换：</span>';
+    const recent = dates.slice(-7);
+    recent.forEach(d => {
+      const a = document.createElement('a');
+      a.href = d + '.html';
+      a.textContent = d.slice(5);
+      if (d === current) a.className = 'active';
+      nav.appendChild(a);
+    });
+  } catch(e) {}
+})();
+</script>
+
+</body>
+</html>
