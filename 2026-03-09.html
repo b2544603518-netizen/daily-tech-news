@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研发数字化每日资讯 - 2026年3月9日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.8;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px 48px;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+  h1 {
+    font-size: 28px;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .meta {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .date-nav {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 8px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+  .date-nav-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .date-nav .nav-label {
+    font-size: 13px;
+    color: #999;
+  }
+  .date-nav a {
+    font-size: 13px;
+    color: #4a7dff;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .date-nav a:hover { background: #f0f4ff; }
+  .date-nav a.active {
+    background: #4a7dff;
+    color: #fff;
+    font-weight: 600;
+  }
+  .summary {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+    border-left: 4px solid #4a7dff;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14.5px;
+    color: #444;
+  }
+  .summary strong { color: #2c5282; }
+  h2 {
+    font-size: 20px;
+    color: #1a1a2e;
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .news-item {
+    background: #fafbfc;
+    border: 1px solid #e8ecf1;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+  }
+  .news-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .news-item .title {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 4px;
+  }
+  .news-item .source {
+    font-size: 12.5px;
+    color: #999;
+    margin-bottom: 8px;
+  }
+  .news-item .tags { margin-bottom: 8px; }
+  .news-item .tags span {
+    display: inline-block;
+    background: #edf2f7;
+    color: #4a5568;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+  .news-item .tags span.hot {
+    background: #fff5f5;
+    color: #e53e3e;
+    font-weight: 600;
+  }
+  .news-item .link a {
+    font-size: 13px;
+    color: #4a7dff;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .news-item .link a:hover { text-decoration: underline; }
+  .news-item .desc {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+    line-height: 1.75;
+  }
+  .news-item .companies {
+    font-size: 13px;
+    color: #718096;
+    margin-top: 8px;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 13px;
+  }
+  .data-table th, .data-table td {
+    border: 1px solid #e2e8f0;
+    padding: 6px 10px;
+    text-align: left;
+  }
+  .data-table th {
+    background: #f7fafc;
+    font-weight: 600;
+    color: #2d3748;
+  }
+  .conclusion {
+    background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+    border-left: 4px solid #38a169;
+    padding: 20px 24px;
+    margin-top: 32px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.85;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>📡 研发数字化每日资讯</h1>
+<div class="meta">2026年3月9日 星期一 ｜ 第68期</div>
+
+<div class="date-nav">
+  <div class="date-nav-inner">
+    <span class="nav-label">日期切换：</span>
+  </div>
+</div>
+
+<div class="summary">
+  <strong>今日速览：</strong>科技日报3月8日头版聚焦两会代表委员谈人形机器人"加速迭代"，雷军预计5年内大批量人形机器人进入小米工厂，何小鹏建议加速端侧"大脑"突破；第二届国际人形机器人论坛在瑞士举行，宇树科技、优必选等中国企业集中亮相（人民日报3月9日报道）；民航局3月1日起全面启用eVTOL和无人机适航审定新流程，审定职责重大调整；搜狐汽车深度报道无人配送车单价从百万暴跌至2万元，阿里/美团/京东贴身肉搏；华天软件PLM赋能巡鹰新能源集团，PLM被列为"2026年一号项目工程"；共享充电宝湾区标准参编征集3月12日截止仅剩3天。全文22条，覆盖7大板块。
+</div>
+
+<h2>🤖 人形机器人 / 具身智能</h2>
+
+<div class="news-item">
+  <div class="title">科技日报两会专题：代表委员谈"加速迭代，人形机器人更能干"，雷军预计5年内大批量进厂</div>
+  <div class="source">科技日报 / 新浪财经 ｜ 2026-03-08</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>两会声音</span>
+    <span>雷军</span>
+    <span>何小鹏</span>
+    <span>端侧大脑</span>
+  </div>
+  <div class="desc">3月8日，《科技日报》头版以《代表委员谈科产融合丨加速迭代，人形机器人更能干》为题发表深度报道。全国人大代表、小米创始人雷军表示"人形机器人不单是一个玩具，可以在工厂替代繁重劳动、进家庭做保姆"，预计未来5年将有大批量人形机器人进入小米工厂干活。全国人大代表何小鹏建议加速推进"端侧本地大脑"技术突破，认为本地部署的大模型能显著提升机器人实时响应能力与安全性。全国人大代表黄立介绍湖北已有9家人形机器人整机企业、116家核心零部件企业，零部件本地化率达85%。南昌大学闵卫东代表判断"规模化量产在未来2至5年内"。对研发数字化的意义在于：人形机器人从"能演"到"能干"的转变，对PLM系统提出了从设计验证到工厂实训的全流程管理需求，端侧大模型的部署也将催生新的ALM工具链需求。</div>
+  <table class="data-table">
+    <tr><th>代表/委员</th><th>核心观点</th><th>关键数据</th></tr>
+    <tr><td>雷军（小米）</td><td>5年内大批量进厂</td><td>2017年布局智能制造</td></tr>
+    <tr><td>何小鹏（小鹏）</td><td>加速端侧大脑突破</td><td>本地大模型提升实时性</td></tr>
+    <tr><td>黄立（高德红外）</td><td>湖北产业链集聚</td><td>9家整机+116家零部件企业</td></tr>
+    <tr><td>闵卫东（南昌大学）</td><td>量产2-5年内</td><td>精细操作+情感交流是关键</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>小米、小鹏汽车、高德红外、宇树科技</div>
+  <div class="link">🔗 <a href="https://finance.sina.cn/2026-03-08/detail-inhqfnnt7926562.d.html" target="_blank">https://finance.sina.cn/2026-03-08/detail-inhqfnnt7926562.d.html</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">第二届国际人形机器人论坛在瑞士举行，宇树科技、优必选等中国企业集中亮相</div>
+  <div class="source">人民日报 / 新华社 ｜ 2026-03-09</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>国际论坛</span>
+    <span>瑞士比尔</span>
+    <span>中国企业出海</span>
+  </div>
+  <div class="desc">《人民日报》3月9日14版报道，第二届国际人形机器人论坛日前在瑞士比尔/比安创新园举行。来自多国的科研机构、企业和投资界代表围绕人形机器人产业化与具身智能发展进行交流，探讨机器人相关应用发展趋势。论坛指出，人形机器人正处于从实验室研究迈向工业应用的关键阶段，跨行业协作将成为推动技术落地的重要路径。作为展区重要组成部分，来自中国的宇树科技、优必选、云深处科技等机器人上下游企业集中亮相，展示最新的机器人高精度操作及工业协作解决方案。新增价值在于中国人形机器人企业在国际舞台的集体亮相，标志着中国具身智能技术的国际影响力持续提升。</div>
+  <div class="companies"><strong>相关企业：</strong>宇树科技、优必选、云深处科技</div>
+  <div class="link">🔗 <a href="https://finance.people.com.cn/n1/2026/0309/c1004-40677601.html" target="_blank">https://finance.people.com.cn/n1/2026/0309/c1004-40677601.html</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">荣耀MWC 2026发布首款消费级人形机器人，全球手机厂商首家跨界具身智能</div>
+  <div class="source">新华网 / 搜狐 / 雪球 ｜ 2026-03-01~05</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>消费级机器人</span>
+    <span>荣耀</span>
+    <span>MWC 2026</span>
+  </div>
+  <div class="desc">荣耀在MWC 2026全球新品发布会上推出旗下首款具身智能人形机器人，凭借流畅的舞蹈表演与后空翻动作惊艳全场，成为全球首家入局消费级人形机器人市场的手机厂商。该机器人搭载自研仿生关节，奔跑速度可达4m/s，多机协同延迟低于10ms，AI核心为YOYO端侧大模型，主打陪伴、家务协助、健康管理和智能管家四个方向。荣耀此前提出阿尔法战略，计划五年投入100亿美元，AI相关研发团队规模达2600人。与今日科技日报两会报道叠加，消费级人形机器人正从概念走向量产，手机厂商的跨界入局将加速产业生态的构建。</div>
+  <div class="companies"><strong>相关企业：</strong>荣耀、特斯拉（Optimus）、Figure AI</div>
+  <div class="link">🔗 <a href="https://www.xinhuanet.com/tech/20260305/46fa113683e448be86d610f3d2bad889/c.html" target="_blank">https://www.xinhuanet.com/tech/20260305/46fa113683e448be86d610f3d2bad889/c.html</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">2026北京亦庄人形机器人半程马拉松4月19日开跑，"人机共跑"模式全面升级</div>
+  <div class="source">新华社 / 首程控股 ｜ 2026-03-08</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>人机共跑</span>
+    <span>亦庄半马</span>
+    <span>21公里实战</span>
+  </div>
+  <div class="desc">首程控股3月8日宣布为持股股东提供"2026北京亦庄半程马拉松暨人形机器人半程马拉松"参赛直通名额。赛事定于4月19日7:30鸣枪开跑，采用"人机共跑"模式，赛道全长21.0975公里，包含城市主干道、国际汽车赛事路段与公园生态场景，全面检验机器人在开放场景中的适应与决策能力。赛事设立自主导航组和遥控组，首届赛事中天工Ultra夺冠。新增价值在于"人形机器人半马"作为全球少见的人机同场竞技赛事，为具身智能技术提供了极限测试平台，推动机器人从实验室走向规模化应用。</div>
+  <div class="companies"><strong>相关主体：</strong>北京经开区、首程控股、天工Ultra、宇树科技</div>
+  <div class="link">🔗 <a href="https://cn.tradingview.com/news/reuters.com,2026-03-08:newsml_ACN105495:0/" target="_blank">https://cn.tradingview.com/news/reuters.com,2026-03-08:newsml_ACN105495:0/</a></div>
+</div>
+
+<h2>🛩️ 低空经济 / 无人机</h2>
+
+<div class="news-item">
+  <div class="title">民航局3月1日起全面启用eVTOL和无人机适航审定新流程，审定职责重大调整</div>
+  <div class="source">新浪财经 / 搜狐 / 低空经济早报 ｜ 2026-03-02</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>审定新流程</span>
+    <span>3月1日生效</span>
+    <span>职责优化</span>
+  </div>
+  <div class="desc">民航局2月14日正式印发《新型航空器型号审定职责优化方案》（民航函〔2026〕111号），自2026年3月1日起，新增的限用类、正常类、运输类无人机项目及有人驾驶eVTOL项目全面启用新流程。此前，《动力提升航空器适航标准》《限用类无人驾驶航空器系统适航标准》两部已于2月12日生效，2月25日又发布了正常类动力提升和多旋翼无人机适航标准征求意见稿（截止3月15日）。新流程将审定中心和航科院技术力量统一纳入审查组，提升审定效率和一致性。对研发数字化的意义在于：适航审定流程的标准化和集中化，要求eVTOL/无人机企业在PLM系统中建立更规范的适航合规管理模块，从设计、测试到取证的全流程数据追溯成为刚需。</div>
+  <table class="data-table">
+    <tr><th>政策文件</th><th>生效时间</th><th>适用范围</th></tr>
+    <tr><td>动力提升航空器适航标准</td><td>2月12日</td><td>有人驾驶eVTOL</td></tr>
+    <tr><td>限用类无人机适航标准</td><td>2月12日</td><td>中大型限用类无人机</td></tr>
+    <tr><td>审定职责优化方案</td><td>3月1日</td><td>全部新型航空器项目</td></tr>
+    <tr><td>正常类无人机适航标准（征求意见）</td><td>截止3月15日</td><td>150kg-5700kg不载人</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>亿航智能、峰飞航空、沃飞长空、小鹏汇天、时代飞鹏</div>
+  <div class="link">🔗 <a href="https://finance.sina.com.cn/wm/2026-03-02/doc-inhpqvan8249394.shtml" target="_blank">https://finance.sina.com.cn/wm/2026-03-02/doc-inhpqvan8249394.shtml</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">低空经济与技术应用国际学术会议（LETA 2026）在广州召开，聚焦技术应用前沿</div>
+  <div class="source">科学网 ｜ 2026-03-07</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>国际学术会议</span>
+    <span>广州</span>
+    <span>技术前沿</span>
+  </div>
+  <div class="desc">3月7日，2026年低空经济与技术应用国际学术会议（LETA 2026）在广州召开。会议采用大会报告、口头报告、海报展示等多种形式，围绕低空经济与技术应用的前沿议题展开深入交流。会议聚焦低空通信导航监视（CNSS）体系、无人机自主飞行控制、低空空域管理等关键技术方向。与民航局适航审定新流程叠加，低空经济正从"政策驱动"进入"技术驱动+标准建设"的深水区，学术界和产业界的协同创新成为推动技术落地的重要路径。</div>
+  <div class="companies"><strong>相关主体：</strong>广州市、低空经济研究机构、eVTOL企业</div>
+  <div class="link">🔗 <a href="https://news.sciencenet.cn/htmlnews/2026/3/561052.shtm" target="_blank">https://news.sciencenet.cn/htmlnews/2026/3/561052.shtm</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">华创交运低空经济周报：连续三年写入政府工作报告，入选十五五重大项目工程</div>
+  <div class="source">华创证券 / FX报告 ｜ 2026-03-08</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>十五五重大工程</span>
+    <span>支柱产业</span>
+    <span>建设提速年</span>
+  </div>
+  <div class="desc">华创证券3月8日发布低空经济周报第66期，指出低空经济连续三年写入政府工作报告，今年更是升级为"新兴支柱产业"，并入选十五五重大项目工程。报告分析，2023年中央经济工作会议首次将低空经济提为战略性新兴产业后，2024-2026年连续三年两会政府工作报告均提及低空经济，定位逐年升级。叠加民航局适航审定新流程和LETA 2026学术会议，2026年正式成为低空经济"建设提速年"，从政策定位全面进入制度落地、标准建设和地方实践的三维推进阶段。</div>
+  <div class="companies"><strong>相关企业：</strong>小鹏汇天、沃飞长空、亿航智能、峰飞航空</div>
+  <div class="link">🔗 <a href="https://www.fxbaogao.com/detail/5289013" target="_blank">https://www.fxbaogao.com/detail/5289013</a></div>
+</div>
+
+<h2>💻 PLM / ALM / 研发数字化</h2>
+
+<div class="news-item">
+  <div class="title">华天软件PLM赋能巡鹰新能源集团，PLM被列为"2026年一号项目工程"</div>
+  <div class="source">知乎 / 软富家 / 巡鹰官网 ｜ 2026-01~03</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>华天PLM</span>
+    <span>新能源</span>
+    <span>一号工程</span>
+  </div>
+  <div class="desc">巡鹰新能源集团1月31日召开PLM系统项目启动会，将华天软件InforCenter PLM系统建设列为"2026年一号项目工程"。巡鹰集团业务覆盖动力电池、储能系统、回收应用、材料循环及智能换电五大核心板块，面对日趋多元的市场需求与精细化管理诉求，PLM系统将重点落地六大核心功能：项目管理（研发项目全流程可视化管控）、产品数据管理、工艺设计与管理、车间无纸化等。新增价值在于新能源头部企业将PLM列为"一号工程"的战略定位，验证了PLM在新能源行业从"可选项"到"必选项"的转变，华天软件在新能源领域的市场拓展持续加速。</div>
+  <table class="data-table">
+    <tr><th>PLM核心功能</th><th>覆盖范围</th><th>预期效果</th></tr>
+    <tr><td>项目管理</td><td>研发全流程</td><td>可视化管控</td></tr>
+    <tr><td>产品数据管理</td><td>BOM/文档/图纸</td><td>数据统一源头</td></tr>
+    <tr><td>工艺设计与管理</td><td>工艺路线/工序</td><td>工艺标准化</td></tr>
+    <tr><td>车间无纸化</td><td>生产现场</td><td>降本增效</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>华天软件、巡鹰新能源集团</div>
+  <div class="link">🔗 <a href="https://www.ruanfujia.com/post/11590358/" target="_blank">https://www.ruanfujia.com/post/11590358/</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">2026年PLM系统AI能力排名发布：智能BOM生成与设计辅助进入深水区</div>
+  <div class="source">鼎捷数智 / 网易 ｜ 2026-03</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>AI能力排名</span>
+    <span>智能BOM</span>
+    <span>国产替代</span>
+  </div>
+  <div class="desc">鼎捷数智发布2026年PLM系统AI能力排名报告，指出PLM系统的AI能力竞争已进入深水区，智能BOM生成与设计辅助领域的技术突破正在重构制造业研发管理的底层逻辑。报告同时指出，2026年国产PLM品牌排名大更新，具备自主内核的厂商跻身第一梯队。2025年7月至2026年1月，国内PLM市场规模半年累计达22.3亿元，同比增长27.8%，其中国产品牌市场占比58.6%，较上年同期提升9.2个百分点，标志着国产PLM从"性价比替代"全面转向"技术实力替代"。新增价值在于"AI能力排名+国产占比58.6%+半年22.3亿"的最新市场数据。</div>
+  <div class="companies"><strong>相关企业：</strong>鼎捷数智、智石开、华天软件、璞华科技、用友</div>
+  <div class="link">🔗 <a href="https://www.digiwin.com/p/13786.html" target="_blank">https://www.digiwin.com/p/13786.html</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">万字深度分析：PLM与ALM会殊途同归吗？车企研发数字化的融合之路</div>
+  <div class="source">UML中国 ｜ 2026-03-01</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>PLM+ALM融合</span>
+    <span>车企研发</span>
+    <span>深度分析</span>
+  </div>
+  <div class="desc">UML中国3月1日发布万字长文《PLM与ALM会殊途同归吗？》，深入分析了车企研发数字化中PLM与ALM独立运行的核心根源——"研发数字化的阶段性迭代"：PLM导入于硬件主导时代，其系统架构围绕硬件研发展开，缺乏对软件研发的适配；而ALM是软件化转型后新增的系统。文章指出，随着软件定义汽车的深入，PLM与ALM的融合已成为必然趋势，需要构建"硬件+软件"协同研发环境，通过统一数据模型实现需求、设计、测试等环节的实时联动。对研发数字化的意义在于：PLM与ALM的融合路径分析为汽车、机器人等软硬件一体化产品的研发管理提供了方法论参考。</div>
+  <div class="companies"><strong>相关企业：</strong>西门子、达索、PTC、豪森软件、用友智石开</div>
+  <div class="link">🔗 <a href="http://www.uml.org.cn/car/202603011.asp?artid=27270" target="_blank">http://www.uml.org.cn/car/202603011.asp?artid=27270</a></div>
+</div>
+
+<h2>🏭 智能制造 / 工业互联网</h2>
+
+<div class="news-item">
+  <div class="title">海尔周云杰两会建言：推动具身智能与工业互联网深度融合，工业互联网是"新版图上造林"</div>
+  <div class="source">上海证券报 ｜ 2026-03-06</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>周云杰</span>
+    <span>具身智能+工业互联网</span>
+    <span>两会建言</span>
+  </div>
+  <div class="desc">全国人大代表、海尔集团董事局主席周云杰在两会期间接受上海证券报采访时表示，"工业互联网不是在'旧大陆'上修路，而是在新版图上造林"，工业互联网的发展关乎我国制造业的未来竞争力。周云杰建议推动具身智能与工业互联网深度融合，加速人形机器人在工业场景的落地应用。卡奥斯COSMOPlat作为连续七年位居双跨平台榜首的工业互联网平台，其天智工业大模型已落地9大行业40多个场景，并已于1月30日向港交所递交招股书。新增价值在于"具身智能+工业互联网融合"的两会建言，为人形机器人与工业互联网平台的协同发展指明了方向。</div>
+  <div class="companies"><strong>相关企业：</strong>海尔集团、卡奥斯COSMOPlat</div>
+  <div class="link">🔗 <a href="https://paper.cnstock.com/html/2026-03/06/content_2186130.htm" target="_blank">https://paper.cnstock.com/html/2026-03/06/content_2186130.htm</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">新华三携手兴艺股份打造AI全链路未来工厂，助力粤港澳大湾区智能制造</div>
+  <div class="source">新华三官网 ｜ 2026-02-28</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>AI未来工厂</span>
+    <span>数字孪生</span>
+    <span>大湾区</span>
+  </div>
+  <div class="desc">2月28日，紫光股份旗下新华三集团与广东兴艺数字印刷股份有限公司在广东江门举行战略合作签约仪式。双方将在人工智能、工业互联网、数据要素、行业场景、数字孪生、产教融合等创新技术展开深度合作，构建覆盖研发设计、生产制造、印前管理的AI全链路未来工厂。新增价值在于"AI全链路未来工厂"的具体落地案例，新华三将AI、数字孪生等技术与制造业深度融合，为中小制造企业的数智化转型提供了可复制的标杆方案。</div>
+  <div class="companies"><strong>相关企业：</strong>新华三、紫光股份、兴艺股份</div>
+  <div class="link">🔗 <a href="https://www.h3c.com/cn/d_202603/2775854_30008_0.htm" target="_blank">https://www.h3c.com/cn/d_202603/2775854_30008_0.htm</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">两会聚焦：加快制造业数智化转型，龙头企业开放共享技术平台帮助中小企业"敢转、愿转、会转"</div>
+  <div class="source">人民网 ｜ 2026-03-05</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>数智化转型</span>
+    <span>中小企业</span>
+    <span>全链条降本</span>
+  </div>
+  <div class="desc">人民网两会专题报道指出，代表委员建议注重发挥龙头企业的带动作用，通过开放共享技术平台、共建工业互联网生态，帮助中小企业跨越"转型门槛"，让更多企业"敢转、愿转、会转"。要将数字化、智能化贯穿于研发设计、生产制造、经营管理、市场营销等全过程，推动全链条降本增效提质。与海尔周云杰"新版图上造林"的建言叠加，工业互联网平台正从"连接设备"向"赋能生态"升级，PLM/ALM等研发数字化工具的普惠化成为中小企业转型的关键支撑。</div>
+  <div class="companies"><strong>相关主体：</strong>工信部、龙头制造企业、中小企业</div>
+  <div class="link">🔗 <a href="http://lianghui.people.com.cn/2026/n1/2026/0305/c461827-40674924.html" target="_blank">http://lianghui.people.com.cn/2026/n1/2026/0305/c461827-40674924.html</a></div>
+</div>
+
+<h2>🚐 无人配送车</h2>
+
+<div class="news-item">
+  <div class="title">搜狐深度：无人配送车单价从百万暴跌至2万元，阿里/美团/京东贴身肉搏</div>
+  <div class="source">搜狐汽车 ｜ 2026-03-02</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>价格暴跌</span>
+    <span>百万→2万</span>
+    <span>三巨头肉搏</span>
+  </div>
+  <div class="desc">搜狐汽车3月2日发布深度报道《无人配送车单价从百万暴跌至2万，阿里/美团/京东贴身肉搏》。报道指出，无人配送车领域近期资本和产业消息密集：九识智能完成超3亿美元融资成百亿独角兽，与菜鸟战略整合后车队规模超2万台。无人配送车价格从2018年的百万级降至2024年的3-4万元，2025年进一步降至裸车价2万元左右——九识E6定价1.98万元、菜鸟新款1.68万元（优惠后）。阿里（菜鸟+九识）、美团、京东三大巨头在末端配送领域展开贴身肉搏，行业正式进入"下半场"。新增价值在于"百万→2万的价格暴跌曲线+三巨头竞争格局"的全景分析。</div>
+  <table class="data-table">
+    <tr><th>时间</th><th>单车价格</th><th>关键事件</th></tr>
+    <tr><td>2018年</td><td>~100万元</td><td>早期试验阶段</td></tr>
+    <tr><td>2019-2021年</td><td>20-30万元</td><td>技术迭代降本</td></tr>
+    <tr><td>2022年</td><td>12.9万元</td><td>毫末智行"小魔驼2.0"</td></tr>
+    <tr><td>2024年</td><td>3-4万元</td><td>九识Z2/新石器X3</td></tr>
+    <tr><td>2025年</td><td>~2万元</td><td>九识E6/菜鸟新款</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>九识智能、菜鸟、美团、京东、新石器、白犀牛、佑驾创新</div>
+  <div class="link">🔗 <a href="https://www.sohu.com/a/991062220_430289" target="_blank">https://www.sohu.com/a/991062220_430289</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">政策发力、成本下探、场景拓新：无人配送车商业化破局加速</div>
+  <div class="source">腾讯新闻 ｜ 2026-03-05</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>商业化破局</span>
+    <span>政策+成本+场景</span>
+    <span>三重驱动</span>
+  </div>
+  <div class="desc">腾讯新闻3月5日发布无人配送车商业化专题分析，指出无人配送车正在"政策发力+成本下探+场景拓新"三重驱动下加速商业化破局。政策层面，低速无人驾驶产业联盟统计2025年我国地方层面出台的政策数量已超过2021-2024年期间的总和；成本层面，单车价格从百万降至2万元区间；场景层面，从城市快递向农村物流、城乡转运、园区物流等多场景拓展。财通证券此前发布的专题报告预计，2026年市场累计出货量将攀升至15万台，2030年有望达到75-105万台。新增价值在于"三重驱动+15万台出货预测"的系统性分析。</div>
+  <div class="companies"><strong>相关企业：</strong>九识智能、美团、京东、新石器、白犀牛</div>
+  <div class="link">🔗 <a href="https://news.qq.com/rain/a/20260305A060W300" target="_blank">https://news.qq.com/rain/a/20260305A060W300</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">白犀牛无人车日活从百余台增至千台，预计2026年达6000台，全车规级产品即将登场</div>
+  <div class="source">搜狐 / MSN ｜ 2026-03</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>白犀牛</span>
+    <span>日活千台</span>
+    <span>全车规级</span>
+  </div>
+  <div class="desc">白犀牛智达总裁黄刚透露，仅用9个多月，白犀牛的日活无人车从百余台增长到过千台，同比增长10倍，预计2026年将达到6000台。白犀牛主力车型R3、R5覆盖快递物流、商超零售、生鲜配送等9个应用场景，已与顺丰、京东、饿了么等头部客户达成合作。此外，白犀牛宣布全行业首个全车规级无人物流车计划于2026年初正式推向市场。与搜狐"百万→2万"价格暴跌报道叠加，无人配送车行业正从"价格战"进入"规模化+车规级"的品质竞争新阶段。</div>
+  <div class="companies"><strong>相关企业：</strong>白犀牛、顺丰、京东、饿了么</div>
+  <div class="link">🔗 <a href="https://www.sohu.com/a/993987829_121123901" target="_blank">https://www.sohu.com/a/993987829_121123901</a></div>
+</div>
+
+<h2>🛵 两轮车 / 电动车 / 共享单车</h2>
+
+<div class="news-item">
+  <div class="title">4月1日起电动车、三轮车、老年代步车迎来新规，多地交管部门发布执行通知</div>
+  <div class="source">懂车帝 ｜ 2026-03-08</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>4月1日新规</span>
+    <span>执行通知</span>
+    <span>多地联动</span>
+  </div>
+  <div class="desc">懂车帝3月8日报道，基于《道路交通安全法》和GB17761-2024电动自行车新国标，2026年4月1日起，电动车、三轮车、老年代步车将迎来新一轮执法强化。全国多地交管部门已于3月发布执行通知，重点包括：严格执行新国标车辆上路要求、加强非标车辆清理、规范电动三轮车和老年代步车管理。新增价值在于"4月1日执法节点+多地联动"的时间窗口更新，新国标从"标准发布"进入"执法落地"的关键阶段，对两轮车企业的合规管理和PLM系统中的法规追踪模块提出了更高要求。</div>
+  <div class="companies"><strong>相关企业：</strong>雅迪、九号公司、爱玛、台铃、小牛电动</div>
+  <div class="link">🔗 <a href="https://www.dongchedi.com/article/7614781983235097150" target="_blank">https://www.dongchedi.com/article/7614781983235097150</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">死磕AI智能：2026两轮电动车的新贵与旧王之争，九号营收突破213亿验证智能化路线</div>
+  <div class="source">腾讯云 / 深响 ｜ 2026-03</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>AI智能化</span>
+    <span>新贵vs旧王</span>
+    <span>213亿营收</span>
+  </div>
+  <div class="desc">腾讯云开发者社区发布深度分析《死磕AI智能：2026两轮电动车的新贵与旧王之争》，指出中国电动车行业迎来智能化变革，雅迪、爱玛等传统品牌面临转型挑战，九号、小牛等新势力凭借智能科技抢占高端市场。九号公司2025年营收突破213亿元、同比增长50%，验证了"智能化体验战"的结构性转型趋势。新国标要求北斗卫星导航定位模块、定位通信和动态安全监测功能，AI智能、物联网成为核心竞争力。奥维云网数据显示TOP3品牌市场份额合计超过50%，雅迪以26.3%排名第一。新增价值在于"新贵vs旧王竞争格局+213亿营收验证+AI智能化"的行业转型全景。</div>
+  <div class="companies"><strong>相关企业：</strong>九号公司、雅迪、爱玛、小牛电动、台铃</div>
+  <div class="link">🔗 <a href="https://cloud.tencent.com/developer/article/2635315" target="_blank">https://cloud.tencent.com/developer/article/2635315</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">2026新拐点：新国标驱动电动两轮车价值竞争，行业从"粗放增长"转向"技术创新"</div>
+  <div name="source" class="source">艾瑞网 ｜ 2026-01</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>价值竞争</span>
+    <span>新国标元年</span>
+    <span>技术创新</span>
+  </div>
+  <div class="desc">艾瑞网发布深度报告《2026新拐点："新国标"驱动电动两轮车价值竞争》，指出2026年电动两轮车行业走到新的"变革时刻"——旧的竞争逻辑开始失效，厂商与渠道必须在更严格、更统一的监管框架下组织产品与供应体系。新国标对电动自行车、电动轻便摩托车、电动摩托车进行了更清晰的划分，将安全提升到前所未有的战略高度。与4月1日执法新规和AI智能化竞争叠加，两轮电动车行业正经历"安全合规+智能升级+渠道重构"的三重变革。</div>
+  <div class="companies"><strong>相关企业：</strong>雅迪、九号公司、爱玛、台铃、小牛电动</div>
+  <div class="link">🔗 <a href="https://news.iresearch.cn/content/202601/544487.shtml" target="_blank">https://news.iresearch.cn/content/202601/544487.shtml</a></div>
+</div>
+
+<h2>🔋 共享充电宝</h2>
+
+<div class="news-item">
+  <div class="title">共享充电宝湾区标准参编征集3月12日截止仅剩3天，深圳自律公约成效显著</div>
+  <div class="source">深圳新闻网 / 南方新闻网 ｜ 2026-03-05</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>倒计时3天</span>
+    <span>湾区标准</span>
+    <span>服务规范</span>
+  </div>
+  <div class="desc">深圳、澳门、广州等13地消委会携手8家主流共享充电宝企业联合推动大湾区团体标准《共享充电宝服务规范》的制定。粤港澳大湾区标准创新联盟已于2月27日发布参编单位征集通知，截止日期为3月12日——距今仅剩3天。此前深圳市消委会牵头制定的《深圳市共享充电宝行业自律公约》已取得显著成效：公约落实率达93.58%，投诉处理成功率达93.2%，行业年投诉量同比下降39.7%（从6405宗降至4585宗）。湾区标准将推动收费机制更加公开透明、借还流程更加顺畅便捷、客服响应更加及时高效。新增价值在于"征集倒计时更新+深圳自律公约成效数据"的时间节点跟踪。</div>
+  <table class="data-table">
+    <tr><th>指标</th><th>数据</th><th>说明</th></tr>
+    <tr><td>公约落实率</td><td>93.58%</td><td>深圳自律公约</td></tr>
+    <tr><td>投诉处理成功率</td><td>93.2%</td><td>消费纠纷源头治理</td></tr>
+    <tr><td>年投诉量降幅</td><td>39.7%</td><td>6405宗→4585宗</td></tr>
+    <tr><td>参编征集截止</td><td>3月12日</td><td>距今仅剩3天</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>街电、怪兽充电、美团、小电、搜电、倍电</div>
+  <div class="link">🔗 <a href="https://www.sznews.com/news/content/2026-03/05/content_31964839.htm" target="_blank">https://www.sznews.com/news/content/2026-03/05/content_31964839.htm</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">充电宝新国标《移动电源安全技术规范》预计2026年Q1发布、6月实施，近七成产能面临淘汰</div>
+  <div class="source">央广网 / IT之家 / 新华社 ｜ 2026-03</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>新国标倒计时</span>
+    <span>七成淘汰</span>
+    <span>6月实施</span>
+  </div>
+  <div class="desc">"史上最严"充电宝新国标——《移动电源安全技术规范》预计2026年一季度正式发布，同年6月起实施。新规在整机、线路板和电芯三大技术领域提出数十项严苛改进要求，包括更严苛的针刺测试、热滥用测试条件从130℃三十分钟提升至135℃六十分钟、过充电测试电压提高至1.4倍。据行业预估，新规实施后近七成现有产能将被迫退出市场。新规落地后，原有3C认证规定将全面失效。叠加3月已实施的CCC追溯二维码新规和湾区标准制定，充电宝行业"安全标准+追溯监管+服务规范"三重升级正在同步推进。</div>
+  <div class="companies"><strong>相关主体：</strong>中国电子技术标准化研究院、工信部、市场监管总局</div>
+  <div class="link">🔗 <a href="https://www.news.cn/tech/20251128/68cee83c276d45bea8228fd9dee1aa17/c.html" target="_blank">https://www.news.cn/tech/20251128/68cee83c276d45bea8228fd9dee1aa17/c.html</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">充电宝3月贴上"数字身份证"：CCC追溯二维码新规正式实施，市场新旧交替加速</div>
+  <div class="source">东方财富 / 深圳商报 ｜ 2026-03-05</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>CCC追溯</span>
+    <span>数字身份证</span>
+    <span>3月实施</span>
+  </div>
+  <div class="desc">自2026年3月起，CCC追溯二维码新规正式实施，充电宝进入"数字身份证"时代。根据市场监管总局要求，试点产品范围内新获得CCC认证证书的产品型号，应在标注CCC追溯二维码后方可出厂、销售。新获证充电宝必须同时满足三大硬性要求：新版CCC强制认证（带唯一追溯二维码）、清晰标注额定能量Wh（≤100Wh）、明确标注建议安全使用年限。经一年过渡期后，全部新出厂获证产品型号均应满足试点改革要求。叠加湾区标准征集倒计时和新国标即将发布，充电宝行业正迎来"安全标准+追溯监管+服务规范"三重治理升级的历史性窗口期。</div>
+  <div class="companies"><strong>相关主体：</strong>市场监管总局、充电宝生产企业、共享充电宝平台</div>
+  <div class="link">🔗 <a href="https://guba.eastmoney.com/news,601669,1675201900.html" target="_blank">https://guba.eastmoney.com/news,601669,1675201900.html</a></div>
+</div>
+
+<div class="conclusion">
+  <strong>📊 今日变化雷达：</strong><br>
+  新增主题 13 个，持续跟进主题 9 个，剔除旧主题 7 个（主要为与近三期同事实、无新增数字或进展的条目）。总条目 22 条，覆盖全部 7 个板块。<br><br>
+
+  <strong>🔗 跨行业联动洞察：</strong><br>
+  今天最核心的跨行业信号是"两会声音密集释放，产业化从政策定调进入实操落地"。人形机器人领域，科技日报3月8日头版两会专题报道汇聚了雷军、何小鹏、黄立、闵卫东等多位代表委员的产业化观点，形成了"5年内大批量进厂+端侧大脑突破+零部件本地化85%+量产2-5年"的多维度产业化路线图；同日，第二届国际人形机器人论坛在瑞士举行，宇树科技、优必选等中国企业集中亮相，标志着中国具身智能技术的国际影响力持续提升。低空经济领域，民航局3月1日起全面启用eVTOL和无人机适航审定新流程，审定职责从"一事一议"走向"制度化、集中化"，LETA 2026国际学术会议在广州召开进一步推动技术前沿交流，华创证券周报确认低空经济入选十五五重大项目工程。PLM/ALM领域呈现三大新增亮点：华天软件PLM赋能巡鹰新能源集团（PLM被列为"2026年一号工程"）、鼎捷数智发布PLM系统AI能力排名（国产品牌占比58.6%）、UML中国万字深度分析PLM与ALM融合路径——三者共同验证了PLM从"辅助工具"到"战略基座"的定位升级。智能制造领域，海尔周云杰"工业互联网是新版图上造林"的两会建言，与新华三AI全链路未来工厂的落地案例形成"理念+实践"的双重推进。无人配送车领域，搜狐汽车"百万→2万"的价格暴跌全景分析，叠加白犀牛日活千台和全车规级产品即将登场，行业正从"价格战"进入"规模化+品质化"的新阶段。<br><br>
+
+  <strong>🧭 本周可执行动作：</strong><br>
+  建议研发数字化团队本周优先推进三项工作：第一，深入研究科技日报两会报道中何小鹏提出的"端侧本地大脑"技术方向，评估端侧大模型对PLM/ALM工具链的影响——端侧部署意味着模型训练、推理、更新的全生命周期管理需求，这将催生新的ALM工具需求；第二，关注民航局适航审定新流程（3月1日已生效）和正常类无人机适航标准征求意见稿（截止3月15日，仅剩6天），评估适航合规管理模块在PLM系统中的嵌入方案，特别是设计验证、测试管理、合规追溯等环节的数据追溯需求；第三，跟踪华天软件PLM赋能巡鹰新能源的项目进展和鼎捷数智PLM AI能力排名报告，结合UML中国PLM与ALM融合分析，制定企业PLM工具链的AI化升级路线图，重点评估智能BOM生成、AI辅助设计、PLM-ALM数据联通等能力模块的引入优先级。<br><br>
+
+  <strong>✅ 今日结论：</strong><br>
+  与昨日相比，今日信息增量的核心特征是"两会产业化声音密集释放，从政策定调全面进入实操落地"。人形机器人领域，科技日报头版两会专题汇聚了雷军"5年内大批量进厂"、何小鹏"端侧大脑突破"、黄立"零部件本地化85%"、闵卫东"量产2-5年"等多维度产业化信号，叠加第二届国际人形机器人论坛中国企业集中亮相和北京亦庄人形机器人半马4月开跑，"两会定调+国际亮相+实战检验"三重信号共振，2026年作为人形机器人量产元年的产业共识进一步强化。低空经济领域，民航局适航审定新流程3月1日全面启用，标志着从"一事一议"到"制度化审定"的关键转折，入选十五五重大项目工程的定位进一步确认了低空经济的战略地位。PLM/ALM领域，华天软件PLM被巡鹰新能源列为"一号工程"、国产PLM品牌占比突破58.6%、PLM与ALM融合路径深度分析——三大新增亮点共同验证了研发数字化工具从"可选项"到"战略必选项"的定位升级。无人配送车"百万→2万"的价格暴跌和白犀牛全车规级产品即将登场，标志着行业从"价格战"进入"规模化+品质化"的新阶段。2026年Q1正在成为中国研发数字化和智能制造领域"两会定调+制度落地+产业加速"的历史性窗口期。
+</div>
+
+<div class="footer">
+  研发数字化每日资讯 ｜ 数据来源：科技日报、人民日报、新华社、民航局、搜狐汽车、华创证券、鼎捷数智、深圳新闻网、腾讯新闻等<br>
+  自动生成于 2026-03-09 ｜ Powered by CatPaw
+</div>
+
+</div>
+
+<script>
+(async function() {
+  try {
+    const resp = await fetch('dates.json');
+    if (!resp.ok) return;
+    const dates = await resp.json();
+    const nav = document.querySelector('.date-nav-inner');
+    if (!nav || !dates.length) return;
+    const current = '2026-03-09';
+    nav.innerHTML = '<span class="nav-label">日期切换：</span>';
+    const recent = dates.slice(-7);
+    recent.forEach(d => {
+      const a = document.createElement('a');
+      a.href = d + '.html';
+      a.textContent = d.slice(5);
+      if (d === current) a.className = 'active';
+      nav.appendChild(a);
+    });
+  } catch(e) {}
+})();
+</script>
+
+</body>
+</html>
