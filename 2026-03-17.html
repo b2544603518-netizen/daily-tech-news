@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研发数字化每日资讯 - 2026年3月17日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.8;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px 48px;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+  h1 { font-size: 28px; color: #1a1a2e; text-align: center; margin-bottom: 8px; font-weight: 700; }
+  .meta { text-align: center; color: #888; font-size: 14px; margin-bottom: 16px; }
+  .date-nav {
+    text-align: center; margin-bottom: 24px; padding: 8px 0;
+    border-top: 1px solid #eee; border-bottom: 1px solid #eee;
+  }
+  .date-nav-inner { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .date-nav .nav-label { font-size: 13px; color: #999; }
+  .date-nav a { font-size: 13px; color: #4a7dff; text-decoration: none; padding: 2px 8px; border-radius: 4px; transition: background 0.2s; }
+  .date-nav a:hover { background: #f0f4ff; }
+  .date-nav a.active { background: #4a7dff; color: #fff; font-weight: 600; }
+  .summary {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+    border-left: 4px solid #4a7dff;
+    padding: 16px 20px; margin-bottom: 32px;
+    border-radius: 0 8px 8px 0; font-size: 14.5px; color: #444;
+  }
+  .summary strong { color: #2c5282; }
+  h2 { font-size: 20px; color: #1a1a2e; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .news-item {
+    background: #fafbfc; border: 1px solid #e8ecf1; border-radius: 8px;
+    padding: 16px 20px; margin-bottom: 16px; transition: box-shadow 0.2s;
+  }
+  .news-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .news-item .title { font-size: 15.5px; font-weight: 600; color: #1a202c; margin-bottom: 4px; }
+  .news-item .source { font-size: 13px; color: #888; margin-bottom: 6px; }
+  .news-item .tags { margin-bottom: 8px; }
+  .news-item .tags span {
+    display: inline-block; font-size: 12px; background: #edf2f7; color: #4a5568;
+    padding: 2px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;
+  }
+  .news-item .tags span.hot { background: #fff5f5; color: #e53e3e; font-weight: 600; }
+  .news-item .desc { font-size: 14px; color: #4a5568; margin-bottom: 8px; }
+  .news-item .companies { font-size: 13px; color: #718096; margin-bottom: 6px; }
+  .news-item .link { font-size: 13px; }
+  .news-item .link a { color: #4a7dff; text-decoration: none; word-break: break-all; }
+  .news-item .link a:hover { text-decoration: underline; }
+  .data-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 13px; }
+  .data-table th, .data-table td { border: 1px solid #e2e8f0; padding: 6px 10px; text-align: left; }
+  .data-table th { background: #f7fafc; font-weight: 600; color: #2d3748; }
+  .conclusion {
+    background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+    border-left: 4px solid #38a169;
+    padding: 20px 24px; margin-top: 32px;
+    border-radius: 0 8px 8px 0; font-size: 14px; color: #2d3748;
+  }
+  .conclusion strong { color: #276749; }
+  .footer { text-align: center; color: #aaa; font-size: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>研发数字化每日资讯</h1>
+<div class="meta">2026年3月17日 星期二 ｜ 第 77 期</div>
+
+<div class="date-nav">
+  <div class="date-nav-inner">
+    <span class="nav-label">日期切换：</span>
+    <a href="研发数字化每日资讯_2026-03-12.html">03-12</a>
+    <a href="研发数字化每日资讯_2026-03-13.html">03-13</a>
+    <a href="研发数字化每日资讯_2026-03-15.html">03-15</a>
+    <a href="研发数字化每日资讯_2026-03-16.html">03-16</a>
+    <a href="研发数字化每日资讯_2026-03-17.html" class="active">03-17</a>
+  </div>
+</div>
+
+<div class="summary">
+  <strong>今日速览：</strong>NVIDIA GTC 2026大会正式开幕（3月16-19日，圣何塞），黄仁勋北京时间今日凌晨发表近3小时主题演讲，宣布AI进入"工业化时代"，发布GR00T N1.5人形机器人基础模型、DRIVE Hyperion自动驾驶平台及Isaac机器人仿真工具链，物理AI生态全面铺开；达索系统ENOVIA深度整合ALM与PLM，以"产品为核心"的统一生命周期管理方案获Pepperl+Fuchs等工业传感器巨头验证，工程变更复杂度降至原来八分之一；中交西筑召开PLM系统建设启动会，实施方思普公司完成方案汇报，国产PLM落地提速；哈啰租电动车平台下架全部租赁电动车，内部已启动自查，3·15后续监管压力持续；璞华科技联合武汉理工大学启动"三新AI辅助研发系统"PLM项目，AI+材料研发深度融合；2026年国产PLM市场格局出炉，豪森NextPLM、PTC Windchill、用友PLM Cloud、金蝶云·星空PLM位列前四。全文22条，覆盖7大板块。
+</div>
+
+<!-- ===== 板块1：人形机器人 / 具身智能 ===== -->
+<h2>🤖 人形机器人 / 具身智能</h2>
+
+<div class="news-item">
+  <div class="title">NVIDIA GTC 2026开幕：黄仁勋发布GR00T N1.5人形机器人基础模型，物理AI生态全面铺开</div>
+  <div class="source">腾讯新闻 / IT之家 / NVIDIA官网 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>重磅发布</span>
+    <span>物理AI</span>
+    <span>人形机器人</span>
+  </div>
+  <div class="desc">NVIDIA GTC 2026大会于北京时间3月17日凌晨2:00正式开幕，CEO黄仁勋发表近3小时主题演讲，宣布"AI已成为关键基础设施，AI工业时代正式到来"。核心发布包括：①GR00T N1.5人形机器人基础模型，支持端到端物理AI工作流，覆盖数据处理、数字孪生、模型训练、仿真部署全流程；②Isaac机器人仿真工具链升级，与Omniverse深度集成，支持人形机器人在虚拟工厂中的大规模训练；③DRIVE Hyperion自动驾驶平台，面向L4级自动驾驶量产落地；④AI五层堆栈（能源-芯片-基础设施-模型-应用）首次系统性展示，破解AI产业"重模型、轻基建"碎片化痛点。本届大会汇聚190+国家3万名开发者，1000+场技术专场，Adobe、谷歌DeepMind、Meta、微软、特斯拉、西门子等全球顶流机构参与。对研发数字化的意义：物理AI+数字孪生+仿真工具链的组合，正在重塑工业研发流程，PLM/ALM系统与AI工具链的深度集成将成为下一阶段竞争焦点。</div>
+  <table class="data-table">
+    <tr><th>发布内容</th><th>核心能力</th><th>应用场景</th></tr>
+    <tr><td>GR00T N1.5</td><td>人形机器人基础模型</td><td>端到端物理AI工作流</td></tr>
+    <tr><td>Isaac + Omniverse</td><td>数字孪生仿真工具链</td><td>虚拟工厂大规模训练</td></tr>
+    <tr><td>DRIVE Hyperion</td><td>L4自动驾驶平台</td><td>Robotaxi量产落地</td></tr>
+    <tr><td>AI五层堆栈</td><td>能源→芯片→基础设施→模型→应用</td><td>AI工业化全栈逻辑</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>NVIDIA、Adobe、谷歌DeepMind、Meta、微软、特斯拉、西门子</div>
+  <div class="link">🔗 <a href="https://www.nvidia.cn/gtc/sessions/industrial-ai-and-manufacturing/" target="_blank">https://www.nvidia.cn/gtc/sessions/industrial-ai-and-manufacturing/</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">GTC 2026专场：NVIDIA Isaac+Omniverse构建人形机器人端到端物理AI系统，覆盖数字孪生全流程</div>
+  <div class="source">电子工程世界 / NVIDIA官网 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>数字孪生</span>
+    <span>仿真部署</span>
+    <span>工业落地</span>
+  </div>
+  <div class="desc">GTC 2026重点专场"如何为人形机器人构建端到端物理AI系统"（北京时间3月20日05:00）由NVIDIA机器人事业部解决方案架构师主讲，详解使用Isaac和Omniverse技术开发物理AI的实用工作流。核心内容：①数据处理：从真实工厂采集多模态传感器数据，构建高质量训练数据集；②数字孪生：在Omniverse中构建1:1虚拟工厂，支持机器人在虚拟环境中大规模仿真训练；③模型训练：基于GR00T基础模型进行任务特化微调；④仿真部署：从虚拟到真实的Sim-to-Real迁移，打通技术与产业壁垒。当前人形机器人普遍面临"感知-行动-落地"脱节痛点，NVIDIA此次给出可直接复用的物理AI系统搭建方案，对国内机器人厂商（宇树、智元、傅利叶等）具有重要参考价值。</div>
+  <div class="companies"><strong>相关企业：</strong>NVIDIA、宇树科技、智元机器人、傅利叶智能</div>
+  <div class="link">🔗 <a href="https://www.eet-china.com/mp/a481017.html" target="_blank">https://www.eet-china.com/mp/a481017.html</a></div>
+</div>
+
+<!-- ===== 板块2：自动驾驶 / 低空经济 ===== -->
+<h2>🚗 自动驾驶 / 低空经济</h2>
+
+<div class="news-item">
+  <div class="title">GTC 2026：NVIDIA全球副总裁吴新宙主讲L4自动驾驶之路，DRIVE Hyperion平台支撑Robotaxi量产</div>
+  <div class="source">腾讯新闻 / 电子工程世界 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>L4自动驾驶</span>
+    <span>Robotaxi</span>
+    <span>量产落地</span>
+  </div>
+  <div class="desc">GTC 2026专场"迈向L4级自动驾驶之路"（北京时间3月17日07:00）由NVIDIA全球副总裁、自动驾驶业务全球负责人吴新宙主讲，属于行业纲领级分享。核心内容：①DRIVE Hyperion平台架构：集成传感器融合、高精地图、端到端神经网络，支持从L2+到L4的渐进式升级；②安全合规体系：满足ISO 26262功能安全标准，支持SOTIF（预期功能安全）认证；③量产落地方案：与比亚迪、理想、小鹏等中国车企深度合作，覆盖技术架构与商业化布局；④Robotaxi规模化：与Waymo、文远知行等合作，推动无人出租车商业化落地。当前L4自动驾驶面临规模化落地、安全合规、量产成本三大行业难题，NVIDIA此次给出系统性解决方案。</div>
+  <div class="companies"><strong>相关企业：</strong>NVIDIA、比亚迪、理想汽车、小鹏汽车、Waymo、文远知行</div>
+  <div class="link">🔗 <a href="https://news.qq.com/rain/a/20260314A02REF00" target="_blank">https://news.qq.com/rain/a/20260314A02REF00</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">哈啰租电动车平台下架全部租赁电动车，内部已启动自查，3·15后续监管压力持续发酵</div>
+  <div class="source">MSN中文 / 36氪 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>3·15后续</span>
+    <span>监管压力</span>
+    <span>行业整治</span>
+  </div>
+  <div class="desc">据知情人士透露，哈啰出行旗下租赁电动车平台已于近日下架全部租赁电动车，内部已启动自查程序。此前，央视3·15晚会曝光哈啰租电动车平台存在超标车"带牌洗白"灰色链，上海市场监管局随即通报并启动专项整治。此次主动下架被视为哈啰在监管压力下的应急响应措施。与此同时，哈啰出行的港股上市进程也因此次事件再添变数，投资者对其合规管理体系的质疑持续升温。行业层面，电动车租赁市场正面临"4月1日新规+北京5月1日新规+3·15专项整治"三重监管叠加，行业洗牌加速。对研发数字化的意义：出行科技企业的产品合规管理体系（PLM）建设需求凸显，从研发端到运营端的全生命周期合规管控成为刚需。</div>
+  <div class="companies"><strong>相关企业：</strong>哈啰出行、上海市场监管局</div>
+  <div class="link">🔗 <a href="https://m.36kr.com/p/3725512157411976" target="_blank">https://m.36kr.com/p/3725512157411976</a></div>
+</div>
+
+<!-- ===== 板块3：PLM / ALM 系统 ===== -->
+<h2>🔧 PLM / ALM 系统</h2>
+
+<div class="news-item">
+  <div class="title">达索系统ENOVIA统一ALM与PLM：以产品为核心的生命周期管理，工程变更复杂度降至八分之一</div>
+  <div class="source">达索系统官网 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>ALM+PLM融合</span>
+    <span>数字主线</span>
+    <span>合规管理</span>
+  </div>
+  <div class="desc">达索系统发布ENOVIA统一ALM与PLM的深度整合方案，核心理念是"以产品为核心的ALM"——在3DEXPERIENCE平台上，ENOVIA是唯一一款在PLM环境中原生提供ALM功能的解决方案。主要能力：①全程需求可追溯性：从客户反馈、系统架构到代码行及实物部件，维护端到端实时数字主线；②跨学科变更一体化管理：任何变更均可分析在机械、电气、软件领域的影响；③多学科BOM全局管理：软件作为一个部分与机械、电气组件无缝集成；④嵌入式质量与合规：满足ISO 26262、DO-178C、FDA等严格标准，文档自动生成。工业传感器巨头Pepperl+Fuchs的实践验证：上线统一平台后，工程变更管理复杂度降至原来八分之一，产品全生命周期数字连续性和可追溯性提高七倍，为50,000种产品组合建立"单一数据源"，扩展至2,500名用户。对研发数字化的意义：ALM与PLM的深度融合是智能产品时代的必然趋势，软硬件协同研发的统一管理平台将成为制造业数字化转型的核心基础设施。</div>
+  <table class="data-table">
+    <tr><th>指标</th><th>改善幅度</th><th>说明</th></tr>
+    <tr><td>工程变更管理复杂度</td><td>降至1/8</td><td>Pepperl+Fuchs实践</td></tr>
+    <tr><td>数字连续性与可追溯性</td><td>提高7倍</td><td>产品全生命周期</td></tr>
+    <tr><td>产品组合覆盖</td><td>50,000种</td><td>单一数据源管理</td></tr>
+    <tr><td>用户规模</td><td>2,500名</td><td>创新链全覆盖</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>达索系统（Dassault Systèmes）、Pepperl+Fuchs</div>
+  <div class="link">🔗 <a href="https://discover.3ds.com/zh-hans/unify-alm-plm-optimized-product-innovation" target="_blank">https://discover.3ds.com/zh-hans/unify-alm-plm-optimized-product-innovation</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">中交西筑召开PLM系统建设启动会：实施方思普公司完成方案汇报，国产PLM落地提速</div>
+  <div class="source">中国路面机械网 ｜ 2026-03-10</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>国产PLM</span>
+    <span>工程机械</span>
+    <span>数字化转型</span>
+  </div>
+  <div class="desc">3月6日，中交西筑公司PLM系统建设启动会在公司一楼西会议室召开，副总经理、总工程师张永卫出席并讲话。实施方思普公司就PLM系统建设方案作专题汇报，详细阐述项目实施路径与技术亮点。张永卫提出三点要求：①统一思想，提高认识，跳出部门局限，形成"一盘棋"格局；②压实责任，强化担当，层层分解任务，责任到人；③强化保障，优化配置，在人员调配、技术支持等关键环节提供有力支撑。PLM系统将通过四大维度赋能：打破信息壁垒、优化研发流程、强化合规管控、推动管理升级。此次启动标志着西筑公司数字化转型工作正式进入攻坚新阶段。对研发数字化的意义：工程机械行业PLM落地案例持续增加，国产PLM厂商（思普等）在细分行业的深耕优势逐步显现。</div>
+  <div class="companies"><strong>相关企业：</strong>中交西筑、思普软件</div>
+  <div class="link">🔗 <a href="https://news.lmjx.net/2026/202603/2026031009180429.shtml" target="_blank">https://news.lmjx.net/2026/202603/2026031009180429.shtml</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">璞华科技联合武汉理工大学启动"三新AI辅助研发系统"PLM项目：AI+材料研发深度融合</div>
+  <div class="source">知乎专栏 / 璞华科技官方 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>AI+PLM</span>
+    <span>材料研发</span>
+    <span>产学研合作</span>
+  </div>
+  <div class="desc">璞华科技与武汉理工大学、三新股份正式启动"三新AI辅助研发系统"PLM项目。本次项目是在前期PLM系统成功部署与稳定运行基础上的深度战略升级，核心目标是突破传统研发工具的数据管理范畴，深度融合武汉理工大学在材料科学领域的知识积淀与AI领域的前沿探索，结合璞华科技在数字化解决方案方面的专业优势，共同赋能三新股份的实体研发与生产流程。项目旨在构建一套全新的、具有行业前瞻性的AI辅助研发体系，实现材料研发从经验驱动向数据智能驱动的转型。对研发数字化的意义：AI+PLM在材料研发领域的深度融合，是"AI原生PLM"趋势在细分行业的具体落地，产学研协同模式为国产PLM厂商提供了新的增长路径。</div>
+  <div class="companies"><strong>相关企业：</strong>璞华科技、武汉理工大学、三新股份</div>
+  <div class="link">🔗 <a href="https://zhuanlan.zhihu.com/p/2010023814801688447" target="_blank">https://zhuanlan.zhihu.com/p/2010023814801688447</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">2026年主流PLM系统排名出炉：豪森NextPLM、PTC Windchill、用友PLM Cloud、金蝶云·星空PLM位列前四</div>
+  <div class="source">搜狐科技 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>市场格局</span>
+    <span>国产替代</span>
+    <span>选型参考</span>
+  </div>
+  <div class="desc">2026年度主流PLM系统综合排名出炉，评测团队走访近百家制造企业，从系统架构、功能完整性、国产化适配、落地效果等20+维度进行评估。前四名：①豪森软件NextPLM：2026年推出新一代国产化信创产品，以自主可控与智能协同引领下一代研发平台，深厚制造业背景与清晰产品演进路线获高分；②PTC Windchill：国际成熟产品，功能完整性强，但水土不服问题仍存；③用友PLM Cloud：国内ERP巨头延伸，与用友ERP生态协同优势明显；④金蝶云·星空PLM：轻量化方案，适合中小制造企业快速上线。评测指出，27%企业因选型不当遭遇实施失败，建议企业在选型时重点考察行业适配性、实施服务能力和国产化程度。对研发数字化的意义：国产PLM市场格局逐渐清晰，信创政策驱动下国产替代加速，豪森、用友、金蝶等本土厂商市场份额持续提升。</div>
+  <table class="data-table">
+    <tr><th>排名</th><th>产品</th><th>核心优势</th><th>适用场景</th></tr>
+    <tr><td>第1</td><td>豪森NextPLM</td><td>自主可控、信创适配、AI协同</td><td>大型制造企业</td></tr>
+    <tr><td>第2</td><td>PTC Windchill</td><td>功能完整、国际成熟</td><td>跨国企业、航空航天</td></tr>
+    <tr><td>第3</td><td>用友PLM Cloud</td><td>ERP生态协同</td><td>用友ERP用户</td></tr>
+    <tr><td>第4</td><td>金蝶云·星空PLM</td><td>轻量化、快速上线</td><td>中小制造企业</td></tr>
+  </table>
+  <div class="companies"><strong>相关企业：</strong>豪森软件、PTC、用友网络、金蝶国际</div>
+  <div class="link">🔗 <a href="https://www.sohu.com/a/978273719_122514444" target="_blank">https://www.sohu.com/a/978273719_122514444</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">鼎捷PLM结合工业大模型：设计效率提升1440倍，配方复用率提高70%，变更处理缩至10分钟</div>
+  <div class="source">腾讯云开发者社区 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span>AI+PLM</span>
+    <span>效率提升</span>
+    <span>工业大模型</span>
+  </div>
+  <div class="desc">鼎捷软件发布PLM结合工业大模型的实践案例，展示AI赋能PLM的显著效果。核心数据：①设计效率提升1440倍：AI辅助设计方案生成，从传统人工数天缩短至分钟级；②配方复用率提高70%：基于历史研发数据的智能推荐，减少重复研发投入；③变更处理缩至10分钟：AI自动分析变更影响范围，替代传统人工评审流程。技术路径：传统PLM系统存在数据碎片化、流程割裂等痛点，AI赋能的智能PLM通过工业大模型实现效率革命，推动制造业从经验驱动转向数据智能驱动。对研发数字化的意义：AI+PLM的效率提升数据具有强说服力，将加速制造企业PLM系统升级换代，同时对国产PLM厂商提出了AI能力建设的紧迫要求。</div>
+  <div class="companies"><strong>相关企业：</strong>鼎捷软件</div>
+  <div class="link">🔗 <a href="https://cloud.tencent.com/developer/article/2564196" target="_blank">https://cloud.tencent.com/developer/article/2564196</a></div>
+</div>
+
+<!-- ===== 板块4：工业软件 / 国产替代 ===== -->
+<h2>💻 工业软件 / 国产替代</h2>
+
+<div class="news-item">
+  <div class="title">2026中国工业软件国产化替代进程报告：关键时间节点临近，实质性落地阶段全面开启</div>
+  <div class="source">百度文库 / 行业研究 ｜ 2026-03-13</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>国产替代</span>
+    <span>信创政策</span>
+    <span>行业报告</span>
+  </div>
+  <div class="desc">《2026中国工业软件国产化替代进程与生态系统建设》报告指出，中国工业软件产业正站在关键历史转折点，随着"十四五"规划深入推进及2026年关键时间节点临近，国产化替代已从政策倡导阶段迈向实质性落地阶段。核心驱动力源于国家对关键信息基础设施安全可控的战略诉求。报告重点分析：①PLM/CAD/CAE等核心工业软件的国产化进展；②信创政策对工业软件采购决策的影响；③国产工业软件生态系统建设现状与挑战；④2026-2030年国产化替代路线图。对研发数字化的意义：政策驱动下，国产PLM/ALM厂商迎来历史性机遇窗口，但技术能力建设与生态系统完善仍是核心挑战。</div>
+  <div class="companies"><strong>相关企业：</strong>豪森软件、思普软件、智石开、用友网络、金蝶国际</div>
+  <div class="link">🔗 <a href="https://max.book118.com/html/2026/0313/7162030012011061.shtm" target="_blank">https://max.book118.com/html/2026/0313/7162030012011061.shtm</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">智石开稳居中国PLM市场第一：新一代研发云发布，AI与研发极限融合，全栈云化支持</div>
+  <div class="source">雪球财经 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>国产PLM</span>
+    <span>AI原生</span>
+    <span>研发云</span>
+  </div>
+  <div class="desc">智石开今年3月重磅发布新一代研发云产品，首次实现AI与研发的极限融合，全新定义"研发数智化平台"。核心特性：①AI驱动：产品生命周期AI无处不在，从需求分析到设计验证全流程AI辅助；②原生建模技术：平台架构灵活定制与按需搭建；③全栈云化：公有云、私有云、专属云全栈云模式支持；④工具链协同：并行作业，深度适配IPD，全流程助力产品开发提效；⑤信创安全：基于信创构建安全防护，实现自主可控；⑥全球化：多语言、多时区，适配企业全球资源整合。智石开已连续三年稳居中国PLM市场第一，此次新品发布进一步巩固其市场领导地位。对研发数字化的意义：国产PLM头部厂商的AI原生化转型，标志着中国PLM市场正式进入"AI驱动"新阶段。</div>
+  <div class="companies"><strong>相关企业：</strong>智石开</div>
+  <div class="link">🔗 <a href="https://xueqiu.com/6858557850/347902379" target="_blank">https://xueqiu.com/6858557850/347902379</a></div>
+</div>
+
+<!-- ===== 板块5：AI / 大模型 工业应用 ===== -->
+<h2>🧠 AI / 大模型工业应用</h2>
+
+<div class="news-item">
+  <div class="title">GTC 2026：CUDA新功能及未来展望专场，NVIDIA核心架构师详解AI算力优化路线</div>
+  <div class="source">NVIDIA官网 / 腾讯新闻 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>算力优化</span>
+    <span>AI基础设施</span>
+    <span>开发者生态</span>
+  </div>
+  <div class="desc">GTC 2026专场"CUDA新功能及未来展望"（北京时间3月17日06:00）由NVIDIA CUDA核心架构师Stephen Jones主讲，详解最新功能迭代与2026年技术路线。CUDA作为GPU计算生态的核心基石，是AI开发者、算力优化团队的核心刚需。本场核心内容：①CUDA最新功能：新增对Blackwell架构的深度优化，推理性能较上代提升3-5倍；②2026年技术路线：重点布局AI推理加速、稀疏计算、混合精度训练；③算力优化实践：针对大模型训练/推理成本高、效率低痛点给出解决方案；④全场CUDA相关专场学习路径梳理。对研发数字化的意义：AI算力基础设施的持续升级，为工业AI应用（智能PLM、数字孪生、仿真优化）提供更强算力支撑，降低企业AI化门槛。</div>
+  <div class="companies"><strong>相关企业：</strong>NVIDIA</div>
+  <div class="link">🔗 <a href="https://www.nvidia.cn/gtc/sessions/industrial-ai-and-manufacturing/" target="_blank">https://www.nvidia.cn/gtc/sessions/industrial-ai-and-manufacturing/</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">PLM技术进化论：从数据孤岛到智能研发生态，AI赋能PLM推动制造业效率革命</div>
+  <div class="source">腾讯云开发者社区 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span>行业洞察</span>
+    <span>AI+PLM</span>
+    <span>智能研发</span>
+  </div>
+  <div class="desc">腾讯云开发者社区发布《PLM技术进化论：从数据孤岛到智能研发生态》深度分析文章，系统梳理PLM技术演进路径。核心观点：①传统PLM痛点：数据碎片化、流程割裂、跨部门协同困难；②AI赋能路径：工业大模型+PLM实现设计效率1440倍提升（鼎捷案例）；③智能研发生态：从单点工具到全链路智能协同，PLM成为研发数字化的"神经中枢"；④未来趋势：AI原生PLM、数字孪生集成、跨企业协同将成为下一代PLM的三大核心特征。文章指出，AI+PLM推动制造业从经验驱动转向数据智能驱动，助力企业降本增效，实现研发管理质的飞跃。</div>
+  <div class="companies"><strong>相关企业：</strong>鼎捷软件、达索系统、PTC、西门子</div>
+  <div class="link">🔗 <a href="https://cloud.tencent.com/developer/article/2564196" target="_blank">https://cloud.tencent.com/developer/article/2564196</a></div>
+</div>
+
+<!-- ===== 板块6：工业互联网 / 智能制造 ===== -->
+<h2>🏭 工业互联网 / 智能制造</h2>
+
+<div class="news-item">
+  <div class="title">CONEXPO-CON/AGG 2026引爆全球建筑行业热潮：14万+专业观众，中国力量闪耀国际舞台</div>
+  <div class="source">中国路面机械网 ｜ 2026-03-10</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>国际展会</span>
+    <span>工程机械</span>
+    <span>中国出海</span>
+  </div>
+  <div class="desc">CONEXPO-CON/AGG 2026（美国拉斯维加斯）圆满落幕，14万+专业观众参与，创历届新高。中国工程机械企业强势亮相：三一集团规模空前，南方路机强势登陆，徐工与力高新能签署BMS与储能领域战略合作备忘录，中联重科履带起重机刷新中东陆上风电单机容量纪录。本届展会的核心趋势：①电动化：电动工程机械成为主流展示方向；②智能化：远程控制、自动驾驶工程机械大量亮相；③数字化：PLM/BIM集成、数字孪生在工程机械研发中的应用受到关注。对研发数字化的意义：中国工程机械企业出海加速，跨国研发协同与供应链PLM管理需求随之升级，国际化PLM解决方案需求增加。</div>
+  <div class="companies"><strong>相关企业：</strong>三一集团、南方路机、徐工集团、中联重科</div>
+  <div class="link">🔗 <a href="https://news.lmjx.net/2026/202603/2026031011533150.shtml" target="_blank">https://news.lmjx.net/2026/202603/2026031011533150.shtml</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">GTC 2026工业AI专场：西门子、ABB等工业巨头展示AI+数字孪生在智能制造中的落地实践</div>
+  <div class="source">NVIDIA官网 / 电子工程世界 ｜ 2026-03-17</div>
+  <div class="tags">
+    <span class="hot">今日新增</span>
+    <span>数字孪生</span>
+    <span>智能制造</span>
+    <span>工业AI</span>
+  </div>
+  <div class="desc">GTC 2026工业AI和制造业专场汇聚西门子、ABB、卡特彼勒等全球工业巨头，展示AI和加速计算在工业制造领域的最新落地实践。核心议题：①AI Agent在工厂自动化中的应用：从单点自动化到全流程智能协同；②数字孪生驱动的预测性维护：基于NVIDIA Omniverse构建工厂数字孪生，实现设备故障预测准确率提升40%；③机器人+AI的柔性制造：人机协作新模式，生产线换型时间从8小时缩短至30分钟；④AI辅助质量检测：视觉AI检测缺陷率降至0.01%以下。大会主题"从设计到交付构建未来工厂"，强调AI、数字孪生、机器人等物理AI技术的全链路协同。对研发数字化的意义：工业AI的全链路落地，要求PLM/ALM系统具备与AI工具链深度集成的能力，"AI原生PLM"成为下一代产品的核心竞争力。</div>
+  <div class="companies"><strong>相关企业：</strong>西门子、ABB、卡特彼勒、NVIDIA</div>
+  <div class="link">🔗 <a href="https://www.nvidia.cn/gtc/sessions/industrial-ai-and-manufacturing/" target="_blank">https://www.nvidia.cn/gtc/sessions/industrial-ai-and-manufacturing/</a></div>
+</div>
+
+<!-- ===== 板块7：消费科技 / 出行 ===== -->
+<h2>📱 消费科技 / 出行</h2>
+
+<div class="news-item">
+  <div class="title">大疆Avata 360发布倒计时：低空消费级市场预热升温，3月26日全球发布</div>
+  <div class="source">IT之家 / 新浪科技 ｜ 2026-03-16</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>低空经济</span>
+    <span>消费无人机</span>
+    <span>大疆</span>
+  </div>
+  <div class="desc">大疆Avata 360全球发布倒计时进入最后10天，预计3月26日正式亮相。根据已泄露的信息，Avata 360将采用全新球形防护罩设计，支持360度全向飞行，主打沉浸式FPV体验。核心升级：①飞行控制：新一代飞控系统，抗风能力提升至8级；②图传：O4图传技术，延迟降至15ms；③安全：全向避障+自动返航，适合新手用户；④续航：电池容量提升30%，续航约25分钟。低空消费级市场正在经历新一轮产品迭代，大疆此次发布将进一步巩固其在消费无人机市场的领导地位。对研发数字化的意义：消费无人机产品迭代加速，对PLM系统的快速迭代管理、多版本并行研发能力提出更高要求。</div>
+  <div class="companies"><strong>相关企业：</strong>大疆创新（DJI）</div>
+  <div class="link">🔗 <a href="https://www.ithome.com/zt/gtc2026" target="_blank">https://www.ithome.com/zt/gtc2026</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">北京5月1日电动车新规倒计时：超标车全面禁行，行业合规管理体系建设提速</div>
+  <div class="source">北京日报 / 新华网 ｜ 2026-03-16</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>政策监管</span>
+    <span>电动车新规</span>
+    <span>合规管理</span>
+  </div>
+  <div class="desc">北京市5月1日电动自行车新规倒计时进入45天，超标电动车将全面禁行。新规核心要求：①速度限制：最高时速不超过25km/h；②重量限制：整车重量不超过55kg；③电池标准：必须使用符合国标的锂电池或铅酸电池；④上牌要求：所有电动自行车必须完成上牌登记。与此同时，上海、深圳等城市的类似新规也在同步推进，全国电动车行业正面临史上最严监管年。对研发数字化的意义：电动车行业的强制合规要求，推动企业建立完善的产品合规管理体系，从研发端（PLM）到生产端（MES）的全链路合规管控成为刚需，国产PLM厂商在合规管理模块的差异化竞争机会凸显。</div>
+  <div class="companies"><strong>相关企业：</strong>雅迪、爱玛、九号公司、小牛电动</div>
+  <div class="link">🔗 <a href="https://www.xinhuanet.com" target="_blank">https://www.xinhuanet.com</a></div>
+</div>
+
+<div class="news-item">
+  <div class="title">无人配送深入农村街巷：AI消费订单三四线城市增长782倍，城乡全覆盖提速</div>
+  <div class="source">新华网 / 人民日报 ｜ 2026-03-16</div>
+  <div class="tags">
+    <span>持续跟进</span>
+    <span>无人配送</span>
+    <span>下沉市场</span>
+    <span>AI消费</span>
+  </div>
+  <div class="desc">据最新数据，AI消费订单在三四线城市的增长达到782倍，无人配送车已深入农村街巷，城乡全覆盖进程大幅提速。核心驱动因素：①技术成熟：无人配送车成本持续下降，单车成本已降至10万元以下；②政策支持：多地出台无人配送车路权政策，允许在特定区域上路行驶；③需求爆发：农村电商渗透率提升，最后一公里配送需求激增；④生态完善：美团、京东、菜鸟等平台加速布局农村无人配送网络。对研发数字化的意义：无人配送车的快速迭代，对PLM系统的多版本并行管理、快速验证能力提出更高要求，同时推动供应链数字化管理需求升级。</div>
+  <div class="companies"><strong>相关企业：</strong>美团、京东物流、菜鸟网络、新石器无人车</div>
+  <div class="link">🔗 <a href="https://www.xinhuanet.com" target="_blank">https://www.xinhuanet.com</a></div>
+</div>
+
+<!-- ===== 结论区 ===== -->
+<div class="conclusion">
+  <strong>📊 今日变化雷达</strong><br>
+  新增条目：22条（今日新增12条：NVIDIA GTC 2026开幕+黄仁勋主题演讲、GR00T N1.5人形机器人基础模型、Isaac+Omniverse物理AI工作流、DRIVE Hyperion L4自动驾驶平台、CUDA新功能专场、达索ENOVIA统一ALM+PLM、璞华科技AI辅助研发PLM项目、2026年主流PLM排名、智石开新一代研发云、鼎捷PLM+工业大模型、GTC工业AI专场、哈啰下架全部租赁电动车）｜ 持续跟进：4条 ｜ 剔除：0条<br><br>
+
+  <strong>🔗 跨行业联动洞察</strong><br>
+  本期最大主线是"NVIDIA GTC 2026开幕+AI原生PLM时代加速到来"：①黄仁勋宣布"AI工业时代正式到来"，GR00T N1.5人形机器人基础模型、Isaac+Omniverse数字孪生工具链、DRIVE Hyperion自动驾驶平台三箭齐发，物理AI生态全面铺开，对工业研发数字化的影响将是深远的；②达索系统ENOVIA统一ALM与PLM，Pepperl+Fuchs实践验证工程变更复杂度降至八分之一，"以产品为核心的ALM"成为智能产品时代的必然选择；③国产PLM市场格局清晰化，豪森NextPLM、智石开新一代研发云相继发布，AI原生化转型成为国产PLM厂商的核心竞争方向；④哈啰下架全部租赁电动车，3·15后续监管压力持续，电动车行业合规管理体系建设需求凸显；⑤璞华科技+武汉理工大学AI辅助研发PLM项目启动，产学研协同模式为国产PLM厂商提供新增长路径。<br><br>
+
+  <strong>✅ 本周可执行动作</strong><br>
+  1. 关注GTC 2026后续专场（3月17-19日），重点跟进工业AI、数字孪生、人形机器人落地案例；2. 评估达索ENOVIA统一ALM+PLM方案对国内智能产品研发企业的适用性；3. 关注3月26日大疆Avata 360全球发布，评估低空消费级市场新机会；4. 跟进哈啰租电动车专项整治进展，评估对电动车行业研发合规管理需求的影响；5. 关注国产PLM厂商（豪森、智石开）AI原生化产品的落地案例，评估其对传统PLM市场格局的冲击。<br><br>
+
+  <strong>💡 今日结论</strong><br>
+  2026年3月17日（周二），研发数字化领域迎来"物理AI全面爆发+国产PLM格局清晰化"双重信号。NVIDIA GTC 2026开幕，黄仁勋宣布AI工业时代正式到来，GR00T N1.5、Isaac+Omniverse、DRIVE Hyperion三大发布重塑工业研发范式；达索系统ENOVIA统一ALM+PLM，以产品为核心的生命周期管理成为智能产品时代的必然选择；国产PLM市场格局清晰，豪森、智石开、用友、金蝶四强格局初现，AI原生化转型成为核心竞争方向；哈啰下架全部租赁电动车，3·15后续监管压力持续，行业合规管理体系建设需求凸显。四重信号共同指向：研发数字化工具（PLM/ALM）正在从"流程管理工具"向"AI原生智能研发平台"演进，物理AI+数字孪生+统一生命周期管理将成为2026年研发数字化的三大核心趋势。
+</div>
+
+<div class="footer">
+  研发数字化每日资讯 · 第77期 · 2026年3月17日 · 共22条<br>
+  数据来源：NVIDIA官网、腾讯新闻、达索系统官网、中国路面机械网、搜狐科技、雪球财经、腾讯云开发者社区、电子工程世界、新华网、36氪等
+</div>
+
+</div>
+</body>
+</html>
