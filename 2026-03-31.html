@@ -58,6 +58,7 @@
   }
   #masonry-container {
     position: relative;
+    width: 100%;
   }
 
   /* ===== 板块标题行（横跨全宽） ===== */
@@ -72,6 +73,7 @@
     border-left: 4px solid #4a6fa5;
     background: #f5f7fa;
     z-index: 2;
+    box-sizing: border-box;
   }
 
   /* ===== 新闻卡片 ===== */
@@ -623,17 +625,17 @@ const domHeaders = [] // { el, sectionIdx }
 // 布局状态
 let layoutState = null
 
-function computeLayout(viewportWidth) {
+function computeLayout(containerWidth) {
   // 列数：根据宽度自适应
   let colCount
-  if (viewportWidth < 600) colCount = 1
-  else if (viewportWidth < 960) colCount = 2
+  if (containerWidth < 600) colCount = 1
+  else if (containerWidth < 960) colCount = 2
   else colCount = 3
 
+  // 总宽度 = colCount 列 + (colCount+1) 个间距
   const totalGap = GAP * (colCount + 1)
-  const colWidth = Math.floor((viewportWidth - totalGap) / colCount)
+  const colWidth = Math.floor((containerWidth - totalGap) / colCount)
   const textWidth = colWidth - CARD_H_PADDING
-  const offsetLeft = 0
 
   // 每列当前高度
   const colHeights = new Array(colCount).fill(0)
@@ -643,10 +645,10 @@ function computeLayout(viewportWidth) {
   for (let si = 0; si < preparedData.length; si++) {
     const section = preparedData[si]
 
-    // 板块标题：横跨全宽，放在最短列的当前最大高度处
-    const maxColH = Math.max(...colHeights)
-    const headerY = maxColH + SECTION_MARGIN_TOP
-    // 所有列对齐到 headerY + SECTION_HEADER_H
+    // 板块标题：横跨全宽，放在所有列最大高度处
+    const maxColH = colHeights.length > 0 ? Math.max(...colHeights) : 0
+    const headerY = maxColH + (si === 0 ? GAP : SECTION_MARGIN_TOP)
+    // 所有列对齐到 headerY + SECTION_HEADER_H + GAP
     for (let c = 0; c < colCount; c++) colHeights[c] = headerY + SECTION_HEADER_H
 
     positioned.push({
@@ -654,7 +656,7 @@ function computeLayout(viewportWidth) {
       sectionIdx: si,
       x: 0,
       y: headerY,
-      w: viewportWidth,
+      w: containerWidth,
       h: SECTION_HEADER_H,
     })
 
@@ -669,7 +671,8 @@ function computeLayout(viewportWidth) {
         if (colHeights[c] < colHeights[shortest]) shortest = c
       }
 
-      const x = offsetLeft + shortest * (colWidth + GAP) + GAP
+      // x = GAP + 列索引 * (列宽 + GAP)
+      const x = GAP + shortest * (colWidth + GAP)
       const y = colHeights[shortest] + GAP
 
       positioned.push({
@@ -715,11 +718,17 @@ function getOrCreateHeader(sectionIdx) {
 }
 
 function render() {
-  const viewportWidth = container.clientWidth
+  // 确保容器宽度有效（等待 DOM 布局完成）
+  const containerWidth = container.clientWidth
+  if (containerWidth === 0) {
+    requestAnimationFrame(render)
+    return
+  }
+
   const scrollTop = window.scrollY
   const viewportH = window.innerHeight
 
-  layoutState = computeLayout(viewportWidth)
+  layoutState = computeLayout(containerWidth)
   container.style.height = layoutState.totalHeight + 'px'
 
   // 移除加载提示
@@ -737,8 +746,8 @@ function render() {
 
     if (pos.type === 'header') {
       const el = getOrCreateHeader(pos.sectionIdx)
-      el.style.cssText = `left:${GAP}px;top:${pos.y}px;width:${viewportWidth - GAP * 2}px;height:${pos.h}px;`
-      el.style.display = inView ? '' : 'none'
+      // header 横跨容器全宽，left=0，width=100%
+      el.style.cssText = `left:0;top:${pos.y}px;width:100%;height:${pos.h}px;display:${inView ? 'block' : 'none'};`
     } else {
       if (!inView) continue
       const key = `${pos.sectionIdx}-${pos.itemIdx}`
@@ -767,8 +776,13 @@ function scheduleRender() {
 window.addEventListener('resize', scheduleRender)
 window.addEventListener('scroll', scheduleRender, { passive: true })
 
-// 首次渲染
-render()
+// 首次渲染：等 DOM 完全就绪后执行
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', render)
+} else {
+  // 用 rAF 确保浏览器完成首次布局，clientWidth 有效
+  requestAnimationFrame(() => requestAnimationFrame(render))
+}
 </script>
 
 </body>
