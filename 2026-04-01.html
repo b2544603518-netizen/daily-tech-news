@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研发数字化每日资讯 · 第86期 · 2026-04-01</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blue:    #2563eb;
+  --blue-lt: #eff6ff;
+  --blue-bd: #bfdbfe;
+  --red-lt:  #fef2f2;
+  --red:     #dc2626;
+  --amber-lt:#fffbeb;
+  --amber:   #d97706;
+  --gray-50: #f8fafc;
+  --gray-100:#f1f5f9;
+  --gray-200:#e2e8f0;
+  --gray-400:#94a3b8;
+  --gray-600:#475569;
+  --gray-800:#1e293b;
+  --radius:  10px;
+  --shadow:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-hover: 0 8px 24px rgba(37,99,235,.12), 0 2px 8px rgba(0,0,0,.06);
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-800);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+.site-header { background: #fff; border-bottom: 1px solid var(--gray-200); padding: 28px 0 20px; text-align: center; }
+.site-header h1 { font-size: 26px; font-weight: 800; color: var(--gray-800); letter-spacing: -.3px; }
+.site-header .meta { margin-top: 6px; font-size: 13px; color: var(--gray-400); }
+.date-nav { margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+.date-nav .label { font-size: 12px; color: var(--gray-400); }
+.date-nav a { font-size: 12px; color: var(--blue); text-decoration: none; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--blue-bd); background: var(--blue-lt); transition: background .15s; }
+.date-nav a:hover { background: #dbeafe; }
+.date-nav .cur { font-size: 12px; padding: 3px 10px; border-radius: 20px; background: var(--blue); color: #fff; }
+.summary-wrap { max-width: 1200px; margin: 24px auto 0; padding: 0 24px; }
+.summary-box { background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%); border: 1px solid var(--blue-bd); border-radius: var(--radius); padding: 20px 24px; }
+.summary-box h3 { font-size: 15px; font-weight: 700; color: var(--blue); margin-bottom: 12px; }
+.summary-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.summary-box li { font-size: 13px; color: var(--gray-600); line-height: 1.65; padding-left: 16px; position: relative; }
+.summary-box li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); opacity: .5; }
+.main { max-width: 1200px; margin: 0 auto; padding: 28px 24px 48px; }
+.section-title { font-size: 17px; font-weight: 800; color: var(--gray-800); margin: 36px 0 16px; padding-left: 12px; border-left: 4px solid var(--blue); line-height: 1.3; }
+.section-title:first-child { margin-top: 0; }
+.card-grid { columns: 3; column-gap: 16px; }
+@media (max-width: 960px) { .card-grid { columns: 2; } }
+@media (max-width: 600px) { .card-grid { columns: 1; } }
+.card { break-inside: avoid; background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 16px 18px 14px; margin-bottom: 16px; box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s; display: block; }
+.card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.card-title { font-size: 14px; font-weight: 700; color: var(--gray-800); line-height: 1.55; margin-bottom: 5px; }
+.card-source { font-size: 11px; color: var(--gray-400); margin-bottom: 9px; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.tag { font-size: 11px; padding: 2px 7px; border-radius: 20px; background: var(--blue-lt); color: var(--blue); border: 1px solid var(--blue-bd); font-weight: 500; }
+.tag.hot   { background: var(--red-lt);   color: var(--red);   border-color: #fecaca; }
+.tag.follow{ background: var(--amber-lt); color: var(--amber); border-color: #fde68a; }
+.card-desc { font-size: 13px; color: var(--gray-600); line-height: 1.75; margin-bottom: 10px; }
+.card-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 10px; border-radius: 6px; overflow: hidden; border: 1px solid var(--gray-200); }
+.card-table th { background: var(--blue-lt); color: var(--blue); font-weight: 600; padding: 5px 10px; text-align: left; border-bottom: 1px solid var(--blue-bd); }
+.card-table td { padding: 5px 10px; color: var(--gray-600); border-bottom: 1px solid var(--gray-100); vertical-align: top; }
+.card-table tr:last-child td { border-bottom: none; }
+.card-table tr:nth-child(even) td { background: var(--gray-50); }
+.card-companies { font-size: 11px; color: var(--gray-400); margin-bottom: 6px; }
+.card-companies strong { color: var(--gray-600); }
+.card-link { font-size: 11px; }
+.card-link a { color: var(--blue); text-decoration: none; word-break: break-all; }
+.card-link a:hover { text-decoration: underline; }
+.conclusion-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px 40px; }
+.conclusion { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 24px 28px; box-shadow: var(--shadow); font-size: 14px; color: var(--gray-600); line-height: 1.9; }
+.conclusion h4 { font-size: 15px; font-weight: 700; color: var(--gray-800); margin-bottom: 8px; margin-top: 20px; }
+.conclusion h4:first-child { margin-top: 0; }
+.conclusion p { margin-bottom: 4px; }
+.footer { text-align: center; font-size: 12px; color: var(--gray-400); padding: 16px 24px 28px; border-top: 1px solid var(--gray-200); max-width: 1200px; margin: 0 auto; line-height: 1.8; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>📡 研发数字化每日资讯</h1>
+  <div class="meta">第86期 · 2026年4月1日（周三）· 覆盖7大前沿板块</div>
+  <nav class="date-nav">
+    <span class="label">历史期数：</span>
+    <a href="https://b2544603518-netizen.github.io/daily-tech-news/2026-03-27.html">03-27</a>
+    <a href="https://b2544603518-netizen.github.io/daily-tech-news/2026-03-31.html">03-31</a>
+    <span class="cur">04-01</span>
+  </nav>
+</header>
+
+<div class="summary-wrap">
+  <div class="summary-box">
+    <h3>⚡ 今日速览（共21条）</h3>
+    <ul>
+      <li>🤖 <strong>人形机器人</strong>：特斯拉Optimus V3（Gen3）3月25日曝光减速齿轮箱、灵巧手等核心设计，马斯克确认今夏启动量产、2027年大规模量产；具身智能2026年前两月融资逼近150亿元，国内6家企业跻身百亿估值俱乐部；新华网3月31日深度解读《人形机器人与具身智能标准体系（2026版）》，标准引领产业规范化</li>
+      <li>🚁 <strong>低空经济</strong>：亿航智能2025年Q4首次季度扭亏，全年收入5.095亿元创新高，EH216-S已于3月在广州、合肥启动商业运营售票；eVTOL审定新流程3月1日全面启用，已颁证项目3月31日前完成资料移交；2026年eVTOL市场规模预计达95亿元</li>
+      <li>🔧 <strong>PLM/研发数字化</strong>：工业智能每日观察4月1日：复宏汉霖AI for Science平台加速新药研发，印证AI在PLM全生命周期管理中的颠覆性价值；西门子AI+数字孪生将数据中心冷却成本降低30%；IDC报告：2024年中国PLM市场规模35.1亿元，同比增长18.7%，国产厂商份额首破60%</li>
+      <li>🏭 <strong>智能制造</strong>：工业智能每日观察4月1日：奥特维等智能制造领军企业在储能展全面展示全自动化产线；《工业互联网平台高质量发展行动方案（2026-2028年）》落地推进；人工智能成制造业"焕新"强劲增量，中国发展高层论坛2026年年会专题研讨</li>
+      <li>🚗 <strong>无人配送车</strong>：新石器无人车RaaS即时配送模式获规模验证，青岛单城建成全球最大无人车队，累计150万次配送，年内计划再覆盖50城；萝卜快跑3月30日正式在迪拜启动全无人驾驶商业化运营；2026年无人配送车市场累计出货量预计攀升至15万台</li>
+      <li>🛵 <strong>两轮车/电动车</strong>：2026年4月1日起全国电动自行车、电动摩托车道路通行与安全管理新规正式落地，覆盖车辆登记、驾照资质、通行规则全链条；多品牌（九号、雅迪、台铃、爱玛）计划4月起集中涨价200-300元；新国标元年行业格局加速重塑</li>
+      <li>🔋 <strong>共享充电宝</strong>：倍斯特3月27日举办2026春季新品发布会，发布新一代共享充电柜、共享充电宝、招财猫三大新品；粤港澳大湾区2月启动共享充电宝新监管试点；行业2026年规模预计突破400亿元，头部企业与中小品牌分化加剧</li>
+    </ul>
+  </div>
+</div>
+
+<main class="main">
+
+  <h2 class="section-title">🤖 人形机器人 / 具身智能</h2>
+  <div class="card-grid">
+
+    <article class="card">
+      <div class="card-title">特斯拉Optimus V3曝光核心设计：今夏启动量产，2027年大规模量产目标确认</div>
+      <div class="card-source">新浪财经 / 雪球 / 21财经 ｜ 2026-03-25~27</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">人形机器人</span><span class="tag">特斯拉</span><span class="tag">量产</span>
+      </div>
+      <div class="card-desc">2026年3月25日，特斯拉官方发布Optimus V3（Gen3）最新研发视频，首次集中展示减速齿轮箱、灵巧手设计及高功率逆变器等核心部件细节。马斯克随即确认，Optimus 3有望于今年夏季启动生产，并计划在2027年实现大规模量产，公司已发布相关招聘公告。A股供应链企业（兆威机电、均胜电子等）已启动配套动作，多家企业完成H股IPO。这是继3月12日AWE 2026上海公开亮相后，特斯拉对量产时间表的最明确表态，对研发数字化的意义在于：人形机器人量产将倒逼供应链企业加速数字化研发协同能力建设。</div>
+      <table class="card-table">
+        <tr><th>要素</th><th>内容</th></tr>
+        <tr><td>量产启动</td><td>2026年夏季</td></tr>
+        <tr><td>大规模量产</td><td>2027年</td></tr>
+        <tr><td>核心披露</td><td>减速齿轮箱、灵巧手、高功率逆变器</td></tr>
+        <tr><td>A股联动</td><td>兆威机电、均胜电子等供应链启动配套</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>特斯拉、兆威机电、均胜电子</div>
+      <div class="card-link">🔗 <a href="https://finance.sina.com.cn/wm/2026-03-27/doc-inhskmqi8554189.shtml" target="_blank">sina.com.cn</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">具身智能2026年前两月融资逼近150亿元，国内已有6家企业跻身"百亿估值俱乐部"</div>
+      <div class="card-source">IT之家 / airoboticinfo.com ｜ 2026-03</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">具身智能</span><span class="tag">融资</span><span class="tag">产业化</span>
+      </div>
+      <div class="card-desc">2026年开年，具身智能赛道融资密集落地，仅前两个月行业融资总额已逼近150亿元人民币。国内已有6家人形机器人企业跻身"百亿估值俱乐部"，覆盖灵巧手、传感器与整机等多个环节。曦诺未来（Xynova Flex 1灵巧手，25自由度，手掌重量380克，负载30公斤以上）、法奥等企业获重磅融资。开源证券指出，2026年随着特斯拉、宇树、智元等产线投产，产业首次进入万台级规模化制造阶段。对研发数字化的意义：资本密集涌入将加速具身智能企业的研发管理数字化需求，PLM/ALM系统在机器人研发场景的应用将迎来爆发窗口。</div>
+      <table class="card-table">
+        <tr><th>指标</th><th>数据</th></tr>
+        <tr><td>前两月融资总额</td><td>逼近150亿元</td></tr>
+        <tr><td>百亿估值企业</td><td>国内已有6家</td></tr>
+        <tr><td>2026年量产规模</td><td>万台级（特斯拉/宇树/智元等）</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>曦诺未来、法奥机器人、宇树科技、智元机器人</div>
+      <div class="card-link">🔗 <a href="https://airoboticinfo.com/ai-robot-news/2026-embodied-ai-financing-commercialization" target="_blank">airoboticinfo.com</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">新华网深度解读：《人形机器人与具身智能标准体系（2026版）》标准引领产业规范化新阶段</div>
+      <div class="card-source">新华网 ｜ 2026-03-31</div>
+      <div class="card-tags">
+        <span class="tag follow">持续跟进</span><span class="tag">标准体系</span><span class="tag">工信部</span><span class="tag">具身智能</span>
+      </div>
+      <div class="card-desc">3月31日，新华网发布科技观察文章《标准先行，助推具身智能产业化》，深度解读工信部人形机器人与具身智能标准化技术委员会发布的《人形机器人与具身智能标准体系（2026版）》。该标准体系由120余家科研院所、企业和行业用户单位研究编制，涵盖基础共性、类脑与智算、肢体与部组件、整机与系统、应用、安全伦理6个部分，是我国首个覆盖全产业链、全生命周期的标准顶层设计。工信部专家指出，标准体系将促进上下游产业衔接，推动接口标准化、配件性能标准化，为研发数字化工具（PLM/ALM）在机器人行业的落地提供规范依据。</div>
+      <div class="card-companies"><strong>相关：</strong>工业和信息化部、人形机器人与具身智能标准化技术委员会</div>
+      <div class="card-link">🔗 <a href="http://www3.xinhuanet.com/tech/20260331/21c80968a8884457b6c88d5f3c1f4ca6/c.html" target="_blank">xinhuanet.com</a></div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">🚁 低空经济 / 无人机</h2>
+  <div class="card-grid">
+
+    <article class="card">
+      <div class="card-title">亿航智能2025年Q4首次季度扭亏，全年收入5.095亿元创新高，EH216-S已在广州合肥启动商业运营</div>
+      <div class="card-source">新浪财经 / 腾讯新闻 ｜ 2026-03-14~23</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">eVTOL</span><span class="tag">亿航智能</span><span class="tag">商业化</span>
+      </div>
+      <div class="card-desc">亿航智能（EH.US）公布2025年第四季度及全年财务业绩：2025年全年收入5.095亿元，创历史新高；Q4共交付eVTOL航空器100架，首次实现季度扭亏。公司已于2026年3月在中国正式启动EH216-S商业运营，首批获得运营合格证（OC）的亿航通航与合翼航空，在广州亿航未来城总部及合肥骆岗公园面向公众开展低空观光飞行服务售票，这是全球首个无人驾驶载人eVTOL商业化运营项目。对研发数字化的意义：eVTOL进入商业运营阶段，将推动航空器全生命周期管理（PLM）数字化需求快速增长，适航数据管理、运营维护数字化成为新刚需。</div>
+      <table class="card-table">
+        <tr><th>指标</th><th>数据</th></tr>
+        <tr><td>2025全年收入</td><td>5.095亿元（历史新高）</td></tr>
+        <tr><td>Q4交付量</td><td>100架eVTOL</td></tr>
+        <tr><td>商业运营启动</td><td>2026年3月，广州+合肥</td></tr>
+        <tr><td>2026年eVTOL市场</td><td>预计达95亿元</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>亿航智能、亿航通航、合翼航空</div>
+      <div class="card-link">🔗 <a href="https://finance.sina.cn/2026-03-14/detail-inhqypei0208595.d.html" target="_blank">sina.com.cn</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">eVTOL审定新流程3月1日全面启用，已颁证项目3月31日前完成资料移交，适航管理进入新阶段</div>
+      <div class="card-source">新浪财经 ｜ 2026-03-02</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">eVTOL</span><span class="tag">适航认证</span><span class="tag">民航局</span>
+      </div>
+      <div class="card-desc">2026年3月1日起，eVTOL及无人机项目审定工作重大调整正式落地：新增项目全面启用新流程，由审定中心和航科院选派技术人员加入审查组；已颁证项目须于3月31日前将相关审查资料移交相应审定中心。这一调整标志着中国eVTOL适航管理体系进入集中化、专业化新阶段，有助于提升审定效率、统一技术标准。对研发数字化的意义：适航审定流程的标准化将推动eVTOL企业加速建立符合监管要求的研发数据管理体系，PLM系统在适航数据追溯、版本管理方面的价值将显著提升。</div>
+      <div class="card-companies"><strong>相关：</strong>中国民航局、民航审定中心、航科院</div>
+      <div class="card-link">🔗 <a href="https://finance.sina.com.cn/wm/2026-03-02/doc-inhpqvan8249394.shtml" target="_blank">sina.com.cn</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">2026低空经济"规模化元年"：无人机物流试点城市将从10个扩至30个以上，农业植保订单同比增120%</div>
+      <div class="card-source">新浪财经 / 搜狐 ｜ 2026-03-24</div>
+      <div class="card-tags">
+        <span class="tag follow">持续跟进</span><span class="tag">低空经济</span><span class="tag">无人机</span><span class="tag">十五五规划</span>
+      </div>
+      <div class="card-desc">2026年被业界定义为低空经济"规模化元年"，"十五五"规划纲要将低空经济列为国家重点战略性新兴产业。在应用端，无人机物流配送试点城市将从目前10个扩大到30个以上；今年春季农业植保无人机订单量同比增长120%，电力巡检无人机市场增长超70%，每亩植保成本从15元降至3-5元，效率提高20倍。城市空中交通（UAM）试点已被提上日程，eVTOL适航认证正在加速推进。对研发数字化的意义：无人机行业规模化将推动企业加速研发数字化转型，从设计仿真到适航认证的全链路数字化管理需求迫切。</div>
+      <table class="card-table">
+        <tr><th>场景</th><th>增长数据</th></tr>
+        <tr><td>农业植保订单</td><td>同比+120%</td></tr>
+        <tr><td>电力巡检市场</td><td>同比+70%以上</td></tr>
+        <tr><td>物流试点城市</td><td>10→30+个</td></tr>
+        <tr><td>植保成本</td><td>15元/亩→3-5元/亩</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>大疆、极飞科技、亿航智能、峰飞航空</div>
+      <div class="card-link">🔗 <a href="https://finance.sina.com.cn/wm/2026-03-24/doc-inhsarqw7502165.shtml" target="_blank">sina.com.cn</a></div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">🔧 PLM / ALM / 研发数字化</h2>
+  <div class="card-grid">
+
+    <article class="card">
+      <div class="card-title">工业智能每日观察4月1日：复宏汉霖AI for Science平台加速新药研发，印证AI在PLM全生命周期管理中的颠覆性价值</div>
+      <div class="card-source">工业智能算网（gyznsw.cn）｜ 2026-04-01</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">AI+PLM</span><span class="tag">生命科学</span><span class="tag">研发数字化</span>
+      </div>
+      <div class="card-desc">2026年4月1日工业智能每日观察报道：复宏汉霖借助自主搭建的"AI for Science"计算平台成功加速新药研发及临床获批，印证了AI在生命科学与复杂工艺全生命周期管理（PLM）中的颠覆性价值。同期，奥特维等智能制造领军企业在储能展上全面展示最新全自动化产线。西门子在最新工业战略通报中披露，AI与数字孪生深度结合在新型数据中心设计中将冷却能源成本降低30%，在氢能工厂生命周期管理中全面引入生成式AI助手。对研发数字化的意义：AI原生PLM正从概念走向实际落地，生命科学、能源等行业成为AI+PLM融合的先行领域。</div>
+      <div class="card-companies"><strong>相关：</strong>复宏汉霖、奥特维、西门子</div>
+      <div class="card-link">🔗 <a href="https://www.gyznsw.cn/2026/04/01/2026-04-01-industrial-intelligence-daily/" target="_blank">gyznsw.cn</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">IDC报告：2024年中国PLM市场规模35.1亿元，同比增长18.7%，国产厂商份额首次突破60%</div>
+      <div class="card-source">雪球 / 驱动中国 ｜ 2026-03</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">PLM市场</span><span class="tag">IDC报告</span><span class="tag">国产替代</span>
+      </div>
+      <div class="card-desc">根据IDC最新发布的《中国制造业PLM市场跟踪报告》，2024年中国PLM市场规模达到35.1亿元，同比增长18.7%，其中国产厂商市场份额首次突破60%，智石开以显著优势位居国产厂商首位。2026年，超83%的规模以上制造企业将PLM列为数字化建设核心模块。传统PLM增速仅12%，而融合AI原生、云原生技术的智能PLM增速突破35%，已成为贯穿全链路的智能中枢。对研发数字化的意义：国产PLM市场份额首破60%是历史性里程碑，AI原生PLM的高速增长（35%）将重塑行业竞争格局，国产厂商在本土制造业场景的深度适配优势持续扩大。</div>
+      <table class="card-table">
+        <tr><th>指标</th><th>数据</th></tr>
+        <tr><td>2024年市场规模</td><td>35.1亿元</td></tr>
+        <tr><td>同比增速</td><td>18.7%</td></tr>
+        <tr><td>国产份额</td><td>首次突破60%</td></tr>
+        <tr><td>AI原生PLM增速</td><td>35%（传统PLM仅12%）</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>智石开、达索系统、西门子、数码大方、橙色云</div>
+      <div class="card-link">🔗 <a href="https://xueqiu.com/6952665702/377365738" target="_blank">xueqiu.com</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">工业软件三巨头战略分化：西门子坚守全栈集成，PTC聚焦PLM+CAD，达索坚守高端仿真协同研发</div>
+      <div class="card-source">eefocus / 10100.com ｜ 2026-03</div>
+      <div class="card-tags">
+        <span class="tag follow">背景对照</span><span class="tag">PLM</span><span class="tag">西门子</span><span class="tag">PTC</span><span class="tag">达索</span>
+      </div>
+      <div class="card-desc">工业软件行业经历十年发展，三大巨头PTC、达索系统、西门子的战略路径出现显著分化：PTC剥离物联网业务，聚焦PLM与CAD核心；达索系统坚守高端仿真与协同研发；西门子坚持全栈集成，面向高复杂度行业。随着物联网、数字孪生、数字线程等技术兴起，基于模型的企业（MBE）正成为工业界新焦点。西门子、达索、PTC均在加速PLM与AI的融合布局，路径各有侧重。对研发数字化的意义：三巨头战略分化意味着企业选型时需更精准匹配自身场景，AI原生PLM将成为下一轮竞争核心，国产厂商的窗口期正在打开。</div>
+      <div class="card-companies"><strong>相关：</strong>西门子、PTC、达索系统、Autodesk</div>
+      <div class="card-link">🔗 <a href="https://www.eefocus.com/article/1921235.html" target="_blank">eefocus.com</a></div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">🏭 智能制造 / 工业互联网</h2>
+  <div class="card-grid">
+
+    <article class="card">
+      <div class="card-title">《工业互联网平台高质量发展行动方案（2026-2028年）》落地：到2028年AI工业应用新型网络规模持续扩大</div>
+      <div class="card-source">国务院官网 / 新华网 ｜ 2026-01</div>
+      <div class="card-tags">
+        <span class="tag follow">持续跟进</span><span class="tag">工业互联网</span><span class="tag">AI+制造</span><span class="tag">工信部</span>
+      </div>
+      <div class="card-desc">国务院发布《推动工业互联网平台高质量发展行动方案（2026-2028年）》，提出到2028年满足人工智能工业应用高通量、低时延、高可靠、低抖动通信需求的新型工业网络规模持续扩大，在原材料、装备制造、消费品、电子信息等重点行业工业企业加快部署应用。同期发布的《工业互联网和人工智能融合赋能行动方案》《"人工智能+制造"专项行动实施意见》形成政策组合拳，推动AI向研发设计、生产制造、管理决策、运维服务等制造业全环节延伸。对研发数字化的意义：政策组合拳将加速工业互联网平台与研发数字化工具的深度融合，研发设计环节的AI赋能将成为重点突破方向。</div>
+      <div class="card-companies"><strong>相关：</strong>工业和信息化部、国家发改委</div>
+      <div class="card-link">🔗 <a href="https://www.gov.cn/zhengce/202601/content_7054663.htm" target="_blank">gov.cn</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">人工智能成制造业"焕新"强劲增量：中国发展高层论坛2026年年会专题研讨，"人工智能+"全方位赋能千行百业</div>
+      <div class="card-source">数字中国（digitalchina.gov.cn）｜ 2026-03-26</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">AI+制造</span><span class="tag">数智化转型</span><span class="tag">十五五规划</span>
+      </div>
+      <div class="card-desc">3月23日，中国发展高层论坛2026年年会"制造业数智化转型"专题研讨会召开，与会嘉宾形成清晰共识：人工智能已成为制造业"焕新"的强劲增量。"十五五"规划纲要提出全面实施"人工智能+"行动，全方位赋能千行百业。工信部数据显示，2026年是"十五五"开局之年，工业经济将聚焦稳增长、强创新、促融合三大主线，推动科技创新和产业创新深度融合。对研发数字化的意义：制造业数智化转型的政策定调将推动企业加大研发数字化投入，AI+PLM、AI+ALM的融合应用将从试点走向规模化落地。</div>
+      <div class="card-companies"><strong>相关：</strong>工业和信息化部、国家发改委</div>
+      <div class="card-link">🔗 <a href="https://www.digitalchina.gov.cn/2026/xwzx/szkx/202603/t20260326_5300622.htm" target="_blank">digitalchina.gov.cn</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">我国到2026年将制修订超百项智能制造国家与行业标准，《国家智能制造标准体系建设指南（2024版）》落地推进</div>
+      <div class="card-source">国务院官网 ｜ 2025-04</div>
+      <div class="card-tags">
+        <span class="tag follow">背景对照</span><span class="tag">智能制造</span><span class="tag">标准体系</span><span class="tag">工信部</span>
+      </div>
+      <div class="card-desc">工业和信息化部印发的《国家智能制造标准体系建设指南（2024版）》提出，到2026年制修订100项以上国家标准与行业标准的目标，覆盖智能制造全链路关键环节。这一标准体系建设将为制造业数字化转型提供规范依据，推动智能制造从"各自为战"走向"标准引领"。对研发数字化的意义：智能制造标准体系的完善将为研发数字化工具（PLM/MES/ERP）的互联互通提供标准基础，有助于打破数据孤岛，推动研发-制造-运营全链路数字化贯通。</div>
+      <div class="card-companies"><strong>相关：</strong>工业和信息化部、国家标准化管理委员会</div>
+      <div class="card-link">🔗 <a href="https://www.gov.cn/lianbo/bumen/202504/content_7020640.htm" target="_blank">gov.cn</a></div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">🚗 无人配送车</h2>
+  <div class="card-grid">
+
+    <article class="card">
+      <div class="card-title">新石器无人车RaaS模式获规模验证：青岛建成全球最大单城无人车队，累计150万次配送，年内再覆盖50城</div>
+      <div class="card-source">新华网 / 观察者网 ｜ 2026-03-27</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">无人配送</span><span class="tag">新石器</span><span class="tag">RaaS</span>
+      </div>
+      <div class="card-desc">新石器无人车宣布，通过与滴滴等合作伙伴在青岛等城市的磨合协作，不到十个月在青岛建成全球最大单城市无人车队，累计提供超150万次物流配送服务，开创了按需调度的新业态，验证了L4级自动驾驶无人车在即时配送领域的大有可为。下一步，公司将深化场景、扩大部署和构建生态，年内计划再覆盖50城，进一步推动城市配送和城市物流发展升级。对研发数字化的意义：无人配送车规模化运营将推动车队管理、路线优化、维护保养等全生命周期数字化管理需求，RaaS模式对研发迭代速度提出更高要求。</div>
+      <table class="card-table">
+        <tr><th>指标</th><th>数据</th></tr>
+        <tr><td>青岛累计配送</td><td>超150万次</td></tr>
+        <tr><td>年内扩张计划</td><td>再覆盖50城</td></tr>
+        <tr><td>2026年累计出货量预测</td><td>15万台</td></tr>
+        <tr><td>运营覆盖</td><td>全国31省市、300+城市</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>新石器无人车、滴滴、顺丰、京东</div>
+      <div class="card-link">🔗 <a href="https://www.xinhuanet.com/tech/20260327/8c8513d072224ce7ad76a09d9564b8d2/c.html" target="_blank">xinhuanet.com</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">萝卜快跑3月30日正式在迪拜启动全无人驾驶商业化运营，成迪拜首个全无人驾驶服务平台</div>
+      <div class="card-source">每日经济新闻 / 观察者网 ｜ 2026-03-30</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">自动驾驶</span><span class="tag">萝卜快跑</span><span class="tag">出海</span>
+      </div>
+      <div class="card-desc">2026年3月30日，百度旗下萝卜快跑正式在迪拜启动全无人驾驶商业化运营，成为迪拜首个全无人驾驶服务平台。这是继国内多城市规模化运营后，中国自动驾驶企业在中东市场的重要里程碑。萝卜快跑此前已在武汉、北京、上海等城市实现规模化商业运营，迪拜项目标志着中国自动驾驶技术正式走向全球商业化落地。对研发数字化的意义：自动驾驶出海将推动企业建立符合多国法规的研发合规管理体系，跨地区的研发协同与数据管理需求将显著增加。</div>
+      <div class="card-companies"><strong>相关：</strong>百度、萝卜快跑、迪拜道路交通局</div>
+      <div class="card-link">🔗 <a href="https://m.guancha.cn/economy/2026_03_27_811684.shtml" target="_blank">guancha.cn</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">无人配送车行业规模化拐点已现：2025年累计出货量突破3.9万台，2026年预计达15万台，百亿级市场成型</div>
+      <div class="card-source">新战略低速无人驾驶产业研究所 / 新浪财经 ｜ 2026-03-24</div>
+      <div class="card-tags">
+        <span class="tag follow">持续跟进</span><span class="tag">无人配送</span><span class="tag">市场规模</span><span class="tag">产业报告</span>
+      </div>
+      <div class="card-desc">根据低速无人驾驶产业联盟数据，截至2025年11月底，我国户外场景无人配送车累计出货量突破3.9万台，仅2025年新增交付约2.7万台，年交付规模从"数千台"跃升至"数万台"量级。运营网络已覆盖全国31个省市、300多个城市，江苏、浙江、安徽等12个省份实现地级市全覆盖，深圳、苏州等城市部署量突破1000台。预计到2026年，市场累计出货量将攀升至15万台，并有望在2030年达到75万至105万台，形成百亿级市场空间。对研发数字化的意义：规模化拐点的到来将推动无人配送车企业加速研发数字化建设，从设计仿真到量产交付的全链路数字化管理成为竞争关键。</div>
+      <table class="card-table">
+        <tr><th>时间节点</th><th>累计出货量</th></tr>
+        <tr><td>2025年11月底</td><td>3.9万台</td></tr>
+        <tr><td>2026年预测</td><td>15万台</td></tr>
+        <tr><td>2030年预测</td><td>75-105万台</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>新石器、九识智能、毫末智行、美团、京东</div>
+      <div class="card-link">🔗 <a href="https://finance.sina.cn/2026-03-24/detail-inhscxkh7017075.d.html" target="_blank">sina.com.cn</a></div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">🛵 两轮车 / 电动车 / 共享单车</h2>
+  <div class="card-grid">
+
+    <article class="card">
+      <div class="card-title">2026年4月1日起全国两轮车新规正式落地：覆盖车辆登记、驾照资质、通行规则、改装管理全链条</div>
+      <div class="card-source">什么值得买 / 腾讯新闻 ｜ 2026-03-28~31</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">电动车新规</span><span class="tag">4月1日实施</span><span class="tag">新国标</span>
+      </div>
+      <div class="card-desc">2026年4月1日起，全国范围内针对电动自行车、电动摩托车及燃油摩托车的道路通行与安全管理新规正式落地。此次新规依据GB 17761-2024《电动自行车安全技术规范》及相关法规制定，覆盖车辆登记、驾照资质、通行规则、改装管理、停放充电等全链条，核心目的在于规范道路通行秩序，保障出行安全。深圳已于3月28日公布"三级限行"新规，4月1日起施行。对研发数字化的意义：新国标的全面落地将推动电动车企业加速产品研发数字化管理，从设计合规验证到生产一致性管理，PLM系统的合规管理模块需求将显著增加。</div>
+      <div class="card-companies"><strong>相关：</strong>雅迪、爱玛、台铃、九号、滴滴青桔</div>
+      <div class="card-link">🔗 <a href="https://post.smzdm.com/p/axkwp65w/" target="_blank">smzdm.com</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">多品牌电动两轮车计划4月起集中涨价200-300元：原材料成本上涨+工厂返利到期+新国标切换三重压力叠加</div>
+      <div class="card-source">中国汽摩配（citmt.cn）｜ 2026-03</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">电动两轮车</span><span class="tag">涨价</span><span class="tag">新国标</span>
+      </div>
+      <div class="card-desc">据媒体报道，自2026年4月起，两轮电动车市场将迎来一波集中涨价潮。受原材料成本上涨、工厂返利政策到期以及优惠活动进入尾声等多重因素影响，九号、雅迪、台铃、爱玛等国内主流电动两轮车品牌计划从4月起对旗下大部分车型正式上调售价，预计涨幅200-300元。新国标元年叠加涨价压力，行业格局加速重塑，头部品牌（雅迪市占率26.3%）优势进一步巩固，中小品牌生存压力加剧。对研发数字化的意义：成本压力将推动电动车企业加速研发降本，通过数字化仿真优化材料选型、缩短研发周期成为竞争关键。</div>
+      <table class="card-table">
+        <tr><th>品牌</th><th>涨价计划</th></tr>
+        <tr><td>九号、雅迪、台铃、爱玛</td><td>4月起，预计+200-300元</td></tr>
+        <tr><td>雅迪市占率</td><td>26.3%（TOP1）</td></tr>
+        <tr><td>TOP3合计份额</td><td>超50%</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>雅迪、爱玛、台铃、九号公司</div>
+      <div class="card-link">🔗 <a href="https://www.citmt.cn/news/202603/122343.html" target="_blank">citmt.cn</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">滴滴青桔率先推出完全符合新国标的共享电单车，新国标元年共享两轮车行业迎来产品升级窗口</div>
+      <div class="card-source">voc.com.cn ｜ 2026-03</div>
+      <div class="card-tags">
+        <span class="tag follow">持续跟进</span><span class="tag">共享单车</span><span class="tag">新国标</span><span class="tag">滴滴青桔</span>
+      </div>
+      <div class="card-desc">新的《电动自行车安全技术规范》全面落地实施，滴滴青桔秉持安全设计理念，率先在行业内推出完全符合新国标要求的共享电单车，展现出强大的技术实力与前瞻性布局。新车型从整车结构、工艺和材料选择、塑件分配、电气架构和电子部件等方面进行全面升级，重点解决共享电单车高频次调度和换电场景下的安全可靠性问题。对研发数字化的意义：共享两轮车企业在新国标压力下加速产品迭代，对研发数字化工具（PLM/PDM）的需求将显著提升，特别是在合规验证、材料管理、版本控制等方面。</div>
+      <div class="card-companies"><strong>相关：</strong>滴滴青桔、美团单车、哈啰出行</div>
+      <div class="card-link">🔗 <a href="https://m.voc.com.cn/xhn/news/202504/28499262.html" target="_blank">voc.com.cn</a></div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">🔋 共享充电宝</h2>
+  <div class="card-grid">
+
+    <article class="card">
+      <div class="card-title">倍斯特3月27日举办2026春季新品发布会：发布新一代共享充电柜、共享充电宝、招财猫三大核心新品</div>
+      <div class="card-source">倍斯特科技官网（besiter-iot.com）｜ 2026-03-27</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">共享充电宝</span><span class="tag">倍斯特</span><span class="tag">新品发布</span>
+      </div>
+      <div class="card-desc">2026年3月27日，深圳市倍斯特科技股份有限公司于深圳举办"三全聚力，向新而行——倍斯特2026春季新品发布会"，重磅发布新一代共享充电柜、新一代共享充电宝、招财猫共享充电宝三大核心新品，以硬核科技重构行业标准。新品搭载8000mAh大容量电池，支持华为SCP 22.5W超级快充技术，30分钟可充满60%电量；柜机采用无限堆叠+百变头盖设计，节省空间、提高设备利用率。对研发数字化的意义：共享充电宝行业在监管趋严背景下加速产品升级，硬件厂商的研发数字化能力（快速迭代、合规验证）将成为核心竞争力。</div>
+      <table class="card-table">
+        <tr><th>新品</th><th>核心参数</th></tr>
+        <tr><td>新一代共享充电宝</td><td>8000mAh，22.5W快充，30min充60%</td></tr>
+        <tr><td>新一代共享充电柜</td><td>无限堆叠+百变头盖设计</td></tr>
+        <tr><td>招财猫共享充电宝</td><td>全场景共享充电生态</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>倍斯特科技、怪兽充电、街电、美团充电</div>
+      <div class="card-link">🔗 <a href="http://www.besiter-iot.com/articles/sqjlxx.html" target="_blank">besiter-iot.com</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">粤港澳大湾区2月启动共享充电宝新监管试点，3C认证追溯二维码新规3月1日起实施，行业合规压力加剧</div>
+      <div class="card-source">Reportify / 看看新闻 ｜ 2026-02~03</div>
+      <div class="card-tags">
+        <span class="tag hot">今日新增</span><span class="tag">共享充电宝</span><span class="tag">监管</span><span class="tag">3C认证</span>
+      </div>
+      <div class="card-desc">粤港澳大湾区于2026年2月11日启动共享充电宝新监管试点，对共享充电宝设备的安全标准、运营规范提出更高要求。与此同时，3C认证追溯二维码新规已于3月1日起正式实施，要求共享充电宝产品在流通环节实现全程可追溯。此前，记者在上海调查发现，怪兽充电、街电的部分型号共享充电宝未取得3C认证却仍在租赁流通，监管部门已介入调查。对研发数字化的意义：监管趋严将推动共享充电宝企业加速产品合规管理数字化，从研发设计到生产流通的全链路追溯能力将成为行业准入门槛。</div>
+      <div class="card-companies"><strong>相关：</strong>怪兽充电、街电、小电科技、美团充电</div>
+      <div class="card-link">🔗 <a href="https://reportify.cn/companies/US:EM/documents" target="_blank">reportify.cn</a></div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">共享充电宝行业2026年规模预计突破400亿元，头部企业与中小品牌分化加剧，精细化运营成核心竞争力</div>
+      <div class="card-source">中国报告大厅 / 前瞻产业研究院 ｜ 2026-03</div>
+      <div class="card-tags">
+        <span class="tag follow">持续跟进</span><span class="tag">共享充电宝</span><span class="tag">市场规模</span><span class="tag">行业趋势</span>
+      </div>
+      <div class="card-desc">根据中国报告大厅数据，共享充电宝行业已告别早期野蛮生长，步入存量竞争与高质量发展并行的新阶段。2024年市场规模约150亿元，2025年全年突破380亿元，用户规模突破5亿人，日均使用频次超1.2亿次。2026年行业规模预计突破400亿元。截至2025年8月，行业已形成"四强主导+区域深耕"的稳定竞争格局，头部企业凭借资本、技术与场景优势巩固市场地位，长尾品牌通过差异化策略寻求生存空间。对研发数字化的意义：行业进入精细化运营阶段，对设备管理、用户数据分析、运营优化等数字化能力的需求将显著提升，研发数字化投入将向运营数字化延伸。</div>
+      <table class="card-table">
+        <tr><th>年份</th><th>市场规模</th></tr>
+        <tr><td>2024年</td><td>约150亿元</td></tr>
+        <tr><td>2025年</td><td>突破380亿元</td></tr>
+        <tr><td>2026年预测</td><td>突破400亿元</td></tr>
+        <tr><td>用户规模</td><td>突破5亿人</td></tr>
+      </table>
+      <div class="card-companies"><strong>相关：</strong>怪兽充电、街电、小电科技、美团充电、来电科技</div>
+      <div class="card-link">🔗 <a href="https://m.chinabgao.com/info/1297458.html" target="_blank">chinabgao.com</a></div>
+    </article>
+
+  </div>
+
+</main>
+
+<div class="conclusion-wrap">
+  <div class="conclusion">
+    <h4>📊 今日变化雷达</h4>
+    <p>今日新增：14条 ｜ 持续跟进：5条 ｜ 背景对照：2条 ｜ 剔除（与昨日同事实无新增点）：0条</p>
+    <p>覆盖板块：7/7（人形机器人✅ 低空经济✅ PLM/研发数字化✅ 智能制造✅ 无人配送车✅ 两轮车✅ 共享充电宝✅）</p>
+    <h4>🔗 跨行业联动洞察</h4>
+    <p>本期最显著的跨行业联动信号：<strong>标准化浪潮同步席卷多个板块</strong>。人形机器人《2026版标准体系》、低空经济eVTOL审定新流程、电动两轮车新国标、共享充电宝3C认证追溯新规，四个板块在同一时间窗口密集落地监管标准，标志着中国新兴硬件产业正从"野蛮生长"全面转向"标准引领"阶段。这一趋势对研发数字化的意义极为深远：合规管理将成为PLM/ALM系统的核心刚需模块，能够支撑多标准、多法规、全生命周期合规追溯的研发数字化平台将迎来需求爆发。</p>
+    <p>第二个联动信号：<strong>AI原生化渗透全链路</strong>。从西门子AI+数字孪生将数据中心冷却成本降低30%，到复宏汉霖AI for Science加速新药研发，再到特斯拉Optimus V3量产倒逼供应链数字化，AI已从"锦上添花"变为"研发基础设施"。国产PLM厂商AI原生增速（35%）远超传统PLM（12%），窗口期正在打开。</p>
+    <h4>✅ 本周可执行动作</h4>
+    <p>① 关注4月1日两轮车新规落地执行情况，跟踪深圳"三级限行"实施效果及各品牌涨价落地节奏；② 跟进亿航智能EH216-S广州/合肥商业运营首批售票情况，关注全球首个无人驾驶载人eVTOL商业化运营的用户反馈；③ 关注特斯拉Optimus V3夏季量产启动的具体时间节点及A股供应链企业订单落地情况；④ 跟踪新石器无人车年内50城扩张计划的推进节奏，关注RaaS模式在新城市的复制效果。</p>
+    <h4>💡 今日结论</h4>
+    <p>2026年4月1日是多个行业的"新规元年"节点：电动两轮车新国标全面落地、eVTOL审定资料移交截止、共享充电宝3C追溯新规实施满月。标准化与合规化正在成为新兴硬件产业的"第二增长曲线"——不是限制，而是筛选优质玩家、推动行业升级的催化剂。对研发数字化从业者而言，合规驱动的PLM/ALM需求将是2026年最确定的增量市场之一，值得重点布局。</p>
+  </div>
+</div>
+
+<footer class="footer">
+  研发数字化每日资讯 · 第86期 · 2026年4月1日<br>
+  覆盖：人形机器人 / 低空经济 / PLM·研发数字化 / 智能制造 / 无人配送车 / 两轮车·电动车 / 共享充电宝<br>
+  数据来源：新华网、新浪财经、工业智能算网、IDC、观察者网、倍斯特科技官网等权威媒体及机构报告
+</footer>
+
+</body>
+</html>
