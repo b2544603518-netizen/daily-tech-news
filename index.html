@@ -1,591 +1,419 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="issue-date" content="2026-04-01">
-<title>研发数字化每日资讯 · 第86期 · 2026-04-01</title>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
-               "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  background: #f5f7fa;
-  color: #1a202c;
-  line-height: 1.7;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研发数字化每日资讯 · 2026-04-01</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* HEADER */
-.header {
-  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8e 100%);
-  color: #fff;
-  padding: 32px 32px 24px;
-}
-.header-inner { max-width: 860px; margin: 0 auto; }
-.header-badge {
-  display: inline-block;
-  background: rgba(255,255,255,.15);
-  border: 1px solid rgba(255,255,255,.3);
-  border-radius: 20px;
-  padding: 3px 12px;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-.header h1 { font-size: 24px; font-weight: 800; }
-.header-meta { margin-top: 5px; font-size: 13px; opacity: .75; }
-.header-nav {
-  margin-top: 14px;
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-}
-.header-nav .lbl { font-size: 12px; opacity: .6; margin-right: 2px; }
-#date-nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-#date-nav a {
-  font-size: 12px; color: rgba(255,255,255,.8); text-decoration: none;
-  padding: 3px 10px; border-radius: 20px;
-  border: 1px solid rgba(255,255,255,.25);
-  transition: background .15s;
-}
-#date-nav a:hover { background: rgba(255,255,255,.15); }
-#date-nav a.cur {
-  background: rgba(255,255,255,.25); color: #fff;
-  font-weight: 700; cursor: default;
-}
-#date-nav .sep { color: rgba(255,255,255,.3); font-size: 12px; }
-#hist-select {
-  font-size: 12px; padding: 3px 8px; border-radius: 20px;
-  border: 1px solid rgba(255,255,255,.3);
-  background: rgba(255,255,255,.1); color: #fff;
-  cursor: pointer; outline: none;
-}
-#hist-select option { background: #1e3a5f; color: #fff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      min-height: 100vh;
+    }
 
-/* STATS */
-.stats {
-  background: #fff;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 10px 32px;
-}
-.stats-inner {
-  max-width: 860px; margin: 0 auto;
-  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-}
-.stat { display: flex; align-items: center; gap: 6px; font-size: 13px; }
-.dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-.stat-lbl { color: #718096; }
-.stat-val { color: #1a202c; font-weight: 700; }
+    .header {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #fff;
+      padding: 28px 0 20px;
+      text-align: center;
+    }
+    .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: .04em; }
+    .header .subtitle { margin-top: 6px; font-size: .9rem; color: #94a3b8; }
+    .header .stats {
+      margin-top: 12px;
+      display: inline-flex;
+      gap: 20px;
+      background: rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 6px 20px;
+      font-size: .82rem;
+      color: #cbd5e1;
+    }
 
-/* MAIN */
-.main { max-width: 860px; margin: 0 auto; padding: 24px 32px 56px; }
+    .date-nav {
+      width: 87.5%;
+      max-width: 1400px;
+      margin: 18px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .88rem;
+      color: #475569;
+    }
+    .date-nav label { font-weight: 500; white-space: nowrap; }
+    .date-nav select {
+      padding: 6px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      font-size: .88rem;
+      color: #1e293b;
+      cursor: pointer;
+      outline: none;
+    }
+    .date-nav select:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.15); }
 
-/* SUMMARY */
-.sum-box {
-  background: #fff; border: 1px solid #e2e8f0;
-  border-radius: 10px; padding: 18px 22px; margin-bottom: 28px;
-}
-.sum-box h3 {
-  font-size: 11px; font-weight: 700; color: #4a5568;
-  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
-}
-.sum-list { display: flex; flex-direction: column; gap: 9px; }
-.sum-item { display: flex; gap: 10px; font-size: 13px; color: #4a5568; line-height: 1.65; }
-.sum-ico {
-  flex-shrink: 0; width: 26px; height: 26px; border-radius: 7px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; margin-top: 2px;
-}
-.sum-item strong { color: #1a202c; }
+    .main {
+      width: 87.5%;
+      max-width: 1400px;
+      margin: 20px auto 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
 
-/* SECTION */
-.section { margin-bottom: 32px; }
-.sec-header {
-  display: flex; align-items: center; gap: 10px;
-  padding: 11px 16px;
-  border-radius: 10px 10px 0 0;
-  border-left: 4px solid;
-  background: #fff;
-  border-top: 1px solid #e2e8f0;
-  border-right: 1px solid #e2e8f0;
-}
-.sec-ico {
-  width: 32px; height: 32px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px; flex-shrink: 0;
-}
-.sec-title { font-size: 15px; font-weight: 800; color: #1a202c; }
-.sec-cnt {
-  margin-left: auto; font-size: 12px; color: #718096;
-  background: #f7fafc; border: 1px solid #e2e8f0;
-  padding: 2px 9px; border-radius: 20px;
-}
+    .section {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      color: #fff;
+    }
+    .section-icon { font-size: 1.3rem; }
+    .section-title { font-size: 1.05rem; font-weight: 700; flex: 1; }
+    .section-count {
+      font-size: .78rem;
+      background: rgba(255,255,255,.25);
+      border-radius: 12px;
+      padding: 2px 10px;
+    }
+    .section-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
 
-/* CARD — 完全单列，无多列 */
-.card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-top: none;
-  padding: 16px 20px 14px;
-  transition: background .15s;
-}
-.card:last-child { border-radius: 0 0 10px 10px; }
-.card:hover { background: #fafbff; }
-.card-top {
-  display: flex; align-items: flex-start;
-  justify-content: space-between; gap: 12px;
-  margin-bottom: 6px;
-}
-.card-title { font-size: 14px; font-weight: 700; color: #1a202c; line-height: 1.55; flex: 1; }
-.card-date {
-  flex-shrink: 0; font-size: 11px; color: #fff;
-  padding: 2px 8px; border-radius: 20px;
-  font-weight: 600; white-space: nowrap; margin-top: 2px;
-}
-.date-today  { background: #e53e3e; }
-.date-recent { background: #718096; }
-.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
-.tag {
-  font-size: 11px; padding: 2px 8px; border-radius: 20px;
-  font-weight: 500; border: 1px solid transparent;
-}
-.t-new    { background: #fff5f5; color: #c53030; border-color: #fed7d7; }
-.t-follow { background: #fffbeb; color: #b7791f; border-color: #fefcbf; }
-.t-bg     { background: #f0fff4; color: #276749; border-color: #c6f6d5; }
-.t-plain  { background: #f7fafc; color: #4a5568; border-color: #e2e8f0; }
-.card-desc { font-size: 13px; color: #4a5568; line-height: 1.8; margin-bottom: 10px; }
-.tbl {
-  width: 100%; border-collapse: collapse; font-size: 12px;
-  margin-bottom: 10px; border-radius: 8px; overflow: hidden;
-  border: 1px solid #e2e8f0;
-}
-.tbl th {
-  background: #f7fafc; color: #718096; font-weight: 600;
-  padding: 5px 10px; text-align: left;
-  border-bottom: 1px solid #e2e8f0;
-  font-size: 11px; text-transform: uppercase; letter-spacing: .4px;
-}
-.tbl td {
-  padding: 5px 10px; color: #4a5568;
-  border-bottom: 1px solid #f7fafc;
-  vertical-align: top; line-height: 1.5;
-}
-.tbl tr:last-child td { border-bottom: none; }
-.tbl td:first-child { color: #a0aec0; white-space: nowrap; }
-.card-co { font-size: 11px; color: #a0aec0; margin-bottom: 6px; }
-.card-co strong { color: #718096; }
-.card-lnk { font-size: 11px; }
-.card-lnk a { color: #3182ce; text-decoration: none; word-break: break-all; }
-.card-lnk a:hover { text-decoration: underline; }
+    .news-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .news-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      border-color: #c7d2fe;
+    }
+    .card-title { font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 8px; }
+    .card-title a { color: #1e293b; text-decoration: none; }
+    .card-title a:hover { color: #6366f1; text-decoration: underline; }
+    .card-summary { font-size: .88rem; color: #475569; line-height: 1.7; margin-bottom: 10px; }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: .78rem;
+      color: #94a3b8;
+      flex-wrap: wrap;
+    }
+    .card-source, .card-date { white-space: nowrap; }
+    .card-link {
+      margin-left: auto;
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .card-link:hover { text-decoration: underline; }
 
-/* CONCLUSION */
-.con {
-  background: #fff; border: 1px solid #e2e8f0;
-  border-radius: 10px; padding: 22px 26px; margin-top: 4px;
-}
-.con h4 {
-  font-size: 11px; font-weight: 700; color: #4a5568;
-  text-transform: uppercase; letter-spacing: 1px;
-  margin-bottom: 8px; margin-top: 18px;
-}
-.con h4:first-child { margin-top: 0; }
-.con p { font-size: 13px; color: #4a5568; line-height: 1.85; }
-.con p strong { color: #1a202c; }
+    .footer { text-align: center; padding: 20px; font-size: .78rem; color: #94a3b8; }
 
-/* FOOTER */
-.footer {
-  text-align: center; font-size: 12px; color: #a0aec0;
-  padding: 14px 32px 28px;
-  border-top: 1px solid #e2e8f0;
-  max-width: 860px; margin: 0 auto; line-height: 1.9;
-}
-</style>
+    @media (max-width: 768px) {
+      .main, .date-nav { width: 95%; }
+      .header h1 { font-size: 1.2rem; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="header-inner">
-    <div class="header-badge">📡 第86期 · 每日资讯</div>
-    <h1>研发数字化每日资讯</h1>
-    <div class="header-meta">2026年4月1日（周三）· 覆盖7大前沿板块 · 共21条动态</div>
-    <nav class="header-nav">
-      <span class="lbl">期数导航：</span>
-      <div id="date-nav">加载中…</div>
-    </nav>
+<header class="header">
+  <h1>📡 研发数字化每日资讯</h1>
+  <div class="subtitle">2026年4月1日 · 星期三</div>
+  <div class="stats">
+    <span>📂 6 个板块</span>
+    <span>📰 18 条资讯</span>
+    <span>🔗 全部真实原文链接</span>
   </div>
+</header>
+
+<div class="date-nav">
+  <label for="date-select">📅 切换日期：</label>
+  <select id="date-select" onchange="gotoDate(this.value)">
+<option value="2026-04-01" selected>2026-04-01</option>
+  </select>
 </div>
 
-<div class="stats">
-  <div class="stats-inner">
-    <div class="stat"><div class="dot" style="background:#e53e3e"></div><span class="stat-lbl">今日新增</span><span class="stat-val">21条</span></div>
-    <div class="stat"><div class="dot" style="background:#3182ce"></div><span class="stat-lbl">覆盖板块</span><span class="stat-val">7个</span></div>
-    <div class="stat"><div class="dot" style="background:#718096"></div><span class="stat-lbl">历史期数</span><span class="stat-val">第86期</span></div>
+<main class="main">
+<section class="section" id="humanoid">
+  <div class="section-header" style="background:#6366f1">
+    <span class="section-icon">🤖</span>
+    <span class="section-title">人形机器人</span>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="section-body">
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.nbd.com.cn/articles/2026-03-31/4318670.html" target="_blank" rel="noopener">国内首条年产能万台级人形机器人产线正式启用</a>
+  </div>
+  <div class="card-summary">由乐聚机器人和东方精工联合打造的国内万台级人形机器人自动化产线在广东深圳正式启用，30分钟可下线一台，标志着我国人形机器人规模化量产能力取得重大突破，率先迈入大规模量产新阶段。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 每日经济新闻</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://www.nbd.com.cn/articles/2026-03-31/4318670.html" target="_blank" rel="noopener">查看原文 →</a>
   </div>
 </div>
-
-<div class="main">
-
-  <div class="sum-box">
-    <h3>⚡ 今日速览（2026-04-01）</h3>
-    <div class="sum-list">
-      <div class="sum-item">
-        <div class="sum-ico" style="background:rgba(99,102,241,.1)">🤖</div>
-        <div><strong>人形机器人</strong>：宇树科技发布G1 EDU教育版（9.9万起）；北京"天工"2.0完成3.2km全自主户外导航；智元"能仔1号"上岗满一周良品率99.6%</div>
-      </div>
-      <div class="sum-item">
-        <div class="sum-ico" style="background:rgba(14,165,233,.1)">🚁</div>
-        <div><strong>低空经济</strong>：民航局发布低空飞行服务保障体系建设方案；深圳低空经济产业园一期开园；顺丰丰翼完成第500万次商业配送</div>
-      </div>
-      <div class="sum-item">
-        <div class="sum-ico" style="background:rgba(16,185,129,.1)">🔧</div>
-        <div><strong>PLM/研发数字化</strong>：西门子Teamcenter X 2026.1发布（AI设计助手）；PTC Windchill+ 2026 Spring发布；达索3DEXPERIENCE 2026x上线；工信部发布工业软件三年行动计划</div>
-      </div>
-      <div class="sum-item">
-        <div class="sum-ico" style="background:rgba(245,158,11,.1)">🏭</div>
-        <div><strong>智能制造</strong>：工信部公布2026年第一批86家智能制造示范工厂；华为云发布Pangu-Manufacturing 3.0工业大模型</div>
-      </div>
-      <div class="sum-item">
-        <div class="sum-ico" style="background:rgba(239,68,68,.1)">🚗</div>
-        <div><strong>无人配送车</strong>：萝卜快跑迪拜首日完成800+单；美团完成首次"无人车+无人机"接力配送；小马智行获深圳首批全无人商业化运营许可</div>
-      </div>
-      <div class="sum-item">
-        <div class="sum-ico" style="background:rgba(139,92,246,.1)">🛵</div>
-        <div><strong>两轮车/电动车</strong>：深圳限行新规今日正式施行；哈啰Q1日均订单2800万；美团骑行完成全国新国标电单车全量替换</div>
-      </div>
-      <div class="sum-item">
-        <div class="sum-ico" style="background:rgba(236,72,153,.1)">🔋</div>
-        <div><strong>共享充电宝</strong>：怪兽充电发布"怪兽2.0"战略转型高端场景；美团充电Q1市场份额升至34.2%跃居行业第一</div>
-      </div>
-    </div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://blog.csdn.net/qq_63981644/article/details/159618867" target="_blank" rel="noopener">智元机器人 A2-W 在上汽通用奥特能超级工厂正式投入量产</a>
   </div>
-  <div class="section">
-    <div class="sec-header" style="border-left-color:#6366f1">
-      <div class="sec-ico" style="background:rgba(99,102,241,.1)">🤖</div>
-      <div class="sec-title">人形机器人 / 具身智能</div>
-      <div class="sec-cnt">3条</div>
-    </div>
-    <div class="cards">
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">宇树科技发布 Unitree G1 EDU 教育版：开放全身力控 API，面向高校与科研机构，售价 9.9 万元起</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">人形机器人</span><span class="tag t-plain">宇树科技</span><span class="tag t-plain">教育版</span></div>
-      <div class="card-desc">2026年4月1日，宇树科技正式发布 Unitree G1 EDU 教育版，面向高校、科研机构及开发者群体开放预订。G1 EDU 开放全身力控 API 及运动控制底层接口，支持 ROS2 / Python SDK，内置 3D LiDAR + 深度相机感知套件。官方售价 9.9 万元起，较商业版降低约 40%。宇树表示，G1 EDU 将配套完整的课程体系与仿真环境（Isaac Sim 适配），助力高校具身智能人才培养。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>发布时间</td><td>2026年4月1日</td></tr><tr><td>产品型号</td><td>Unitree G1 EDU</td></tr><tr><td>售价</td><td>9.9万元起（较商业版降低约40%）</td></tr><tr><td>开放接口</td><td>全身力控API、ROS2/Python SDK</td></tr><tr><td>感知套件</td><td>3D LiDAR + 深度相机</td></tr></table><div class="card-co"><strong>相关：</strong>宇树科技、NVIDIA（Isaac Sim）</div><div class="card-lnk">🔗 <a href="https://www.unitree.com" target="_blank">unitree.com</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">北京人形机器人创新中心"天工"2.0 完成首次户外复杂地形全自主导航测试：无人工干预连续行走 3.2km</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">人形机器人</span><span class="tag t-plain">天工</span><span class="tag t-plain">北京创新中心</span></div>
-      <div class="card-desc">2026年4月1日，北京人形机器人创新中心公布"天工"2.0 最新测试成果：在北京郊区复杂户外地形（含碎石路、草地、坡道、台阶）完成首次全自主导航测试，无任何人工干预连续行走 3.2km，耗时约 47 分钟。天工 2.0 搭载自研的"天枢"具身大模型，实现感知-规划-执行全链路端到端推理，步行速度最高达 4.2km/h，单次充电续航约 2 小时。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>测试时间</td><td>2026年4月1日</td></tr><tr><td>测试路程</td><td>3.2km，耗时约47分钟</td></tr><tr><td>最高步速</td><td>4.2km/h</td></tr><tr><td>续航</td><td>单次充电约2小时</td></tr><tr><td>核心技术</td><td>"天枢"具身大模型，端到端推理</td></tr></table><div class="card-co"><strong>相关：</strong>北京人形机器人创新中心、小米、优必选</div><div class="card-lnk">🔗 <a href="https://www.humanoid-robot.cn" target="_blank">humanoid-robot.cn</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">智元机器人"能仔1号"上汽量产线上岗满一周：完成电芯抓取超2万次，良品率达99.6%，节拍与人工持平</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-follow">持续跟进</span><span class="tag t-plain">人形机器人</span><span class="tag t-plain">量产落地</span><span class="tag t-plain">智元机器人</span></div>
-      <div class="card-desc">智元机器人"能仔1号"自3月27日正式上岗上汽通用别克至境E7电池量产线以来，截至4月1日已连续运行满一周。据上汽集团公布的数据，"能仔1号"累计完成电芯抓取超2万次，良品率达99.6%，生产节拍与熟练工人基本持平。上汽通用表示，下一步计划在2026年Q2内将人形机器人上岗数量扩展至5台，覆盖更多工序。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>运行时长</td><td>满一周（3月27日至4月1日）</td></tr><tr><td>累计抓取</td><td>超2万次</td></tr><tr><td>良品率</td><td>99.6%</td></tr><tr><td>生产节拍</td><td>与熟练工人基本持平</td></tr><tr><td>扩展计划</td><td>Q2内扩展至5台，覆盖更多工序</td></tr></table><div class="card-co"><strong>相关：</strong>智元机器人、上汽通用汽车、上汽集团</div><div class="card-lnk">🔗 <a href="https://www.saicmotor.com" target="_blank">saicmotor.com</a></div>
-    </div>
-    </div>
-  </div>  <div class="section">
-    <div class="sec-header" style="border-left-color:#0ea5e9">
-      <div class="sec-ico" style="background:rgba(14,165,233,.1)">🚁</div>
-      <div class="sec-title">低空经济 / 无人机</div>
-      <div class="sec-cnt">3条</div>
-    </div>
-    <div class="cards">
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">民航局发布《低空飞行服务保障体系建设方案》：2026年底前完成全国低空飞行服务站网络部署</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">低空经济</span><span class="tag t-plain">民航局</span><span class="tag t-plain">飞行服务</span></div>
-      <div class="card-desc">2026年4月1日，中国民用航空局正式发布《低空飞行服务保障体系建设方案》，明确到2026年底前，完成全国低空飞行服务站网络部署，实现省级低空飞行服务中心全覆盖，地市级服务站覆盖率达80%以上。方案要求建立统一的低空飞行计划申报系统，实现飞行计划"一网通办"，审批时间从平均72小时压缩至4小时以内。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>2026年底</td><td>完成全国低空飞行服务站网络部署</td></tr><tr><td>省级覆盖</td><td>低空飞行服务中心全覆盖</td></tr><tr><td>地市级覆盖</td><td>服务站覆盖率达80%以上</td></tr><tr><td>审批提速</td><td>飞行计划审批从72小时压缩至4小时以内</td></tr></table><div class="card-co"><strong>相关：</strong>中国民用航空局、中国航空集团、大疆创新</div><div class="card-lnk">🔗 <a href="https://www.caac.gov.cn" target="_blank">caac.gov.cn</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">深圳低空经济产业园一期开园：首批入驻企业42家，覆盖整机制造、飞控系统、低空运营等全产业链</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">低空经济</span><span class="tag t-plain">深圳</span><span class="tag t-plain">产业园</span></div>
-      <div class="card-desc">2026年4月1日，深圳低空经济产业园（坪山基地）一期正式开园，首批42家企业入驻，涵盖整机制造、飞控系统、高能量密度电池、低空运营服务等全产业链环节。产业园规划总面积约120万平方米，一期建筑面积约28万平方米，计划到2028年汇聚低空经济企业超300家，年产值突破500亿元。深圳市政府同步出台配套政策，对入驻企业给予最高500万元的落地补贴。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>开园时间</td><td>2026年4月1日</td></tr><tr><td>首批入驻</td><td>42家企业</td></tr><tr><td>规划目标</td><td>2028年超300家企业，年产值500亿元</td></tr><tr><td>配套政策</td><td>最高500万元落地补贴</td></tr></table><div class="card-co"><strong>相关：</strong>深圳市政府、大疆创新、沃飞长空、亿航智能</div><div class="card-lnk">🔗 <a href="https://www.sz.gov.cn" target="_blank">sz.gov.cn</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">顺丰丰翼无人机物流完成第500万次商业配送：覆盖全国18省68城，日均配送量突破1.5万单</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">无人机物流</span><span class="tag t-plain">顺丰丰翼</span><span class="tag t-plain">里程碑</span></div>
-      <div class="card-desc">2026年4月1日，顺丰旗下无人机物流品牌丰翼宣布完成第500万次商业配送，成为国内首家完成500万次商业无人机配送的企业。目前丰翼无人机物流已覆盖全国18个省份68个城市，日均配送量突破1.5万单，平均配送时效约18分钟。丰翼表示，2026年计划将覆盖城市扩展至100个，并在深圳、广州、成都三城试点"无人机+无人车"接力配送模式。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>里程碑</td><td>第500万次商业配送</td></tr><tr><td>覆盖范围</td><td>18省68城</td></tr><tr><td>日均配送量</td><td>突破1.5万单</td></tr><tr><td>平均时效</td><td>约18分钟</td></tr><tr><td>2026年计划</td><td>扩展至100城，试点无人机+无人车接力</td></tr></table><div class="card-co"><strong>相关：</strong>顺丰丰翼、顺丰集团</div><div class="card-lnk">🔗 <a href="https://www.sf-express.com" target="_blank">sf-express.com</a></div>
-    </div>
-    </div>
-  </div>  <div class="section">
-    <div class="sec-header" style="border-left-color:#10b981">
-      <div class="sec-ico" style="background:rgba(16,185,129,.1)">🔧</div>
-      <div class="sec-title">PLM / ALM / 研发数字化</div>
-      <div class="sec-cnt">4条</div>
-    </div>
-    <div class="cards">
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">西门子发布 Teamcenter X 2026.1 版本：原生集成 AI 设计助手，支持自然语言驱动 BOM 变更与需求追溯</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">PLM</span><span class="tag t-plain">西门子</span><span class="tag t-plain">Teamcenter</span></div>
-      <div class="card-desc">2026年4月1日，西门子数字工业软件正式发布 Teamcenter X 2026.1 版本，核心亮点是原生集成 AI 设计助手"Xcelerator AI"。用户可通过自然语言指令驱动 BOM 变更、需求追溯、变更影响分析等核心 PLM 工作流，将原本需要数小时的变更影响分析压缩至分钟级。新版本还强化了与 NX、Simcenter 的双向数据同步，支持实时仿真结果回写至 PLM 系统，实现"设计-仿真-验证"闭环。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>发布时间</td><td>2026年4月1日</td></tr><tr><td>核心新功能</td><td>Xcelerator AI，自然语言驱动PLM工作流</td></tr><tr><td>效率提升</td><td>变更影响分析从数小时压缩至分钟级</td></tr><tr><td>集成增强</td><td>NX、Simcenter双向数据同步，仿真结果实时回写</td></tr></table><div class="card-co"><strong>相关：</strong>西门子数字工业软件、西门子集团</div><div class="card-lnk">🔗 <a href="https://www.sw.siemens.com" target="_blank">sw.siemens.com</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">PTC 发布 Windchill+ 2026 Spring 版本：新增 AI 驱动的供应链风险预警模块，与 ServiceMax 深度集成</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">PLM</span><span class="tag t-plain">PTC</span><span class="tag t-plain">Windchill</span></div>
-      <div class="card-desc">2026年4月1日，PTC 正式发布 Windchill+ 2026 Spring 版本。本次更新重点新增 AI 驱动的供应链风险预警模块，可实时监控零部件供应商的交货风险、质量异常和价格波动，并自动触发替代方案推荐。同时，Windchill+ 与 ServiceMax 的集成深度进一步加强，实现从产品设计到售后服务的全生命周期数据贯通。PTC 表示，新版本已在汽车、航空航天、医疗器械三大行业完成验证。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>发布时间</td><td>2026年4月1日</td></tr><tr><td>核心新功能</td><td>AI供应链风险预警模块</td></tr><tr><td>集成增强</td><td>与ServiceMax深度集成，设计到售后全贯通</td></tr><tr><td>验证行业</td><td>汽车、航空航天、医疗器械</td></tr></table><div class="card-co"><strong>相关：</strong>PTC、ServiceMax</div><div class="card-lnk">🔗 <a href="https://www.ptc.com" target="_blank">ptc.com</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">达索系统 3DEXPERIENCE 平台 2026x 版本上线：ENOVIA 引入 AI 需求工程助手，支持自动生成测试用例</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">PLM</span><span class="tag t-plain">达索系统</span><span class="tag t-plain">3DEXPERIENCE</span></div>
-      <div class="card-desc">2026年4月1日，达索系统正式上线 3DEXPERIENCE 平台 2026x 版本。ENOVIA 模块引入 AI 需求工程助手，可基于自然语言需求描述自动生成结构化需求条目、追溯矩阵和测试用例，将需求工程效率提升约 60%。CATIA 模块新增生成式设计（Generative Design）功能，支持多目标拓扑优化，与 SIMULIA 仿真平台实现实时联动。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>发布时间</td><td>2026年4月1日</td></tr><tr><td>ENOVIA新功能</td><td>AI需求工程助手，自动生成需求条目、追溯矩阵、测试用例</td></tr><tr><td>效率提升</td><td>需求工程效率提升约60%</td></tr><tr><td>CATIA新功能</td><td>生成式设计，多目标拓扑优化</td></tr></table><div class="card-co"><strong>相关：</strong>达索系统、达索系统中国</div><div class="card-lnk">🔗 <a href="https://www.3ds.com" target="_blank">3ds.com</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">工信部发布《工业软件高质量发展三年行动计划（2026-2028）》：重点支持国产 PLM/EDA/CAE 突破，设立50亿元专项基金</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">工业软件</span><span class="tag t-plain">国产PLM</span><span class="tag t-plain">工信部政策</span></div>
-      <div class="card-desc">2026年4月1日，工业和信息化部正式发布《工业软件高质量发展三年行动计划（2026-2028）》。计划明确，到2028年，国产工业软件在重点行业的市场占有率从当前约15%提升至35%以上。重点支持领域包括：PLM（产品生命周期管理）、EDA（电子设计自动化）、CAE（计算机辅助工程）、MES（制造执行系统）。国家设立50亿元工业软件专项基金，支持企业研发攻关和市场推广。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>发布时间</td><td>2026年4月1日</td></tr><tr><td>2028年目标</td><td>国产工业软件市占率从15%提升至35%以上</td></tr><tr><td>重点支持</td><td>PLM、EDA、CAE、MES</td></tr><tr><td>专项基金</td><td>50亿元工业软件专项基金</td></tr></table><div class="card-co"><strong>相关：</strong>工业和信息化部、中望软件、华天软件、索为技术、数码大方</div><div class="card-lnk">🔗 <a href="https://www.miit.gov.cn" target="_blank">miit.gov.cn</a></div>
-    </div>
-    </div>
-  </div>  <div class="section">
-    <div class="sec-header" style="border-left-color:#f59e0b">
-      <div class="sec-ico" style="background:rgba(245,158,11,.1)">🏭</div>
-      <div class="sec-title">智能制造 / 工业互联网</div>
-      <div class="sec-cnt">2条</div>
-    </div>
-    <div class="cards">
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">工信部公布2026年第一批智能制造示范工厂名单：共认定86家，新能源汽车、半导体、航空航天占比超60%</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">智能制造</span><span class="tag t-plain">示范工厂</span><span class="tag t-plain">工信部</span></div>
-      <div class="card-desc">2026年4月1日，工业和信息化部公布2026年第一批智能制造示范工厂认定名单，共86家企业入选。从行业分布看，新能源汽车（含电池）、半导体、航空航天三大行业合计占比超60%，体现了国家对战略性新兴产业智能化升级的重点支持。入选企业平均研发投入强度达8.2%，数字化研发工具（PLM/CAE/MES）覆盖率达100%，人均产值较行业平均水平高出约3.2倍。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>认定数量</td><td>86家</td></tr><tr><td>重点行业</td><td>新能源汽车、半导体、航空航天，合计占比超60%</td></tr><tr><td>研发投入</td><td>平均研发投入强度8.2%</td></tr><tr><td>数字化工具覆盖率</td><td>PLM/CAE/MES覆盖率100%</td></tr><tr><td>人均产值</td><td>较行业平均高出约3.2倍</td></tr></table><div class="card-co"><strong>相关：</strong>工业和信息化部、宁德时代、比亚迪、中芯国际、中国商飞</div><div class="card-lnk">🔗 <a href="https://www.miit.gov.cn" target="_blank">miit.gov.cn</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">华为云发布工业大模型 Pangu-Manufacturing 3.0：支持多模态工艺知识图谱，覆盖20个制造细分场景</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">工业大模型</span><span class="tag t-plain">华为云</span><span class="tag t-plain">AI+制造</span></div>
-      <div class="card-desc">2026年4月1日，华为云在"华为云工业智能峰会"上正式发布工业大模型 Pangu-Manufacturing 3.0。新版本支持多模态工艺知识图谱（文本+图纸+3D模型+传感器数据），覆盖质量检测、工艺优化、设备预测性维护、能耗管理等20个制造细分场景。华为云表示，Pangu-Manufacturing 3.0 已在宁德时代、东风汽车、中国石化等30家头部制造企业完成部署，平均降低质量缺陷率约35%。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>发布时间</td><td>2026年4月1日</td></tr><tr><td>核心能力</td><td>多模态工艺知识图谱（文本+图纸+3D+传感器）</td></tr><tr><td>覆盖场景</td><td>20个制造细分场景</td></tr><tr><td>已部署企业</td><td>30家头部制造企业</td></tr><tr><td>效果</td><td>平均降低质量缺陷率约35%</td></tr></table><div class="card-co"><strong>相关：</strong>华为云、宁德时代、东风汽车、中国石化</div><div class="card-lnk">🔗 <a href="https://www.huaweicloud.com" target="_blank">huaweicloud.com</a></div>
-    </div>
-    </div>
-  </div>  <div class="section">
-    <div class="sec-header" style="border-left-color:#ef4444">
-      <div class="sec-ico" style="background:rgba(239,68,68,.1)">🚗</div>
-      <div class="sec-title">无人配送车</div>
-      <div class="sec-cnt">3条</div>
-    </div>
-    <div class="cards">
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">萝卜快跑迪拜运营首日数据：完成订单超800单，平均等待时长4.2分钟，用户评分4.8/5.0</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">无人驾驶</span><span class="tag t-plain">萝卜快跑</span><span class="tag t-plain">迪拜</span></div>
-      <div class="card-desc">2026年4月1日，百度萝卜快跑公布迪拜全无人驾驶商业化运营首日（3月30日）数据：全天完成订单超800单，平均等待时长4.2分钟，用户评分4.8/5.0（满分5分）。运营区域覆盖迪拜市中心、迪拜国际金融中心（DIFC）、迪拜购物中心周边等核心商业区。萝卜快跑表示，将在4月内将运营车辆从当前的50台扩展至150台，并启动机场接驳专线服务。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>首日订单</td><td>超800单</td></tr><tr><td>平均等待时长</td><td>4.2分钟</td></tr><tr><td>用户评分</td><td>4.8/5.0</td></tr><tr><td>运营区域</td><td>迪拜市中心、DIFC、迪拜购物中心周边</td></tr><tr><td>扩展计划</td><td>4月内从50台扩展至150台，启动机场接驳</td></tr></table><div class="card-co"><strong>相关：</strong>百度（萝卜快跑/Apollo Go）、迪拜道路与交通管理局（RTA）</div><div class="card-lnk">🔗 <a href="https://apollo.auto" target="_blank">apollo.auto</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">美团无人配送车在北京顺义完成首次"无人车+无人机"接力配送：3公里全程无人，耗时11分钟</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">无人配送</span><span class="tag t-plain">美团</span><span class="tag t-plain">接力配送</span></div>
-      <div class="card-desc">2026年4月1日，美团在北京顺义完成首次"无人配送车+无人机"接力配送测试：无人配送车从仓库出发，行驶约2km至中转点，无人机接力完成最后1km的配送，全程3公里无任何人工干预，耗时约11分钟。美团表示，该模式可将末端配送成本降低约45%，计划2026年Q3在北京、上海、深圳三城启动规模化试点。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>测试时间</td><td>2026年4月1日</td></tr><tr><td>测试地点</td><td>北京顺义</td></tr><tr><td>全程距离</td><td>3公里（无人车2km+无人机1km）</td></tr><tr><td>耗时</td><td>约11分钟</td></tr><tr><td>成本降低</td><td>末端配送成本降低约45%</td></tr><tr><td>规模化计划</td><td>2026年Q3在京沪深三城试点</td></tr></table><div class="card-co"><strong>相关：</strong>美团、美团无人配送、美团无人机</div><div class="card-lnk">🔗 <a href="https://www.meituan.com" target="_blank">meituan.com</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">小马智行（Pony.ai）获深圳首批无人驾驶出租车全无人商业化运营许可：覆盖南山、福田核心区域</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">无人驾驶</span><span class="tag t-plain">小马智行</span><span class="tag t-plain">深圳</span></div>
-      <div class="card-desc">2026年4月1日，小马智行（Pony.ai）宣布获得深圳市交通运输局颁发的首批无人驾驶出租车全无人商业化运营许可证，成为深圳首家获得该资质的企业。初期运营区域覆盖南山区科技园、深圳湾超级总部基地及福田区中心商务区，投入运营车辆20台，计划年内扩展至100台。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>获证时间</td><td>2026年4月1日</td></tr><tr><td>颁证机构</td><td>深圳市交通运输局</td></tr><tr><td>初期运营区域</td><td>南山科技园、深圳湾超总、福田CBD</td></tr><tr><td>初期车辆</td><td>20台，年内扩展至100台</td></tr></table><div class="card-co"><strong>相关：</strong>小马智行（Pony.ai）、深圳市交通运输局</div><div class="card-lnk">🔗 <a href="https://www.pony.ai" target="_blank">pony.ai</a></div>
-    </div>
-    </div>
-  </div>  <div class="section">
-    <div class="sec-header" style="border-left-color:#8b5cf6">
-      <div class="sec-ico" style="background:rgba(139,92,246,.1)">🛵</div>
-      <div class="sec-title">两轮车 / 电动车 / 共享单车</div>
-      <div class="sec-cnt">3条</div>
-    </div>
-    <div class="cards">
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">深圳电动自行车"三级限行"新规今日（4月1日）正式施行：一级限行区全天禁行，福田南山龙华三区调整最大</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">电动自行车</span><span class="tag t-plain">深圳</span><span class="tag t-plain">限行新规</span></div>
-      <div class="card-desc">2026年4月1日，深圳电动自行车"三级限行"优化调整方案正式施行，有效期至2026年9月30日。一级限行区（含罗湖口岸、皇岗口岸等核心口岸区域）全天24小时禁止所有电动自行车通行；二级限行区仅民生行业（外卖、快递、医疗）豁免；三级限行区实行分时段管控（早晚高峰限行）。本次调整新增福田区益田路、南山区科技南路等多条二级限行路段，同时取消龙华区部分路段的严格管控。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>施行时间</td><td>2026年4月1日</td></tr><tr><td>有效期</td><td>至2026年9月30日</td></tr><tr><td>一级限行区</td><td>全天24小时禁行</td></tr><tr><td>二级限行区</td><td>仅民生行业豁免</td></tr><tr><td>三级限行区</td><td>早晚高峰限行</td></tr><tr><td>主要调整</td><td>新增福田益田路、南山科技南路等二级限行路段</td></tr></table><div class="card-co"><strong>相关：</strong>美团骑行、哈啰单车、滴滴青桔、小遛共享</div><div class="card-lnk">🔗 <a href="https://www.sznews.com" target="_blank">sznews.com</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">哈啰出行发布2026年Q1共享单车运营报告：日均骑行订单突破2800万单，新能源电单车占比升至38%</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">共享单车</span><span class="tag t-plain">哈啰出行</span><span class="tag t-plain">季报</span></div>
-      <div class="card-desc">2026年4月1日，哈啰出行发布2026年第一季度共享单车运营报告。Q1日均骑行订单突破2800万单，同比增长约22%；新能源电单车（符合新国标）占总投放量的比例升至38%，较2025年Q1提升约12个百分点。哈啰表示，受益于深圳、上海、北京等城市限行政策的推动，共享电单车在核心商业区的使用频次显著提升，Q1新增注册用户约1200万。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>Q1日均订单</td><td>突破2800万单，同比增长约22%</td></tr><tr><td>新能源电单车占比</td><td>38%，较去年同期+12pct</td></tr><tr><td>Q1新增注册用户</td><td>约1200万</td></tr><tr><td>政策驱动</td><td>深圳、上海、北京限行政策推动使用频次提升</td></tr></table><div class="card-co"><strong>相关：</strong>哈啰出行、阿里巴巴</div><div class="card-lnk">🔗 <a href="https://www.hellobike.com" target="_blank">hellobike.com</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">美团骑行宣布完成新国标电单车全量替换：全国超200城投放车辆100%符合GB 17761-2024，提前完成监管要求</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">共享电单车</span><span class="tag t-plain">美团骑行</span><span class="tag t-plain">新国标</span></div>
-      <div class="card-desc">2026年4月1日，美团骑行宣布完成全国范围内共享电单车的新国标（GB 17761-2024）全量替换，全国超200个城市投放的共享电单车100%符合新国标要求，提前完成监管部门要求的替换期限。美团骑行表示，本次替换共涉及约320万辆电单车，累计投入约48亿元。新国标车辆在电池安全、车速限制（最高25km/h）、整车重量（不超过55kg）等方面均满足最新标准。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>完成时间</td><td>2026年4月1日</td></tr><tr><td>覆盖城市</td><td>超200城</td></tr><tr><td>替换规模</td><td>约320万辆</td></tr><tr><td>累计投入</td><td>约48亿元</td></tr><tr><td>新国标要求</td><td>电池安全、最高25km/h、整车不超55kg</td></tr></table><div class="card-co"><strong>相关：</strong>美团骑行、美团集团</div><div class="card-lnk">🔗 <a href="https://www.meituan.com" target="_blank">meituan.com</a></div>
-    </div>
-    </div>
-  </div>  <div class="section">
-    <div class="sec-header" style="border-left-color:#ec4899">
-      <div class="sec-ico" style="background:rgba(236,72,153,.1)">🔋</div>
-      <div class="sec-title">共享充电宝</div>
-      <div class="sec-cnt">2条</div>
-    </div>
-    <div class="cards">
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">怪兽充电完成私有化退市后首次品牌焕新：发布"怪兽2.0"战略，聚焦高端场景与企业级服务</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">共享充电宝</span><span class="tag t-plain">怪兽充电</span><span class="tag t-plain">品牌焕新</span></div>
-      <div class="card-desc">2026年4月1日，怪兽充电完成私有化退市后正式发布"怪兽2.0"品牌战略，宣布从大众共享充电宝市场向高端场景与企业级服务转型。怪兽2.0 将重点布局五星级酒店、高端商务中心、机场贵宾厅等高端场景，同时推出面向企业的"怪兽企业版"——为企业员工提供无限次充电服务，月费制订阅模式。怪兽充电表示，私有化后已完成约8亿元新一轮融资，估值约35亿元。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>发布时间</td><td>2026年4月1日</td></tr><tr><td>战略转型</td><td>从大众市场转向高端场景+企业级服务</td></tr><tr><td>重点场景</td><td>五星级酒店、高端商务中心、机场贵宾厅</td></tr><tr><td>新产品</td><td>怪兽企业版，月费制订阅</td></tr><tr><td>融资情况</td><td>私有化后完成约8亿元融资，估值约35亿元</td></tr></table><div class="card-co"><strong>相关：</strong>怪兽充电</div><div class="card-lnk">🔗 <a href="https://www.monstermobile.cn" target="_blank">monstermobile.cn</a></div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-title">美团充电Q1市场份额升至34.2%：跃居行业第一，街电+来电合并体紧随其后占28.7%</div>
-        <span class="card-date date-today">04-01</span>
-      </div>
-      <div class="tags"><span class="tag t-new">今日新增</span><span class="tag t-plain">共享充电宝</span><span class="tag t-plain">美团充电</span><span class="tag t-plain">市场格局</span></div>
-      <div class="card-desc">2026年4月1日，第三方数据机构发布2026年Q1共享充电宝行业市场份额报告。美团充电以34.2%的市场份额跃居行业第一，较2025年Q4提升约3.8个百分点；街电+来电合并体以28.7%位居第二；小电科技以19.3%位居第三；其余品牌合计约17.8%。报告指出，美团充电凭借美团App的流量优势和外卖骑手网络的铺点效率，在下沉市场的渗透率显著提升。</div>
-      <table class="tbl"><tr><th>要素</th><th>内容</th></tr><tr><td>美团充电</td><td>34.2%，行业第一，环比+3.8pct</td></tr><tr><td>街电+来电</td><td>28.7%，行业第二</td></tr><tr><td>小电科技</td><td>19.3%，行业第三</td></tr><tr><td>其余品牌</td><td>合计约17.8%</td></tr><tr><td>美团优势</td><td>App流量+外卖骑手铺点效率，下沉市场渗透率提升</td></tr></table><div class="card-co"><strong>相关：</strong>美团充电、街电、来电科技、小电科技</div><div class="card-lnk">🔗 <a href="https://www.iresearch.com.cn" target="_blank">iresearch.com.cn</a></div>
-    </div>
-    </div>
-  </div>  <div class="con">
-    <h4>📊 今日数据亮点</h4>
-    <p>今日21条动态全部为2026年4月1日当天发布。PLM板块迎来"三大厂商同日发版"罕见盛况（西门子、PTC、达索），叠加工信部工业软件三年行动计划，研发数字化领域政策与产品双轮驱动信号强烈。</p>
-
-    <h4>🔗 跨行业联动洞察</h4>
-    <p>今日最强联动：<strong>无人驾驶商业化加速 × 末端配送无人化升级</strong>。萝卜快跑迪拜首日800+单、小马智行获深圳全无人许可、美团完成"无人车+无人机"接力配送测试，三条线索共同指向：2026年Q2将是中国无人配送商业化的关键加速节点。与此同时，PLM三大厂商同日发版并集体押注AI，印证了研发数字化工具正在从"流程管理"向"AI驱动决策"跃迁，国产工业软件在政策加持下迎来历史性窗口。</p>
-
-    <h4>📅 近期可执行动作</h4>
-    <p>① 关注4月19日北京亦庄人形机器人半马赛事，重点观察宇树G1、天工2.0等新品的实战表现；② 跟踪西门子Teamcenter X 2026.1、PTC Windchill+ 2026 Spring的国内落地节奏，评估AI PLM工具对研发效率的实际提升；③ 关注深圳限行新规对美团骑行、哈啰、青桔运营数据的影响；④ 持续跟踪萝卜快跑迪拜扩张进度（目标4月内从50台扩至150台）。</p>
-
-    <h4>💡 今日结论</h4>
-    <p>2026年4月1日，研发数字化领域呈现"AI工具全面渗透、商业化加速落地"的双重特征。PLM三大厂商同日发版并集体引入AI助手，标志着工业软件进入"AI原生"时代；无人驾驶与无人配送在国内外同步突破商业化许可壁垒，具身智能从量产线延伸至户外复杂场景。对研发数字化从业者而言，今日是值得记录的里程碑日：AI正在重塑从需求工程到供应链管理的每一个研发环节。</p>
+  <div class="card-summary">2026年3月27日，智元机器人 A2-W 在上汽通用奥特能超级工厂正式投入量产，标志着人形机器人从实验室正式迈入工厂工作阶段，具身智能商业化元年正式开启。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 CSDN</span>
+    <span class="card-date">🗓 2026-03-27</span>
+    <a class="card-link" href="https://blog.csdn.net/qq_63981644/article/details/159618867" target="_blank" rel="noopener">查看原文 →</a>
   </div>
-
 </div>
-
-<div class="footer">
-  研发数字化每日资讯 · 第86期 · 2026年4月1日<br>
-  数据来源：各企业官网、工信部官网、民航局官网、新华网、36氪、36kr等<br>
-  本报告仅供参考，不构成投资建议
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.msn.cn/zh-cn/news/other/2026%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BA%A7%E4%B8%9A%E5%A4%A7%E7%AA%81%E7%A0%B4-%E6%8A%80%E6%9C%AF%E8%B7%83%E5%8D%87-%E9%87%8F%E4%BA%A7%E8%90%BD%E5%9C%B0-%E5%BC%80%E5%90%AF%E6%99%BA%E8%83%BD%E6%96%B0%E6%97%B6%E4%BB%A3/ar-AA1ZQUrH" target="_blank" rel="noopener">工信部发布《人形机器人与具身智能标准体系（2026版）》</a>
+  </div>
+  <div class="card-summary">2026年2月，工信部发布《人形机器人与具身智能标准体系（2026版）》，构建覆盖全产业链的标准化框架；3月出台国家级测试规范，产业链协同效率提升 30%以上。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 MSN中文</span>
+    <span class="card-date">🗓 2026-03-01</span>
+    <a class="card-link" href="https://www.msn.cn/zh-cn/news/other/2026%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BA%A7%E4%B8%9A%E5%A4%A7%E7%AA%81%E7%A0%B4-%E6%8A%80%E6%9C%AF%E8%B7%83%E5%8D%87-%E9%87%8F%E4%BA%A7%E8%90%BD%E5%9C%B0-%E5%BC%80%E5%90%AF%E6%99%BA%E8%83%BD%E6%96%B0%E6%97%B6%E4%BB%A3/ar-AA1ZQUrH" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
 </div>
+  </div>
+</section>
+<section class="section" id="lowalt">
+  <div class="section-header" style="background:#0ea5e9">
+    <span class="section-icon">🚁</span>
+    <span class="section-title">低空经济</span>
+    <span class="section-count">4 条</span>
+  </div>
+  <div class="section-body">
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://news.qq.com/rain/a/20260401A01TS300" target="_blank" rel="noopener">低空经济规模预计 2026 年突破 1.5 万亿元</a>
+  </div>
+  <div class="card-summary">央广网报道，2026年低空经济规模预计突破 1.5 万亿元，政策红利持续释放，无人机、eVTOL、低空基础设施等赛道全面提速，多地出台专项支持政策加速产业落地。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 腾讯新闻·央广网</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://news.qq.com/rain/a/20260401A01TS300" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.nbd.com.cn/articles/2026-03-31/4318670.html" target="_blank" rel="noopener">长鹰-8 大型货运无人机成功首飞，全球最大货运无人机诞生</a>
+  </div>
+  <div class="card-summary">长鹰-8（NORINCO LUCA）大型运投无人机 3 月31日在郑州上街机场首飞成功，成为全球迄今首飞的最大货运无人机，最大载重 3.5 吨，仅用 280 米便离地爬升，标志着我国在 7 吨级智能无人运输平台领域实现重要突破。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 每日经济新闻</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://www.nbd.com.cn/articles/2026-03-31/4318670.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.163.com/dy/article/JS7GE5AA0530G3Q7.html" target="_blank" rel="noopener">深圳罗湖出台低空经济专项政策，打造全域低空示范区</a>
+  </div>
+  <div class="card-summary">深圳罗湖区发布低空经济专项支持政策，从基础设施建设、飞行审批简化、企业补贴等多维度发力，目标打造全域低空经济示范区，推动无人机配送、低空旅游、应急救援等场景规模化落地。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 网易新闻</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://www.163.com/dy/article/JS7GE5AA0530G3Q7.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://news.qq.com/rain/a/20250513A06I8D00" target="_blank" rel="noopener">美团无人机获全国首张低空物流全境覆盖运营合格证</a>
+  </div>
+  <div class="card-summary">美团自研第四代无人机通过民航局审查，获得全国首张低空物流全境覆盖运营合格证（OC），可在全国范围内开启常态化商业运营，成为国内首个被民航局批准可在中国全境开展物流运输的低空运营人。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 腾讯新闻</span>
+    <span class="card-date">🗓 2025-05-13</span>
+    <a class="card-link" href="https://news.qq.com/rain/a/20250513A06I8D00" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+  </div>
+</section>
+<section class="section" id="evehicle">
+  <div class="section-header" style="background:#10b981">
+    <span class="section-icon">⚡</span>
+    <span class="section-title">电动车与新能源</span>
+    <span class="section-count">2 条</span>
+  </div>
+  <div class="section-body">
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://news.qq.com/rain/a/20260331A07UE000" target="_blank" rel="noopener">电动自行车新国标 4 月1日正式实施，超标车将被禁止上路</a>
+  </div>
+  <div class="card-summary">新修订的电动自行车安全技术规范（GB 17761-2024）于 2026 年4月1日正式实施，对车速、重量、电池容量等核心指标作出更严格规定，不符合新标准的电动自行车将被禁止生产、销售和上路行驶。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 腾讯新闻</span>
+    <span class="card-date">🗓 2026-03-31</span>
+    <a class="card-link" href="https://news.qq.com/rain/a/20260331A07UE000" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.nbd.com.cn/articles/2026-03-31/4318576.html" target="_blank" rel="noopener">3 月制造业 PMI 回升至 50.4%，新能源汽车出口持续高增</a>
+  </div>
+  <div class="card-summary">国家统计局数据显示，3 月中国制造业采购经理指数为 50.4%，较上月上升 1.4 个百分点，在连续 2 个月运行在 50% 以下后回到扩张区间，新能源汽车、锂电池等绿色产品出口保持高速增长。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 每日经济新闻</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://www.nbd.com.cn/articles/2026-03-31/4318576.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+  </div>
+</section>
+<section class="section" id="iot">
+  <div class="section-header" style="background:#f59e0b">
+    <span class="section-icon">🌐</span>
+    <span class="section-title">物联网与数字基础设施</span>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="section-body">
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.cnfin.com/yw-lb/detail/20260401/4393991_1.html" target="_blank" rel="noopener">工信部等九部门联合印发《推动物联网产业创新发展行动方案（2026-2028年）》</a>
+  </div>
+  <div class="card-summary">工信部等九部门联合印发行动方案，加快推动新增行业应用终端支持并默认启用 IPv6 协议，推进 AI、5G、边缘计算与物联网深度融合，加速 IPv6 规模部署，助力行业应用终端智能化改造和网络化联接。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 中国金融信息网</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://www.cnfin.com/yw-lb/detail/20260401/4393991_1.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://news.qq.com/rain/a/20260401A01ER900" target="_blank" rel="noopener">宁波商业航天产业基地 4 月开启招标，总投资 86.6 亿元</a>
+  </div>
+  <div class="card-summary">宁波市政务服务中心官网显示，宁波商业航天产业基地项目即将于 4 月开启招标，预计总投资额 86.6 亿元，规划建设商业航天产业基地，全链条一体化发展商业航天产业。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 每日经济新闻</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://news.qq.com/rain/a/20260401A01ER900" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://news.qq.com/rain/a/20260401A01ER900" target="_blank" rel="noopener">工信部：1-2 月规模以上互联网企业收入 3179 亿元，同比增长 9%</a>
+  </div>
+  <div class="card-summary">工信部公布 2026 年1-2 月互联网和相关服务业运行情况：规模以上互联网企业完成互联网业务收入 3179 亿元，同比增长 9%；实现利润总额 308 亿元，同比增长 23.1%；研发经费投入 167.2 亿元，同比增长 12.2%。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 每日经济新闻</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://news.qq.com/rain/a/20260401A01ER900" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+  </div>
+</section>
+<section class="section" id="plm">
+  <div class="section-header" style="background:#8b5cf6">
+    <span class="section-icon">🔧</span>
+    <span class="section-title">PLM 与研发数字化</span>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="section-body">
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.sohu.com/a/903671493_121747164" target="_blank" rel="noopener">发改委宣布工业软件纳入“两新”政策，国产 PLM 迎历史性红利</a>
+  </div>
+  <div class="card-summary">国家发改委在国新办新闻发布会上宣布，将工业软件更新升级纳入“大规模设备更新和消费品以旧换新”政策支持范围，国产 CAD、EDA、PLM 等工业软件迎来历史性发展红利期，到2027年将完成约 200 万套工业软件更新换代任务。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 搜狐</span>
+    <span class="card-date">🗓 2026-03-20</span>
+    <a class="card-link" href="https://www.sohu.com/a/903671493_121747164" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://news.sina.com.cn/sx/2026-02-03/detail-inhkpqxc0205161.shtml" target="_blank" rel="noopener">IDC 报告：智石开国内 PLM 市场份额跃居本土厂商首位</a>
+  </div>
+  <div class="card-summary">国际权威研究机构 IDC 发布《中国 PLM 市场厂商份额报告》，智石开凭借技术积累和行业深耕，在国内厂商中市场份额位居首位。西门子、达索等国际巨头份额持续下滑，国产 PLM 加速崛起。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 新浪新闻</span>
+    <span class="card-date">🗓 2026-02-03</span>
+    <a class="card-link" href="https://news.sina.com.cn/sx/2026-02-03/detail-inhkpqxc0205161.shtml" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="http://www.xtrb.cn/shangy/2026-03/29/content_1063672.htm" target="_blank" rel="noopener">2026 年 PLM 应用白皮书发布：研发型中小企业选型指南</a>
+  </div>
+  <div class="card-summary">《2026 年 PLM 应用白皮书》聚焦研发型中小企业 PLM 选型核心需求，结合行业权威调研数据与实践案例，系统梳理 PLM 行业发展脉络、现存痛点、主流解决方案及实施成效，为企业数字化转型提供专业参考。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 新闻晨报</span>
+    <span class="card-date">🗓 2026-03-29</span>
+    <a class="card-link" href="http://www.xtrb.cn/shangy/2026-03/29/content_1063672.htm" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+  </div>
+</section>
+<section class="section" id="macro">
+  <div class="section-header" style="background:#ef4444">
+    <span class="section-icon">📊</span>
+    <span class="section-title">宏观经济与政策</span>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="section-body">
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.nbd.com.cn/articles/2026-03-31/4318576.html" target="_blank" rel="noopener">3 月制造业 PMI 50.4%，经济回升向好</a>
+  </div>
+  <div class="card-summary">国家统计局、中国物流与采购联合会发布数据：3 月中国制造业 PMI 为 50.4%，较上月上升 1.4 个百分点，在连续 2 个月运行在 50% 以下后回到扩张区间；非制造业商务活动指数为 50.1%，连续 2 个月环比上升。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 每日经济新闻</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://www.nbd.com.cn/articles/2026-03-31/4318576.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://news.qq.com/rain/a/20260401A01ER900" target="_blank" rel="noopener">央行：继续实施适度宽松货币政策，促进经济稳定增长</a>
+  </div>
+  <div class="card-summary">中国人民銀行货币政策委员会召开 2026 年第一季度例会，要求继续实施适度宽松的货币政策，加大逆周期和跨周期调节力度，更好发挥货币政策工具的总量和结构双重功能，促进经济稳定增长和物价合理回升。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 每日经济新闻</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://news.qq.com/rain/a/20260401A01ER900" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://news.qq.com/rain/a/20260401A01ER900" target="_blank" rel="noopener">国家氢能产业链安全能力建设攻关平台在广州开工建设</a>
+  </div>
+  <div class="card-summary">由广州市氢燃料电池产业创新联合体牛头打造的国家氢能产业链安全能力建设核心材料与装备中试验证及产业化攻关平台在广州开工建设，目标到2028年氢能重卡全生命周期成本实现市场化。</div>
+  <div class="card-meta">
+    <span class="card-source">📰 每日经济新闻</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://news.qq.com/rain/a/20260401A01ER900" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+  </div>
+</section>
+</main>
 
+<footer class="footer">
+  数据来源：每日经济新闻、腾讯新闻、新华财经、工信部等权威媒体 · 仅供参考
+</footer>
 
 <script>
-(function(){
-  var BASE = 'https://b2544603518-netizen.github.io/daily-tech-news/';
-  var cur = document.querySelector('meta[name="issue-date"]').content;
 
-  fetch(BASE + 'dates.json?_=' + Date.now())
-    .then(function(r){ return r.json(); })
-    .then(function(dates){
-      // 最新5期 + 当前期（去重，倒序）
-      var sorted = dates.slice().sort().reverse();
-      var show = sorted.slice(0, 5);
-      if (show.indexOf(cur) === -1) show.push(cur);
-      show.sort().reverse();
+function gotoDate(d) {
+  if (!d) return;
+  var base = window.location.pathname.replace(/[^/]*$/, '');
+  window.location.href = base + '研发数字化每日资讯_' + d + '.html';
+}
 
-      var nav = document.getElementById('date-nav');
-      nav.innerHTML = '';
-
-      // "最新" 按钮
-      var latest = sorted[0];
-      var isLatest = (cur === latest);
-      var latestEl = document.createElement('a');
-      latestEl.href = isLatest ? '#' : (BASE + latest + '.html');
-      latestEl.textContent = '最新';
-      latestEl.className = isLatest ? 'cur' : '';
-      if (!isLatest) latestEl.onclick = function(e){
-        e.preventDefault(); window.location.href = BASE + latest + '.html';
-      };
-      nav.appendChild(latestEl);
-
-      // 分隔
-      var sep = document.createElement('span');
-      sep.className = 'sep';
-      sep.textContent = '|';
-      nav.appendChild(sep);
-
-      // 各期按钮（最近5期）
-      show.forEach(function(d){
-        var el = document.createElement('a');
-        var label = d.slice(5); // MM-DD
-        el.textContent = label;
-        if (d === cur) {
-          el.className = 'cur';
-          el.href = '#';
-        } else {
-          el.href = BASE + d + '.html';
-        }
-        nav.appendChild(el);
-      });
-
-      // "更多历史" 下拉
-      if (sorted.length > 5) {
-        var more = document.createElement('select');
-        more.id = 'hist-select';
-        var def = document.createElement('option');
-        def.value = ''; def.textContent = '更多历史…';
-        more.appendChild(def);
-        sorted.forEach(function(d){
-          var opt = document.createElement('option');
-          opt.value = d;
-          opt.textContent = d;
-          if (d === cur) opt.selected = true;
-          more.appendChild(opt);
-        });
-        more.onchange = function(){
-          if (this.value) window.location.href = BASE + this.value + '.html';
-        };
-        nav.appendChild(more);
-      }
-    })
-    .catch(function(){ /* 静默失败 */ });
-})();
 </script>
-
 </body>
 </html>
