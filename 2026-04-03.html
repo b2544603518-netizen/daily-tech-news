@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研发数字化每日资讯 · 2026-04-03</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #fff;
+      padding: 28px 0 20px;
+      text-align: center;
+    }
+    .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: .04em; }
+    .header .subtitle { margin-top: 6px; font-size: .9rem; color: #94a3b8; }
+    .header .stats {
+      margin-top: 12px;
+      display: inline-flex;
+      gap: 20px;
+      background: rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 6px 20px;
+      font-size: .82rem;
+      color: #cbd5e1;
+    }
+
+    .date-nav {
+      width: 87.5%;
+      max-width: 1400px;
+      margin: 18px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .88rem;
+      color: #475569;
+    }
+    .date-nav label { font-weight: 500; white-space: nowrap; }
+    .date-nav select {
+      padding: 6px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      font-size: .88rem;
+      color: #1e293b;
+      cursor: pointer;
+      outline: none;
+    }
+    .date-nav select:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.15); }
+
+    .main {
+      width: 87.5%;
+      max-width: 1400px;
+      margin: 20px auto 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .section {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      color: #fff;
+    }
+    .section-icon { font-size: 1.3rem; }
+    .section-title { font-size: 1.05rem; font-weight: 700; flex: 1; }
+    .section-count {
+      font-size: .78rem;
+      background: rgba(255,255,255,.25);
+      border-radius: 12px;
+      padding: 2px 10px;
+    }
+    .section-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+
+    .news-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .news-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      border-color: #c7d2fe;
+    }
+    .card-title { font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 8px; }
+    .card-title a { color: #1e293b; text-decoration: none; }
+    .card-title a:hover { color: #6366f1; text-decoration: underline; }
+    .card-summary { font-size: .88rem; color: #475569; line-height: 1.7; margin-bottom: 10px; }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: .78rem;
+      color: #94a3b8;
+      flex-wrap: wrap;
+    }
+    .card-source, .card-date { white-space: nowrap; }
+    .card-link {
+      margin-left: auto;
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .card-link:hover { text-decoration: underline; }
+
+    .tag {
+      display: inline-block;
+      font-size: .72rem;
+      padding: 1px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+    .tag-new { background: #dcfce7; color: #16a34a; }
+    .tag-follow { background: #fef9c3; color: #ca8a04; }
+
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .82rem;
+      margin: 8px 0 4px;
+    }
+    .mini-table th {
+      background: #f1f5f9;
+      color: #475569;
+      font-weight: 600;
+      padding: 5px 10px;
+      text-align: left;
+      border: 1px solid #e2e8f0;
+    }
+    .mini-table td {
+      padding: 5px 10px;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+    }
+
+    .summary-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: .88rem;
+      color: #334155;
+      line-height: 1.8;
+    }
+    .summary-box h3 { font-size: .95rem; font-weight: 700; margin-bottom: 10px; color: #1e293b; }
+
+    .footer { text-align: center; padding: 20px; font-size: .78rem; color: #94a3b8; }
+
+    @media (max-width: 768px) {
+      .main, .date-nav { width: 95%; }
+      .header h1 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <h1>📡 研发数字化每日资讯</h1>
+  <div class="subtitle">2026年4月3日 · 星期五 · 第 87 期</div>
+  <div class="stats">
+    <span>📂 7 个板块</span>
+    <span>📰 21 条资讯</span>
+    <span>🔗 全部真实原文链接</span>
+  </div>
+</header>
+
+<div class="date-nav">
+  <label for="date-select">📅 切换日期：</label>
+  <select id="date-select" onchange="gotoDate(this.value)">
+    <option value="2026-04-03" selected>2026-04-03</option>
+    <option value="2026-04-02">2026-04-02</option>
+    <option value="2026-04-01">2026-04-01</option>
+    <option value="2026-03-31">2026-03-31</option>
+    <option value="2026-03-27">2026-03-27</option>
+    <option value="2026-03-25">2026-03-25</option>
+  </select>
+</div>
+
+<main class="main">
+
+<!-- 今日速览 -->
+<section class="section">
+  <div class="section-header" style="background:#334155">
+    <span class="section-icon">⚡</span>
+    <span class="section-title">今日速览</span>
+  </div>
+  <div class="section-body">
+    <div class="summary-box">
+      <h3>🔥 今日核心动态（2026-04-03）</h3>
+      <p>【人形机器人】星海图完成20亿B+轮融资，估值超200亿，具身智能头部门槛再度抬高；宇树科技IPO受理12天后被抽中现场检查，量产元年资本博弈加剧；灵心巧手启动股改冲刺IPO，具身智能赛道"上市潮"提速。【低空经济】深圳国际低空经济与无人系统展览会4月9-11日即将开幕，1200+家企业参展；大湾区粤产无人机领跑全球，消费级占全国95%、工业级占54%；民用航空法7月修订施行，eVTOL监管框架落地。【研发数字化】中国信通院《工业智能创新发展报告（2026年）》正式发布，制造业从"自动化智能"向"自主化智能"演进；PLM市场规模突破420亿，AI原生增速超35%。【两轮车】4月1日起全国电动车三色牌照新规全面执行，九号/雅迪等头部品牌集体涨价200-300元；工信部召开锂电池回收座谈会，严禁汽车退役电池流入两轮车市场。【充电宝】首部移动电源强制性国标GB 47372-2026于3月31日正式发布，2027年4月起强制执行，华为小米等参与起草，行业迎来"史上最严"安全升级。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ① 人形机器人 / 具身智能 -->
+<section class="section" id="humanoid">
+  <div class="section-header" style="background:#6366f1">
+    <span class="section-icon">🤖</span>
+    <span class="section-title">人形机器人 / 具身智能</span>
+    <span class="section-count">4 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.qbitai.com/2026/04/394626.html" target="_blank" rel="noopener">星海图完成20亿B+轮融资，估值超200亿，具身智能头部门槛再度抬高</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    4月2日，具身智能公司星海图宣布完成近20亿元B+轮融资，投后估值超200亿元，与银河通用并列行业第一梯队。本轮投资方涵盖华登科技、蓝思科技、矽芯投资、时代伯乐、航发基金等产业资本，以及修远资本、弘章投资、中金资本旗下基金等长线机构，近20家机构参与。值得注意的是，蓝思科技同时是星海图的硬件供应链与大规模量产合作方，产业资本与战略合作深度绑定。星海图2月刚完成10亿B轮，两个月内连续两轮大额融资，累计融资近30亿元。2026年Q1具身智能赛道融资规模近300亿元，头部门槛已从百亿升至200亿。对研发数字化的意义：具身智能大额融资将加速机器人研发平台、仿真工具链、数据飞轮等研发数字化基础设施的投入与建设。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>本轮融资额</td><td>近20亿元（B+轮）</td></tr>
+      <tr><td>投后估值</td><td>超200亿元</td></tr>
+      <tr><td>累计融资</td><td>近30亿元</td></tr>
+      <tr><td>2026年Q1赛道融资总规模</td><td>近300亿元</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 量子位</span>
+    <span class="card-date">🗓 2026-04-02</span>
+    <a class="card-link" href="https://www.qbitai.com/2026/04/394626.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://caifuhao.eastmoney.com/news/20260401104238198589450" target="_blank" rel="noopener">宇树科技IPO受理12天后被抽中现场检查，量产元年资本博弈加剧</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    宇树科技科创板IPO申请于3月20日获上交所受理，仅12天后（4月1日），中国证券业协会公布2026年第二批首发企业现场检查抽签结果，宇树科技赫然在列。宇树拟募资42.02亿元，招股书显示2025年人形机器人出货量5500台（全球第一），已实现盈利。现场检查是IPO流程中的常规监管动作，但对于首家冲刺科创板的人形机器人企业而言，市场高度关注其能否顺利过关。同期申报的中科宇航（商业航天）也被抽中检查。对研发数字化的意义：IPO进程将推动宇树建立更完善的研发数字化管理体系，包括研发费用归集、知识产权管理、研发项目追踪等合规能力。
+    <table class="mini-table">
+      <tr><th>项目</th><th>数据</th></tr>
+      <tr><td>拟募资金额</td><td>42.02亿元</td></tr>
+      <tr><td>2025年出货量</td><td>5500台（人形机器人，全球第一）</td></tr>
+      <tr><td>IPO受理日期</td><td>2026年3月20日</td></tr>
+      <tr><td>现场检查抽中日期</td><td>2026年4月1日</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 东方财富·财富号</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://caifuhao.eastmoney.com/news/20260401104238198589450" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://xueqiu.com/6126502106/382417149" target="_blank" rel="noopener">灵心巧手启动股改冲刺IPO，具身智能赛道"上市潮"提速</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    据雪球4月2日消息，灵心巧手已变更为股份制公司，正式启动IPO程序。灵心巧手专注于具身智能灵巧手与操作臂研发，是国内具身智能核心部件层的代表性企业。与此同时，OpenAI投后估值达8520亿美元，雷军宣布砸600亿打造汽车工厂机器人军团，特斯拉Optimus V3真机首曝并加速量产，上海萝博派对完成2000万美元天使轮融资。2026年具身智能赛道呈现"基础模型+核心部件"双轮驱动的融资格局，灵巧手方向尤为受资本青睐。对研发数字化的意义：灵巧手等核心部件企业的规模化，将推动机器人研发从整机级向部件级精细化数字化管理演进，BOM管理、供应链协同等需求显著提升。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 雪球·具身智能资讯</span>
+    <span class="card-date">🗓 2026-04-02</span>
+    <a class="card-link" href="https://xueqiu.com/6126502106/382417149" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://finance.sina.com.cn/jjxw/2026-03-26/doc-inhsiqkn0096524.shtml" target="_blank" rel="noopener">头部厂商竞相布局量产，人形机器人产业化提速——2026量产元年全景</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    《证券日报》综合报道，2026年作为人形机器人量产元年，行业进入"技术落地+量产放量"双重爆发期。2026中关村论坛年会期间，机器人"天团"集中亮相，展示精准穿针、柔性抓取、协同作业等能力。国内已有6家企业跻身"百亿估值俱乐部"，头部厂商纷纷开启"囤钱抢市场"模式。特斯拉Optimus量产推进、宇树科技冲刺IPO、优必选Walker系列进入比亚迪/一汽-大众工厂实现千台级量产突破，标志着人形机器人正从实验室Demo走向真实工业场景。业界预计未来将逐步覆盖工业、商业、家庭等多元场景，撬动万亿元级市场规模。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 新浪财经·证券日报</span>
+    <span class="card-date">🗓 2026-03-26</span>
+    <a class="card-link" href="https://finance.sina.com.cn/jjxw/2026-03-26/doc-inhsiqkn0096524.shtml" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ② 低空经济 / 无人机 -->
+<section class="section" id="lowalt">
+  <div class="section-header" style="background:#0ea5e9">
+    <span class="section-icon">🚁</span>
+    <span class="section-title">低空经济 / 无人机</span>
+    <span class="section-count">4 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.chinanews.com/cj/2026/03-30/10595395.shtml" target="_blank" rel="noopener">2026世界无人机大会5月深圳举办，1200+家中外企业参展，主题"低空经济飞向未来"</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    3月30日，2026世界无人机大会暨国际低空经济与无人系统博览会新闻发布会在深圳召开，大会将于5月21-23日在深圳会展中心（福田）举办，主题为"低空经济飞向未来"。组委会宣布已有来自中外的1200余家无人机企业确认参展，展览面积30000㎡，预计吸引超31000名专业观众。同期，深圳国际低空经济与无人系统展览会（UAS EXPO）也将于4月9-11日在深圳会展中心先行举办，全面展示eVTOL、低空物流、无人机反制、低空示范区建设等全产业链。大湾区已形成消费级无人机占全国95%、工业级占54%的产业格局。对研发数字化的意义：大规模展会将集中展示无人机研发数字化工具链、仿真平台、适航数字化管理等最新成果，是行业研发数字化水平的集中检阅。
+    <table class="mini-table">
+      <tr><th>展会</th><th>时间</th><th>规模</th></tr>
+      <tr><td>深圳UAS EXPO</td><td>4月9-11日</td><td>低空经济全产业链</td></tr>
+      <tr><td>世界无人机大会</td><td>5月21-23日</td><td>1200+家企业，30000㎡</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 中国新闻网</span>
+    <span class="card-date">🗓 2026-03-30</span>
+    <a class="card-link" href="https://www.chinanews.com/cj/2026/03-30/10595395.shtml" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.21jingji.com/article/20260401/herald/15700c4e683a67448bbddef42e07f591.html" target="_blank" rel="noopener">大湾区低空经济成势：粤产无人机领跑全球，深圳开通跨城低空载人航线</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    21经济网4月1日报道，粤港澳大湾区低空经济产业格局持续强化：广东民用无人机产量全国第一，消费级无人机市场份额占全国95%，工业级占54%。深圳已开通至东莞跨城低空载人航线，覆盖10余个交通枢纽，成为全国首条跨城eVTOL商业化试运营航线。北部湾海域油田无人机系统运营项目正式落地，实现我国海上油田首次无人机规模化作业。《民用航空法》修订版将于7月1日施行，首次增设"发展促进"专章，明确300米以下低空分类分级管理规则，为eVTOL建立精准监管体系。对研发数字化的意义：eVTOL商业化运营将推动适航数字化、飞行数据管理、运营监控平台等研发数字化需求快速增长。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 21经济网</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://www.21jingji.com/article/20260401/herald/15700c4e683a67448bbddef42e07f591.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.news.cn/tech/20260120/022efb2fbec0450db7c4234d8f84da83/c.html" target="_blank" rel="noopener">民用无人机两项强制性国标5月1日起实施，"一机一码、全程可溯"成硬要求</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    新华网报道，《民用无人驾驶航空器实名登记和激活要求》《民用无人驾驶航空器系统运行识别规范》两项强制性国家标准将于2026年5月1日起正式实施，明确要求实现"一机一码、全程可溯"，无人机"谁能飞""谁在飞"将有章可循。与此同时，新修订的《民用航空法》将于7月1日施行，首次将eVTOL等新业态纳入精准监管体系，破解空域管理模糊难题。低空经济2026年迈入"实质运营"阶段，当前核心挑战是安全与发展的平衡。对研发数字化的意义：强制性国标的落地将推动无人机研发企业建立完整的数字化合规体系，包括产品编码管理、飞行数据记录、适航认证数字化等。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 新华网</span>
+    <span class="card-date">🗓 2026-01-20</span>
+    <a class="card-link" href="https://www.news.cn/tech/20260120/022efb2fbec0450db7c4234d8f84da83/c.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://zhuanlan.zhihu.com/p/2020440038203241810" target="_blank" rel="noopener">低空经济政策落地+区域协同：2026年迈入"实质运营"阶段全景解读</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    《低空经济发展报告（2025-2026）》显示，2025年是我国低空经济"制度建设与体系构建发力年"，低空经济连续第二年写入《政府工作报告》，并首次纳入"十五五"规划建议。2026年迈入"实质运营"阶段，全国多地"新年第一会"聚焦低空经济部署。区域协同方面，粤港澳大湾区获批国家低空经济试点，枣庄、苏州等城市加速布局低空产业园。工业级无人机市场规模775.66亿元，占比首次突破60%；eVTOL年度订单总额超300亿元，海外订单占主要份额。对研发数字化的意义：低空经济进入实质运营阶段，将推动无人机研发数字化从"研发验证"向"运营数据反哺研发"的闭环演进。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 知乎·低空经济政策解读</span>
+    <span class="card-date">🗓 2026-03-28</span>
+    <a class="card-link" href="https://zhuanlan.zhihu.com/p/2020440038203241810" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ③ PLM / ALM / 研发数字化 -->
+<section class="section" id="plm">
+  <div class="section-header" style="background:#8b5cf6">
+    <span class="section-icon">🔧</span>
+    <span class="section-title">PLM / ALM / 研发数字化</span>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.secrss.com/articles/88930" target="_blank" rel="noopener">中国信通院发布《工业智能创新发展报告（2026年）》：制造业从"自动化智能"向"自主化智能"演进</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    近日，中国信息通信研究院信息化与工业化融合研究所正式发布《工业智能创新发展报告（2026年）》。报告核心观点：制造业智能化正从以判别分析为主的"自动化智能"向具备自主决策与生成能力的"自主化智能"演进；未来工业智能系统架构将由"智能模型+数字孪生+智能体"三位一体构成；人工智能深度融合呈现三个核心方向——从单一场景感知级应用走向认知级决策，从静态分析预测走向动态自主优化，从局部工具应用转向系统级跨流程协同。报告同步梳理了技术融合创新趋势、制造模式变革方向与典型实践，总结当前落地挑战并给出发展建议。对研发数字化的意义：报告明确指出研发数字化是制造业智能化的核心入口，智能体+数字孪生的组合将重构研发流程，PLM/ALM系统需向"AI原生"方向演进。
+    <table class="mini-table">
+      <tr><th>演进方向</th><th>核心变化</th></tr>
+      <tr><td>智能层级</td><td>自动化智能 → 自主化智能</td></tr>
+      <tr><td>系统架构</td><td>智能模型 + 数字孪生 + 智能体</td></tr>
+      <tr><td>应用深度</td><td>单点工具 → 系统级跨流程协同</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 安全内参·中国信通院</span>
+    <span class="card-date">🗓 2026-03-30</span>
+    <a class="card-link" href="https://www.secrss.com/articles/88930" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.digiwin.com/p/13692.html" target="_blank" rel="noopener">2026年PLM市场规模突破420亿，AI原生增速超35%，国产厂商份额首破60%</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    据工信部、观研天下及中国制造业信息化研究所近半年权威数据，中国PLM市场规模已突破420亿元，同比增长约21%。其中，融合AI原生、云原生技术的智能PLM增速突破35%，传统PLM增速仅12%，两极分化明显。国产PLM厂商市场份额首次突破60%，智石开以显著优势位居国产厂商首位。超83%的规模以上制造企业将PLM列为数字化建设核心模块。工信部等五部门联合开展智能工厂培育行动，促使PLM技术加速向"AI原生+云原生"融合发展。对研发数字化的意义：PLM市场的AI化转型正在重塑研发数字化的核心工具栈，国产替代加速为机器人、无人机等新兴制造业提供了更灵活的本土化研发管理方案。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>中国PLM市场规模</td><td>突破420亿元</td></tr>
+      <tr><td>AI原生PLM增速</td><td>>35%</td></tr>
+      <tr><td>国产厂商市场份额</td><td>首次突破60%</td></tr>
+      <tr><td>制造企业PLM采用率</td><td>>83%（规模以上）</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 鼎捷软件·行业研究</span>
+    <span class="card-date">🗓 2026-03-25</span>
+    <a class="card-link" href="https://www.digiwin.com/p/13692.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.toutiao.com/article/7498960280743985716/" target="_blank" rel="noopener">e-works深度：12款AI驱动PLM洞察——国际巨头与国产厂商AI融合路径对比</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    e-works编辑部黄菊锋原创分析，当前国际PLM巨头（西门子、达索、PTC）与国产PLM厂商在AI融合路径上呈现显著差异：国际巨头侧重将AI嵌入现有工具链（如Siemens NX AI助手、CATIA Magic AI），国产厂商则更多采用"AI原生重构"路径，直接以大模型为核心重建研发流程。PLM+AI的核心价值在于：数字设计工程师承担80%重复性建模工作，工程师聚焦20%创意优化，"创意-验证"闭环加速推动制造业研发从"经验驱动"向"数据智能驱动"转型。未来多模态交互与跨学科知识图谱的深度整合，将推动三维模型生成向"零代码设计"演进。对研发数字化的意义：AI+PLM的路径分化将影响企业选型策略，机器人/无人机等新兴制造企业更适合选择AI原生PLM，以支撑快速迭代的研发模式。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 今日头条·e-works</span>
+    <span class="card-date">🗓 2026-03-28</span>
+    <a class="card-link" href="https://www.toutiao.com/article/7498960280743985716/" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ④ 智能制造 / 工业互联网 -->
+<section class="section" id="mfg">
+  <div class="section-header" style="background:#f59e0b">
+    <span class="section-icon">🏭</span>
+    <span class="section-title">智能制造 / 工业互联网</span>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.gyznsw.cn/2026/04/03/2026-04-03-%E5%B7%A5%E4%B8%9A%E6%99%BA%E8%83%BD%E6%AF%8F%E6%97%A5%E8%A7%82%E5%AF%9F-20260403/" target="_blank" rel="noopener">工业智能每日观察（2026-04-03）：中国信通院报告指出制造业向"自主化智能"演进</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    工业智能算网4月3日观察：中国信通院发布《工业智能创新发展报告（2026年）》，系统阐述工业智能新图景。报告明确指出，制造业智能化正从以判别分析为主的"自动化智能"向具备生成能力的"自主化智能"演进。未来架构将由"智能模型+数字孪生+智能体"三位一体构成，智能模型负责复杂决策生成，数字孪生提供虚实映射环境，智能体实现自主任务执行。这一演进路径对工业互联网平台提出了更高要求，需要从数据采集汇聚升级为支持AI推理的实时计算基础设施。对研发数字化的意义：工业智能的"自主化"演进将推动研发数字化从"辅助工具"升级为"自主研发智能体"，重塑研发流程的组织方式与效率边界。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 工业智能算网</span>
+    <span class="card-date">🗓 2026-04-03</span>
+    <a class="card-link" href="https://www.gyznsw.cn/2026/04/03/2026-04-03-%E5%B7%A5%E4%B8%9A%E6%99%BA%E8%83%BD%E6%AF%8F%E6%97%A5%E8%A7%82%E5%AF%9F-20260403/" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.news.cn/tech/20260126/c4c41c534184401db2ef1de484785baf/c.html" target="_blank" rel="noopener">新华网：政策密集发力，"工业互联网+AI"融合迈入新阶段</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    新华网报道，《工业互联网和人工智能融合赋能行动方案》《推动工业互联网平台高质量发展行动方案（2026-2028年）》《"人工智能+制造"专项行动实施意见》三大政策文件密集发布，形成政策组合拳。核心目标：到2028年，满足AI工业应用高通量、低时延、高可靠、低抖动通信需求的新型工业网络规模持续扩大，在原材料、装备制造、消费品、电子信息等重点行业加快部署应用。工业互联网已实现41个工业大类全覆盖，5G+工业互联网工业级产品款式占全球40%以上，模组成本较商用初期下降90%。对研发数字化的意义：工业互联网+AI政策组合拳将加速研发数字化基础设施升级，推动研发数据从孤岛走向互联互通，为AI辅助研发提供数据底座。
+    <table class="mini-table">
+      <tr><th>政策文件</th><th>核心目标</th></tr>
+      <tr><td>工业互联网+AI融合行动方案</td><td>2028年新型工业网络规模扩大</td></tr>
+      <tr><td>工业互联网平台高质量发展方案</td><td>2026-2028年平台能力升级</td></tr>
+      <tr><td>"AI+制造"专项行动</td><td>研发设计、生产制造全环节AI赋能</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 新华网</span>
+    <span class="card-date">🗓 2026-01-26</span>
+    <a class="card-link" href="https://www.news.cn/tech/20260126/c4c41c534184401db2ef1de484785baf/c.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.miit.gov.cn/jgsj/xgj/gzdt/art/2026/art_57bbd1d6ebb9433094295a8cb02f3184.html" target="_blank" rel="noopener">工信部解读《工业互联网和人工智能融合赋能行动方案》：四问一图读懂政策要点</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    工信部信管局官方解读，《工业互联网和人工智能融合赋能行动方案》聚焦四大核心问题：为何融合（工业互联网迭代升级的新机遇）、融合什么（数据要素+AI模型+工业场景）、如何融合（平台+智能体服务模式）、融合效果（制造业全环节AI赋能）。方案提出研发面向工业互联网等基础设施的数据集、大模型、智能体等，推动"平台+智能体"服务模式创新。这是继"十四五"工业互联网规划后，面向"十五五"开局的重要政策部署。对研发数字化的意义：工业互联网+AI的融合将为研发数字化提供更强大的数据基础设施，推动研发知识图谱、工艺数据库、仿真数据集的系统化建设。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 工业和信息化部官网</span>
+    <span class="card-date">🗓 2026-01-25</span>
+    <a class="card-link" href="https://www.miit.gov.cn/jgsj/xgj/gzdt/art/2026/art_57bbd1d6ebb9433094295a8cb02f3184.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ⑤ 无人配送车 -->
+<section class="section" id="delivery">
+  <div class="section-header" style="background:#10b981">
+    <span class="section-icon">🚐</span>
+    <span class="section-title">无人配送车</span>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.xinhuanet.com/tech/20260327/8c8513d072224ce7ad76a09d9564b8d2/c.html" target="_blank" rel="noopener">新石器无人车RaaS模式获规模验证：10个月150万单、4000万公里，年内拓展50城</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    新华网3月27日报道，新石器无人车公布RaaS（RoboVan-as-a-Service）即时配送服务阶段性成绩：自2025年6月与滴滴送货在青岛启动试点以来，不到10个月完成超150万次配送服务，累计自动驾驶里程超4000万公里，在青岛建成全球最大单城市无人车队，日订单量最高突破6500单。服务已延伸至建材、工厂、生鲜、商超、医药、团餐、汽配等多元领域。从二季度起，新石器将正式进入全域规模化运营阶段，预计年内覆盖全国50个城市，并同步出海阿联酋、韩国、新加坡、葡萄牙等国家。对研发数字化的意义：RaaS模式的规模化验证将产生海量运营数据，推动无人车研发从"实验室验证"向"运营数据驱动研发迭代"的闭环演进，是研发数字化与运营数字化深度融合的典型案例。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>累计配送次数</td><td>超150万次</td></tr>
+      <tr><td>累计自动驾驶里程</td><td>超4000万公里</td></tr>
+      <tr><td>青岛日订单峰值</td><td>6500单</td></tr>
+      <tr><td>年内目标覆盖城市</td><td>50个</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 新华网</span>
+    <span class="card-date">🗓 2026-03-27</span>
+    <a class="card-link" href="https://www.xinhuanet.com/tech/20260327/8c8513d072224ce7ad76a09d9564b8d2/c.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://nev.ofweek.com/2026-03/ART-77015-8420-30683981.html" target="_blank" rel="noopener">腾讯入股新石器、阿里菜鸟入局九识智能，物流无人车赛道"巨头选边站"格局成型</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    OFweek报道，2026年初物流无人车赛道上演"巨头选边站"：腾讯战略投资新石器无人车，阿里菜鸟入局九识智能，两大互联网巨头分别与头部无人车企业深度绑定。新石器与九识智能是国内累计交付超3.6万台无人车的头部玩家，分别被腾讯和阿里"收编"后，竞争格局从初创公司的技术马拉松升级为生态巨头的全面较量。新石器同期与禾赛科技深化战略合作，采用高性能远距激光雷达ATX和补盲激光雷达FTX；九识智能则与速腾聚创达成深度合作。对研发数字化的意义：巨头入局将推动无人车研发数字化与互联网平台能力深度融合，云端调度、数据标注、仿真训练等研发数字化能力将获得更强的平台支撑。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 OFweek新能源汽车</span>
+    <span class="card-date">🗓 2026-03-28</span>
+    <a class="card-link" href="https://nev.ofweek.com/2026-03/ART-77015-8420-30683981.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://m.163.com/dy/article/KONA850C05198SOQ.html" target="_blank" rel="noopener">中商产业研究院：2026年中国无人配送车销量将突破10万辆，2028年超32万辆</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    中商产业研究院发布《2026-2031年中国无人配送市场深度研究及发展前景投资预测分析报告》，预计2026年中国无人配送车销量将突破10万辆（2025年约3.26万辆），2028年销量将超32万辆。行业市场集中度较高，TOP3企业市场份额合计71.35%，TOP5企业76.98%。政策层面，苏州2026年前部署不少于1600辆低速无人配送车，山东省规划2027年全省部署1.5万辆以上。快递行业成为无人配送车落地"第一沃土"，顺丰、京东、中国邮政三家平台采购中新石器占比超90%。对研发数字化的意义：规模化商用将推动无人配送车研发数字化从"功能验证"向"可靠性工程"转型，FMEA、可靠性仿真、OTA升级管理等研发数字化能力需求显著提升。
+    <table class="mini-table">
+      <tr><th>年份</th><th>预测销量</th></tr>
+      <tr><td>2025年（实际）</td><td>约3.26万辆</td></tr>
+      <tr><td>2026年（预测）</td><td>突破10万辆</td></tr>
+      <tr><td>2028年（预测）</td><td>超32万辆</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 网易·中商产业研究院</span>
+    <span class="card-date">🗓 2026-03-20</span>
+    <a class="card-link" href="https://m.163.com/dy/article/KONA850C05198SOQ.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ⑥ 两轮车 / 电动车 / 共享单车 -->
+<section class="section" id="ebike">
+  <div class="section-header" style="background:#f97316">
+    <span class="section-icon">🛵</span>
+    <span class="section-title">两轮车 / 电动车 / 共享单车</span>
+    <span class="section-count">2 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.163.com/dy/article/KPH40G8C0550F4WT.html" target="_blank" rel="noopener">4月1日起全国电动车三色牌照新规全面执行，九号/雅迪等头部品牌集体涨价200-300元</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    2026年4月1日起，全国范围内电动自行车、电动摩托车及燃油摩托车道路通行与安全管理新规正式落地，实现全国执行标准统一。新规将两轮车辆严格划分为绿牌（新国标电动自行车）、蓝牌（电动轻便摩托车）、黄牌（电动摩托车/燃油摩托车）三大类，覆盖车辆登记、驾照资质、通行规则、改装管理、停放充电等全链条。与此同时，九号、雅迪、台铃、爱玛等国内主流电动两轮车品牌自4月1日起对多数车型上调售价，涨幅普遍在200-300元，部分高端及锂电车型涨幅更高，主因是新国标（GB17761-2024）材料与技术标准升级带来的成本上涨。对研发数字化的意义：新国标落地推动电动两轮车企业加速研发数字化转型，北斗定位模块强制集成、电池健康监测等新功能要求将推动产品研发数字化能力升级。
+    <table class="mini-table">
+      <tr><th>牌照颜色</th><th>车辆类型</th><th>驾照要求</th></tr>
+      <tr><td>绿牌</td><td>新国标电动自行车（非机动车）</td><td>无需驾照</td></tr>
+      <tr><td>蓝牌</td><td>电动轻便摩托车</td><td>需D/F照</td></tr>
+      <tr><td>黄牌</td><td>电动摩托车/燃油摩托车</td><td>需E/F照</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 网易·两轮车新规解读</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://www.163.com/dy/article/KPH40G8C0550F4WT.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.miit.gov.cn/jgsj/jns/gzdt/art/2026/art_215d5fedfc8c48e38b677881f2090864.html" target="_blank" rel="noopener">工信部召开电动自行车锂电池回收座谈会：严禁汽车退役电池流入两轮车市场，哈啰/青桔等参会</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    2026年3月26日，工业和信息化部召开电动自行车锂离子电池回收利用体系建设座谈会暨相关政策宣贯会。参会主体覆盖全产业链：九号、雅迪、金箭等18家整车企业，星恒、南都等10家锂电池生产企业，小哈、铁塔等4家电池租赁企业，哈啰、滴滴青桔等共享租车企业，美团、淘宝等即时配送企业，以及中资环、中再生、格林美等回收利用企业。会议明确严禁汽车退役电池流入两轮车市场，推动建立"应收尽收"的废锂电池回收体系。这是继新国标落地后，监管层面对两轮车全产业链安全治理的重要延伸。对研发数字化的意义：电池回收体系建设将推动两轮车企业建立电池全生命周期数字化追踪系统，从研发设计阶段即需考虑电池健康评估与回收数字化接口。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 工业和信息化部官网</span>
+    <span class="card-date">🗓 2026-03-26</span>
+    <a class="card-link" href="https://www.miit.gov.cn/jgsj/jns/gzdt/art/2026/art_215d5fedfc8c48e38b677881f2090864.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ⑦ 共享充电宝 -->
+<section class="section" id="charger">
+  <div class="section-header" style="background:#ec4899">
+    <span class="section-icon">🔋</span>
+    <span class="section-title">共享充电宝</span>
+    <span class="section-count">2 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.ithome.com/0/935/093.htm" target="_blank" rel="noopener">我国首部移动电源强制性国标GB 47372-2026正式发布，华为小米参与起草，2027年4月起强制执行</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    IT之家4月1日报道，我国首部《移动电源安全技术规范》强制性国家标准（GB 47372-2026）已于3月31日正式发布，将于2027年4月1日起全面强制执行，被业界称为"史上最严"移动电源安全标准。华为、小米等主流企业参与起草。标准从电芯、线路板、整机三大技术领域划定"硬红线"，新增过度充电、针刺、挤压、热滥用等严格试验要求，部分产品将具备联网功能可实时调取"健康状况"。行业整体成本将提升20%-30%，预计近七成现有产能将退出市场。企业预计集中在2026年4月推出符合新标准的主导产品。对研发数字化的意义：新国标的落地将推动充电宝企业建立完整的研发数字化合规体系，包括安全测试数字化、认证管理系统、产品全生命周期追踪等能力。
+    <table class="mini-table">
+      <tr><th>标准编号</th><th>GB 47372-2026</th></tr>
+      <tr><td>发布日期</td><td>2026年3月31日</td></tr>
+      <tr><td>强制执行日期</td><td>2027年4月1日</td></tr>
+      <tr><td>行业成本影响</td><td>提升20%-30%</td></tr>
+      <tr><td>预计退出产能</td><td>约70%现有产能</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 IT之家</span>
+    <span class="card-date">🗓 2026-04-01</span>
+    <a class="card-link" href="https://www.ithome.com/0/935/093.htm" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://reportify.cn/companies/US:EM/documents" target="_blank" rel="noopener">怪兽充电私有化进程：股东大会已批准合并协议，退市后成MidCo全资子公司</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    据Reportify财报信息，怪兽充电股东在2025年12月31日举行的股东特别大会上投票批准了合并协议及合并计划，该合并协议于2025年8月1日公布。交易完成后，公司将与合并子公司合并，成为MidCo的全资子公司，其美国存托凭证将从纳斯达克退市，存托凭证计划也将终止。怪兽充电2024年营收18.94亿元（同比降36%），净亏损1350万元。此前，怪兽充电董事会拒绝了高瓴资本1.77美元/ADS的溢价收购要约，选择继续推进信宸资本1.25美元/ADS的低价私有化方案，引发市场争议。对研发数字化的意义：共享充电宝头部企业私有化退市，反映行业商业模式面临挑战，未来行业竞争将更聚焦于运营效率与技术差异化，推动企业加大研发数字化投入以降本增效。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 Reportify·财报信息</span>
+    <span class="card-date">🗓 2026-01-05</span>
+    <a class="card-link" href="https://reportify.cn/companies/US:EM/documents" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- 结论区 -->
+<section class="section" id="conclusion">
+  <div class="section-header" style="background:#334155">
+    <span class="section-icon">📊</span>
+    <span class="section-title">今日结论与洞察</span>
+  </div>
+  <div class="section-body">
+
+    <div class="summary-box">
+      <h3>📈 今日变化雷达</h3>
+      <p>今日新增：14条（星海图B+轮融资、宇树IPO现场检查、灵心巧手IPO启动、深圳无人机展即将开幕、大湾区低空成势、信通院工业智能报告、PLM市场数据、工业智能每日观察、新石器50城计划、腾讯/阿里入局无人车、无人配送车销量预测、电动车三色牌照新规、工信部锂电池回收座谈会、充电宝新国标发布）；持续跟进：7条；剔除：与昨日重复且无新增事实的条目已去除。</p>
+    </div>
+
+    <div class="summary-box">
+      <h3>🔗 跨行业联动洞察</h3>
+      <p>本周最显著的跨行业联动信号是"资本+监管"双轮驱动的产业升级节奏：具身智能赛道星海图20亿融资与宇树IPO现场检查同步发生，说明资本热度与监管规范化正在同步提速，行业从"讲故事"进入"拼硬指标"阶段。低空经济方面，深圳展会（4月9日）与世界无人机大会（5月）的密集排期，叠加民用航空法7月修订施行，形成"展会-政策-法规"三重催化。两轮车与充电宝同步迎来新国标落地（4月1日三色牌照+3月31日充电宝国标发布），监管层面的"安全优先"导向正在重塑这两个行业的竞争格局，技术能力强、合规成本低的头部企业将获得更大市场份额。无人配送车赛道的"巨头选边站"（腾讯/阿里）预示着行业即将进入平台化竞争阶段，研发数字化能力将成为差异化竞争的核心壁垒。</p>
+    </div>
+
+    <div class="summary-box">
+      <h3>✅ 本周可执行动作</h3>
+      <p>①关注4月9-11日深圳国际低空经济与无人系统展览会，重点跟踪eVTOL适航数字化、无人机研发工具链最新进展；②研究中国信通院《工业智能创新发展报告（2026年）》，评估"智能模型+数字孪生+智能体"架构对现有PLM/ALM系统的影响；③跟踪宇树科技IPO现场检查进展，关注其研发数字化合规体系建设经验；④评估充电宝新国标（GB 47372-2026）对共享充电宝运营商的研发数字化合规要求，关注倍斯特等设备商的新品发布动向。</p>
+    </div>
+
+    <div class="summary-box">
+      <h3>💡 今日结论</h3>
+      <p>2026年4月3日，研发数字化领域呈现"监管规范化+资本规模化+技术自主化"三重共振的格局。具身智能赛道的融资热度持续攀升，但资本已从"故事驱动"转向"硬指标驱动"，研发数字化能力（仿真验证、BOM管理、测试体系）正成为企业估值的重要支撑。低空经济进入"实质运营"阶段，无人机强制性国标5月落地将推动行业研发数字化合规化。PLM市场AI原生化趋势明确，国产替代加速，为新兴制造业提供了更灵活的本土化研发管理方案。两轮车与充电宝行业的新国标密集落地，标志着"安全优先"成为行业发展的新底线，研发数字化将在合规管理、全生命周期追踪等方向迎来新的增长机遇。</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>研发数字化每日资讯 · 第87期 · 2026年4月3日 · 数据来源：新华网、工信部、量子位、IT之家、21经济网、中国新闻网、OFweek、新浪财经、东方财富等</p>
+</footer>
+
+<script>
+function gotoDate(val) {
+  const map = {
+    '2026-04-03': 'index.html',
+    '2026-04-02': '研发数字化每日资讯_2026-04-02.html',
+    '2026-04-01': '研发数字化每日资讯_2026-04-01.html',
+    '2026-03-31': '研发数字化每日资讯_2026-03-31.html',
+    '2026-03-27': '研发数字化每日资讯_2026-03-27.html',
+    '2026-03-25': '研发数字化每日资讯_2026-03-25.html',
+  };
+  if (map[val]) window.location.href = map[val];
+}
+</script>
+
+</body>
+</html>
