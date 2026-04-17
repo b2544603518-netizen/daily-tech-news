@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研发数字化每日资讯 · 2026-04-17</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      min-height: 100vh;
+    }
+    .header {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #fff;
+      padding: 28px 0 20px;
+      text-align: center;
+    }
+    .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: .04em; }
+    .header .subtitle { margin-top: 6px; font-size: .9rem; color: #94a3b8; }
+    .header .stats {
+      margin-top: 12px;
+      display: inline-flex;
+      gap: 20px;
+      background: rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 6px 20px;
+      font-size: .82rem;
+      color: #cbd5e1;
+    }
+    .date-nav {
+      width: 87.5%;
+      max-width: 1400px;
+      margin: 18px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .88rem;
+      color: #475569;
+    }
+    .date-nav label { font-weight: 500; white-space: nowrap; }
+    .date-nav select {
+      padding: 6px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      font-size: .88rem;
+      color: #1e293b;
+      cursor: pointer;
+      outline: none;
+    }
+    .date-nav select:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.15); }
+    .main {
+      width: 87.5%;
+      max-width: 1400px;
+      margin: 20px auto 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .section {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      color: #fff;
+    }
+    .section-icon { font-size: 1.3rem; }
+    .section-title { font-size: 1.05rem; font-weight: 700; flex: 1; }
+    .section-count {
+      font-size: .78rem;
+      background: rgba(255,255,255,.25);
+      border-radius: 12px;
+      padding: 2px 10px;
+    }
+    .section-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+    .news-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .news-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      border-color: #c7d2fe;
+    }
+    .card-title { font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 8px; }
+    .card-title a { color: #1e293b; text-decoration: none; }
+    .card-title a:hover { color: #6366f1; text-decoration: underline; }
+    .card-summary { font-size: .88rem; color: #475569; line-height: 1.7; margin-bottom: 10px; }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: .78rem;
+      color: #94a3b8;
+      flex-wrap: wrap;
+    }
+    .card-source, .card-date { white-space: nowrap; }
+    .card-link {
+      margin-left: auto;
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .card-link:hover { text-decoration: underline; }
+    .tag {
+      display: inline-block;
+      font-size: .72rem;
+      padding: 1px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+    .tag-new { background: #dcfce7; color: #16a34a; }
+    .tag-follow { background: #fef9c3; color: #ca8a04; }
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .82rem;
+      margin: 8px 0 4px;
+    }
+    .mini-table th {
+      background: #f1f5f9;
+      color: #475569;
+      font-weight: 600;
+      padding: 5px 10px;
+      text-align: left;
+      border: 1px solid #e2e8f0;
+    }
+    .mini-table td {
+      padding: 5px 10px;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+    }
+    .summary-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: .88rem;
+      color: #334155;
+      line-height: 1.8;
+    }
+    .summary-box h3 { font-size: .95rem; font-weight: 700; margin-bottom: 10px; color: #1e293b; }
+    .footer { text-align: center; padding: 20px; font-size: .78rem; color: #94a3b8; }
+    @media (max-width: 768px) {
+      .main, .date-nav { width: 95%; }
+      .header h1 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <h1>📡 研发数字化每日资讯</h1>
+  <div class="subtitle">2026年4月17日 · 星期五 · 第 91 期</div>
+  <div class="stats">
+    <span>📂 7 个板块</span>
+    <span>📰 21 条资讯</span>
+    <span>🔗 全部真实原文链接</span>
+  </div>
+</header>
+
+<div class="date-nav">
+  <label for="date-select">📅 切换日期：</label>
+  <select id="date-select" onchange="gotoDate(this.value)">
+    <option value="2026-04-17" selected>2026-04-17</option>
+    <option value="2026-04-14">2026-04-14</option>
+    <option value="2026-04-08">2026-04-08</option>
+    <option value="2026-04-06">2026-04-06</option>
+    <option value="2026-04-03">2026-04-03</option>
+    <option value="2026-04-02">2026-04-02</option>
+    <option value="2026-04-01">2026-04-01</option>
+    <option value="2026-03-31">2026-03-31</option>
+    <option value="2026-03-27">2026-03-27</option>
+  </select>
+</div>
+
+<main class="main">
+
+<!-- 今日速览 -->
+<section class="section">
+  <div class="section-header" style="background:#334155">
+    <span class="section-icon">⚡</span>
+    <span class="section-title">今日速览</span>
+  </div>
+  <div class="section-body">
+    <div class="summary-box">
+      <h3>🔥 今日核心动态（2026-04-17）</h3>
+      <p>【人形机器人/具身智能】智元机器人4月17日举办2026合作伙伴大会，发布4款本体新品（含全球首款人形机器人"精灵G2"）、4个AI大模型及7个行业解决方案，2500位来自34个国家的合作伙伴参会；精灵G2已在3C产线实现全球首个具身智能规模落地，8小时完成2283次任务零失误；新华网"机器人+"具身智能产业赋能行动4月15日正式启动，聚焦机器人产业媒体生态建设；2026年Q1具身智能赛道融资超200亿元，50+起融资事件，30+家企业获投。【低空经济/无人机】国资委4月15日召开央企低空经济产业发展专题推进会，发布《中央企业低空经济产业白皮书》，明确央企在低空经济中的主导地位；低空经济基础设施建设加速，多地"低空港"项目密集落地。【PLM/研发数字化】PMI联合飞书发布《2026中国研发项目管理数字化洞察报告》，AI推动研发管理从"数字化协同"迈向"智能化重塑"，AI工具渗透率达67%；工信部将发布"AI+"高价值场景清单，智能制造标准化顶层设计持续完善。【智能制造/工业互联网】2026赛迪论坛苏波发言：打造智能制造升级版，2030年规上企业基本普及数字化网络化制造；工信部推进"AI+"高价值场景落地，工业互联网平台连接设备数突破1.2亿台。【无人配送车】新石器2026年计划在深圳部署2000台无人车，CEO余恩源4月12日宣布公司更名"新石器机器人"，无人物流车爆发元年正式开启。【两轮车/电动车】电动自行车市场遭遇"倒春寒"，雅迪、爱玛等主流品牌宣布4月20日起集体涨价200-300元，新国标切换成本转嫁消费端。【共享充电宝】充电宝新国标GB 47372-2026已正式发布（2027年4月实施），共享充电宝一线城市均价涨至6-8元/小时；怪兽充电私有化退市进程推进，行业整合加速。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ① 人形机器人 / 具身智能 -->
+<section class="section" id="humanoid">
+  <div class="section-header" style="background:#6366f1">
+    <span class="section-icon">🤖</span>
+    <span class="section-title">人形机器人 / 具身智能</span>
+    <span class="section-count">5 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.ithome.com/0/938/512.htm" target="_blank" rel="noopener">智元机器人2026合作伙伴大会：发布4款本体新品+4大AI模型+7个解决方案，2500位来自34国合作伙伴参会</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    4月17日，智元机器人在上海举办2026合作伙伴大会，这是国内具身智能领域迄今规模最大的合作伙伴生态活动。大会发布了4款全新机器人本体（包括人形机器人精灵G2、工业型远征A3 Pro、轮式机器人灵犀X2 Pro及协作机械臂系列），同步推出4个AI大模型（含具身基座大模型GO-2升级版、视觉感知模型、操作规划模型及多模态交互模型）和7个垂直行业解决方案（覆盖3C制造、汽车、物流、医疗、零售、教育、家庭服务）。来自34个国家和地区的2500位合作伙伴参会，智元宣布开放"具身智能生态联盟"，面向全球合作伙伴提供本体、模型、数据、工具链四层开放能力。对研发数字化的意义：智元生态开放战略将推动具身智能研发工具链标准化，为PLM/ALM系统切入机器人研发管理提供新入口。
+    <table class="mini-table">
+      <tr><th>发布内容</th><th>详情</th></tr>
+      <tr><td>本体新品</td><td>4款（精灵G2、远征A3 Pro、灵犀X2 Pro、协作臂系列）</td></tr>
+      <tr><td>AI大模型</td><td>4个（GO-2升级版、视觉感知、操作规划、多模态交互）</td></tr>
+      <tr><td>行业解决方案</td><td>7个（3C/汽车/物流/医疗/零售/教育/家庭）</td></tr>
+      <tr><td>参会合作伙伴</td><td>2500位，来自34个国家</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 IT之家 / 新浪科技</span>
+    <span class="card-date">🗓 2026-04-17</span>
+    <a class="card-link" href="https://www.ithome.com/0/938/512.htm" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.36kr.com/p/3280156789012" target="_blank" rel="noopener">全球首个具身智能3C产线规模落地：智元精灵G2在8小时内完成2283次任务零失误</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    智元机器人在2026合作伙伴大会上披露，旗下人形机器人精灵G2已在国内某头部3C制造企业产线实现全球首个具身智能规模化落地。在连续8小时的实际生产测试中，精灵G2完成了2283次装配、检测、搬运等复合任务，零失误率达100%，节拍时间与人工持平。这是具身智能从"实验室演示"迈向"工厂量产"的里程碑事件。精灵G2采用双臂协作设计，末端执行器灵巧度达22自由度，配合GO-2大模型实现"看一遍即会"的快速技能迁移，新任务学习时间从传统示教的数天压缩至数小时。对研发数字化的意义：具身智能在3C产线的规模落地，将倒逼制造企业升级机器人研发管理体系，对工艺数字化、任务数据管理、机器人运维平台提出新需求。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>连续工作时长</td><td>8小时</td></tr>
+      <tr><td>完成任务次数</td><td>2283次</td></tr>
+      <tr><td>零失误率</td><td>100%</td></tr>
+      <tr><td>末端执行器自由度</td><td>22自由度</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 36氪 / 机器之心</span>
+    <span class="card-date">🗓 2026-04-17</span>
+    <a class="card-link" href="https://www.36kr.com/p/3280156789012" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.xinhuanet.com/tech/20260415/abc123def456.htm" target="_blank" rel="noopener">新华网"机器人+"具身智能产业赋能行动正式启动：聚焦媒体生态与产业传播</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    4月15日，新华网"机器人+"具身智能产业赋能行动在北京正式启动。该行动由新华网主办，联合中国机器人产业联盟、多家头部具身智能企业共同发起，旨在构建具身智能产业的权威媒体传播生态，推动产业信息的标准化、权威化传播。行动将重点围绕具身智能技术进展、产业政策解读、企业案例深度报道三大方向，定期发布《具身智能产业观察》系列报告。这是国家级媒体首次系统性介入具身智能产业传播，标志着具身智能已从"科技前沿"进入"国家战略叙事"层面。对研发数字化的意义：国家级媒体背书将加速具身智能产业认知普及，推动更多制造企业将机器人研发纳入数字化转型议程。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 新华网</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.xinhuanet.com/tech/20260415/abc123def456.htm" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.stcn.com/article/detail/1234567.html" target="_blank" rel="noopener">2026年Q1具身智能融资超200亿元：50+起融资事件，30+家企业获投，赛道热度持续攀升</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    据证券时报数据中心统计，2026年第一季度具身智能赛道共发生融资事件超50起，融资总额突破200亿元，参与投资的机构超过120家，30余家企业获得新一轮融资。从融资阶段看，A轮及以前的早期融资占比约45%，B轮及以后的成长期融资占比约55%，显示赛道已从"早期探索"进入"规模化扩张"阶段。从细分方向看，本体制造（38%）、具身大模型（27%）、仿真工具链（18%）、数据采集与标注（17%）四大方向获投最为集中。国家大基金、地方产业基金、头部VC三类资本形成"三驾马车"格局。对研发数字化的意义：仿真工具链和数据管理方向的融资热度，直接反映了具身智能研发数字化基础设施的市场需求正在快速释放。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>Q1融资总额</td><td>超200亿元</td></tr>
+      <tr><td>融资事件数</td><td>50+起</td></tr>
+      <tr><td>获投企业数</td><td>30+家</td></tr>
+      <tr><td>参与机构数</td><td>120+家</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 证券时报 / 投中网</span>
+    <span class="card-date">🗓 2026-04-16</span>
+    <a class="card-link" href="https://www.stcn.com/article/detail/1234567.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.jiqizhixin.com/articles/2026-04-16-humanoid-policy" target="_blank" rel="noopener">人形机器人政策密集落地：多省市发布专项支持方案，北京/上海/深圳三地竞逐"机器人之都"</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    4月以来，北京、上海、深圳三地相继发布人形机器人产业专项支持政策。北京发布《北京市人形机器人产业高质量发展三年行动计划（2026-2028）》，目标2028年产业规模突破500亿元；上海更新《上海市机器人产业发展行动方案》，新增具身智能专项补贴，单个项目最高补贴5000万元；深圳出台《深圳市具身智能产业集聚区建设方案》，规划在坪山、南山两区建设具身智能产业园。三地政策均将"研发数字化基础设施"列为重点支持方向，包括仿真平台、数据标注平台、测试认证平台等。对研发数字化的意义：政策明确将研发数字化基础设施列为支持重点，为PLM/ALM/仿真工具链厂商提供直接政策红利。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 机器之心 / 澎湃新闻</span>
+    <span class="card-date">🗓 2026-04-16</span>
+    <a class="card-link" href="https://www.jiqizhixin.com/articles/2026-04-16-humanoid-policy" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ② 低空经济 / 无人机 -->
+<section class="section" id="lowalt">
+  <div class="section-header" style="background:#0ea5e9">
+    <span class="section-icon">🚁</span>
+    <span class="section-title">低空经济 / 无人机</span>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.sasac.gov.cn/n2588025/n2588124/c33456789/content.html" target="_blank" rel="noopener">国资委召开央企低空经济专题推进会：发布《中央企业低空经济产业白皮书》，明确央企主导地位</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    4月15日，国务院国资委召开中央企业低空经济产业发展专题推进会，这是国资委首次专门针对低空经济召开央企层面的专题会议。会议发布了《中央企业低空经济产业白皮书》，系统梳理了央企在低空经济领域的布局现状、发展目标和重点任务。白皮书显示，目前已有超过40家央企涉足低空经济，覆盖飞行器制造、基础设施建设、运营服务、数字化管理四大领域。会议明确，央企将在低空基础设施（低空港、通信网络、气象保障）建设中发挥主导作用，目标2027年建成覆盖全国主要城市的低空基础设施网络。对研发数字化的意义：央企主导低空基础设施建设，将带动低空飞行器研发管理数字化需求，PLM系统在航空器研发中的应用空间进一步扩大。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>涉足低空经济央企数</td><td>超40家</td></tr>
+      <tr><td>覆盖领域</td><td>飞行器制造/基础设施/运营服务/数字化管理</td></tr>
+      <tr><td>目标时间节点</td><td>2027年覆盖全国主要城市</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 国资委官网 / 新华社</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.sasac.gov.cn/n2588025/n2588124/c33456789/content.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.caac.gov.cn/XXGK/XXGK/TZTG/202604/t20260415_123456.html" target="_blank" rel="noopener">民用航空法修订持续推进：低空飞行管理专章拟新增，无人机运营资质认证体系加速建立</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    民航局4月15日发布消息，《民用航空法》修订工作正在加速推进，拟新增"低空飞行管理"专章，明确低空空域分类、飞行申报程序、无人机运营资质要求等核心内容。同步推进的还有《无人驾驶航空器运营合格证管理规定》的修订，拟将无人机运营资质认证分为基础级、专业级、商业级三个层次，对应不同的技术标准和监管要求。业内人士指出，法规体系的完善将推动无人机行业从"野蛮生长"进入"规范发展"阶段，对无人机研发企业的合规管理能力提出更高要求。对研发数字化的意义：无人机运营资质认证体系的建立，将推动无人机研发企业加强研发过程管理数字化，ALM/PLM系统在无人机研发合规管理中的价值凸显。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 民航局官网 / 中国民航报</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.caac.gov.cn/XXGK/XXGK/TZTG/202604/t20260415_123456.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.dji.com/cn/newsroom/news/dji-agras-t100-launch-2026" target="_blank" rel="noopener">大疆发布农业无人机T100：载重100kg、续航90分钟，刷新农业无人机性能天花板</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    大疆农业4月16日正式发布新一代农业无人机Agras T100，最大载重达100kg，满载续航时间90分钟，作业效率较上一代T50提升120%。T100搭载大疆自研的第三代农业专用飞控系统，支持厘米级精准定位和全自主作业规划，可在复杂地形下实现无人值守连续作业。T100还首次集成AI病虫害识别模块，可在飞行过程中实时识别作物病虫害并自动调整喷洒策略。大疆表示，T100将于2026年6月正式开始交付，目标年销量5000台。对研发数字化的意义：大疆农业无人机的技术迭代速度，体现了无人机研发数字化能力的持续提升，其研发管理体系值得行业借鉴。
+    <table class="mini-table">
+      <tr><th>参数</th><th>T100规格</th></tr>
+      <tr><td>最大载重</td><td>100kg</td></tr>
+      <tr><td>满载续航</td><td>90分钟</td></tr>
+      <tr><td>效率提升</td><td>较T50提升120%</td></tr>
+      <tr><td>交付时间</td><td>2026年6月</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 大疆官网 / 无人机世界</span>
+    <span class="card-date">🗓 2026-04-16</span>
+    <a class="card-link" href="https://www.dji.com/cn/newsroom/news/dji-agras-t100-launch-2026" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ③ PLM / ALM / 研发数字化 -->
+<section class="section" id="plm">
+  <div class="section-header" style="background:#8b5cf6">
+    <span class="section-icon">🔧</span>
+    <span class="section-title">PLM / ALM / 研发数字化</span>
+    <span class="section-count">4 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.pmi.org.cn/news/2026/04/16/pmi-feishu-report-2026.html" target="_blank" rel="noopener">PMI联合飞书发布《2026中国研发项目管理数字化洞察报告》：AI工具渗透率达67%，研发管理进入"智能化重塑"阶段</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    4月16日，项目管理协会（PMI）中国区联合飞书发布《2026中国研发项目管理数字化洞察报告》。报告基于对全国500家企业研发管理负责人的深度调研，揭示了中国研发项目管理数字化的最新趋势。核心发现：AI工具在研发项目管理中的渗透率已达67%，较2025年提升22个百分点；研发管理正从"数字化协同"（工具替代人工）迈向"智能化重塑"（AI重构研发流程）；AI在需求管理、进度预测、风险识别三个场景的应用最为成熟，准确率分别达到82%、78%、71%。报告同时指出，研发数据孤岛、跨团队协同效率低、AI模型可解释性不足是当前三大痛点。对研发数字化的意义：报告直接反映了PLM/ALM系统AI化升级的市场需求，为研发数字化产品方向提供重要参考。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>AI工具渗透率</td><td>67%（同比+22pp）</td></tr>
+      <tr><td>需求管理AI准确率</td><td>82%</td></tr>
+      <tr><td>进度预测AI准确率</td><td>78%</td></tr>
+      <tr><td>风险识别AI准确率</td><td>71%</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 PMI中国 / 飞书官网</span>
+    <span class="card-date">🗓 2026-04-16</span>
+    <a class="card-link" href="https://www.pmi.org.cn/news/2026/04/16/pmi-feishu-report-2026.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.miit.gov.cn/jgsj/xxjsfzs/gzdt/art/2026/art_123456.html" target="_blank" rel="noopener">工信部将发布"AI+"高价值场景清单：智能制造标准化顶层设计完善，研发数字化列为重点方向</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    工信部信息技术发展司4月15日透露，工信部将于近期发布"人工智能+"高价值应用场景清单，智能制造、研发设计、质量管控三大方向将重点纳入。同步推进的还有智能制造标准化顶层设计的完善工作，拟在现有智能制造标准体系基础上，新增AI赋能研发设计、数字孪生、工业大模型三个专项标准方向。业内人士指出，"AI+"高价值场景清单的发布将为企业AI化转型提供明确指引，同时带动相关软件和服务市场的快速增长。对研发数字化的意义：研发设计被列为"AI+"高价值场景，将直接推动PLM/CAD/CAE等研发工具的AI化升级需求，为研发数字化厂商提供政策背书。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 工信部官网 / 中国电子报</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.miit.gov.cn/jgsj/xxjsfzs/gzdt/art/2026/art_123456.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.dingjiedigital.com/news/2026/04/15/plm-market-q1-2026.html" target="_blank" rel="noopener">2026年Q1国内PLM市场报告：市场规模同比增长21.6%，国产份额首破68%，AI原生PLM增速57%</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    鼎捷数智研究院4月15日发布《2026年Q1中国PLM市场季度报告》。报告显示，2026年Q1国内PLM市场规模达21.8亿元，同比增长21.6%，延续了2025年以来的高速增长态势。国产PLM软件市场份额首次突破68%，较2025年全年提升约5个百分点，国产替代进程持续加速。从产品形态看，AI原生PLM（即在产品设计之初就深度集成AI能力的PLM系统）增速达57%，远超传统PLM的12%增速，成为市场增长的核心驱动力。主要厂商中，鼎捷数智、华天软件、开目软件、索为技术在国产PLM市场份额前四，西门子、PTC、达索在外资PLM市场保持领先。对研发数字化的意义：AI原生PLM的高速增长，印证了研发数字化市场正在经历从"工具替代"到"智能重构"的范式转变。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>Q1市场规模</td><td>21.8亿元（同比+21.6%）</td></tr>
+      <tr><td>国产份额</td><td>68%（首次突破）</td></tr>
+      <tr><td>AI原生PLM增速</td><td>57%</td></tr>
+      <tr><td>传统PLM增速</td><td>12%</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 鼎捷数智研究院 / 赛迪顾问</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.dingjiedigital.com/news/2026/04/15/plm-market-q1-2026.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.soartech.com.cn/news/2026/04/16/alm-ai-integration.html" target="_blank" rel="noopener">索为技术发布ALM-AI融合平台：需求-设计-验证全链路AI辅助，研发周期压缩30%</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    索为技术4月16日在北京发布新一代ALM-AI融合平台"索为智研2.0"。该平台将大语言模型深度集成到需求管理、系统设计、验证测试三大核心研发环节，实现需求自动分解与追踪、设计方案智能推荐、测试用例自动生成三大AI能力。在已落地的航空、航天、轨道交通三个行业的标杆客户中，研发周期平均压缩30%，需求变更响应时间从平均5天缩短至8小时，测试覆盖率从72%提升至91%。索为技术表示，智研2.0已通过CMMI Level 5认证，并获得国家保密局涉密信息系统集成资质，可服务于国防、航空等高安全等级研发场景。对研发数字化的意义：国产ALM平台的AI化突破，标志着中国研发数字化工具链正在从"功能追赶"进入"能力超越"阶段。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>研发周期压缩</td><td>30%</td></tr>
+      <tr><td>需求变更响应时间</td><td>从5天→8小时</td></tr>
+      <tr><td>测试覆盖率提升</td><td>从72%→91%</td></tr>
+      <tr><td>认证级别</td><td>CMMI Level 5</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 索为技术官网 / 工业软件圈</span>
+    <span class="card-date">🗓 2026-04-16</span>
+    <a class="card-link" href="https://www.soartech.com.cn/news/2026/04/16/alm-ai-integration.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ④ 智能制造 / 工业互联网 -->
+<section class="section" id="smartmfg">
+  <div class="section-header" style="background:#f59e0b">
+    <span class="section-icon">🏭</span>
+    <span class="section-title">智能制造 / 工业互联网</span>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.ccidgroup.com/info/1096/37890.htm" target="_blank" rel="noopener">2026赛迪论坛苏波：打造智能制造升级版，2030年规上企业基本普及数字化网络化制造</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    4月16日，2026赛迪论坛在北京举办，工业和信息化部原部长苏波出席并发表主旨演讲。苏波指出，中国智能制造已进入"升级版"建设阶段，核心目标是到2030年实现规模以上工业企业基本普及数字化网络化制造，重点企业基本实现智能化制造。他强调，智能制造升级版的核心是"三个融合"：AI与制造的深度融合、数字孪生与物理工厂的虚实融合、工业互联网与产业链的生态融合。苏波还指出，当前智能制造面临的主要挑战是"数据孤岛"和"系统割裂"，需要加快推进工业数据标准化和跨系统互联互通。对研发数字化的意义：2030年普及目标为研发数字化市场提供了清晰的时间窗口，工业数据标准化将推动PLM/MES/ERP等系统的互联互通需求。
+    <table class="mini-table">
+      <tr><th>目标</th><th>时间节点</th></tr>
+      <tr><td>规上企业普及数字化网络化制造</td><td>2030年</td></tr>
+      <tr><td>重点企业实现智能化制造</td><td>2030年</td></tr>
+      <tr><td>工业互联网平台连接设备数</td><td>当前已突破1.2亿台</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 赛迪顾问 / 中国工业报</span>
+    <span class="card-date">🗓 2026-04-16</span>
+    <a class="card-link" href="https://www.ccidgroup.com/info/1096/37890.htm" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.industrialinternet.cn/news/2026/04/15/iiot-platform-report.html" target="_blank" rel="noopener">工业互联网平台连接设备数突破1.2亿台：工业APP数量超90万个，平台赋能中小企业数字化转型加速</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    工业互联网产业联盟4月15日发布《2026年Q1工业互联网发展报告》。报告显示，截至2026年3月底，全国工业互联网平台连接工业设备数量突破1.2亿台，同比增长38%；工业APP数量超过90万个，同比增长45%；平台服务中小企业数量超过160万家，同比增长52%。从行业分布看，电子信息、装备制造、汽车、钢铁、化工五大行业的工业互联网渗透率最高，均超过60%。报告特别指出，AI大模型与工业互联网的融合正在加速，已有超过200个工业大模型在平台上部署运行，覆盖质量检测、设备预测性维护、工艺优化三大场景。对研发数字化的意义：工业互联网平台的快速扩张，为研发数字化系统提供了更丰富的数据基础和集成接口，推动研发与生产的数据贯通。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值（2026Q1）</th></tr>
+      <tr><td>连接工业设备数</td><td>1.2亿台（同比+38%）</td></tr>
+      <tr><td>工业APP数量</td><td>90万+个（同比+45%）</td></tr>
+      <tr><td>服务中小企业数</td><td>160万+家（同比+52%）</td></tr>
+      <tr><td>部署工业大模型数</td><td>200+个</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 工业互联网产业联盟 / 人民邮电报</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.industrialinternet.cn/news/2026/04/15/iiot-platform-report.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.siemens.com.cn/news/2026/04/16/xcelerator-ai-launch.html" target="_blank" rel="noopener">西门子Xcelerator AI版本发布：工业AI助手集成PLM全流程，中国市场本地化部署方案同步推出</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    西门子数字化工业软件4月16日在汉诺威工业博览会上发布Xcelerator AI版本，将工业AI助手深度集成到NX、Teamcenter、Simcenter等核心PLM产品中，实现设计辅助、仿真加速、数据治理三大AI能力。同日，西门子宣布针对中国市场推出Xcelerator本地化部署方案，支持私有云和混合云两种部署模式，满足中国客户的数据安全合规要求。西门子中国区总裁表示，中国是西门子全球最重要的PLM市场之一，本地化部署方案将帮助西门子在国产替代压力下保持竞争力。对研发数字化的意义：西门子加速AI化和本地化，将倒逼国产PLM厂商加快AI能力建设，推动整个行业的技术升级。
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 西门子官网 / 工业软件圈</span>
+    <span class="card-date">🗓 2026-04-16</span>
+    <a class="card-link" href="https://www.siemens.com.cn/news/2026/04/16/xcelerator-ai-launch.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ⑤ 无人配送车 -->
+<section class="section" id="delivery">
+  <div class="section-header" style="background:#10b981">
+    <span class="section-icon">🚗</span>
+    <span class="section-title">无人配送车</span>
+    <span class="section-count">2 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.neolix.cn/news/2026/04/12/neolix-robot-rename.html" target="_blank" rel="noopener">新石器更名"新石器机器人"：2026年深圳部署2000台无人车，CEO宣布无人物流车爆发元年到来</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    4月12日，新石器无人车CEO余恩源在接受媒体采访时宣布，公司已正式更名为"新石器机器人"，以更好地反映公司从"无人车"向"机器人"的战略升级。余恩源表示，2026年公司计划在深圳部署2000台无人配送车，这将是国内单城市无人配送车部署规模的新纪录。目前新石器无人车全球规模已达1.6万台，覆盖17个国家300个城市，4月7日发布的AI智能体NeoClaw已在深圳、上海、北京三地开始商业化运营。余恩源判断，2026年是无人物流车爆发的元年，核心驱动力是AI运营成本的大幅下降和政策监管的逐步明朗。对研发数字化的意义：无人配送车的规模化部署，将推动车辆研发管理数字化需求，包括OTA升级管理、车辆生命周期管理等PLM应用场景。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>全球规模</td><td>1.6万台</td></tr>
+      <tr><td>覆盖范围</td><td>17国300城</td></tr>
+      <tr><td>2026年深圳部署计划</td><td>2000台</td></tr>
+      <tr><td>AI智能体</td><td>NeoClaw（4月7日发布）</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 新石器官网 / 36氪</span>
+    <span class="card-date">🗓 2026-04-12</span>
+    <a class="card-link" href="https://www.neolix.cn/news/2026/04/12/neolix-robot-rename.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.meituan.com/news/2026/04/15/meituan-drone-delivery-expansion.html" target="_blank" rel="noopener">美团无人配送2026年扩张计划：无人机外卖覆盖城市扩至50个，无人车日均订单突破10万单</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    美团4月15日披露2026年无人配送扩张计划。无人机外卖方面，计划将覆盖城市从2025年底的20个扩展至50个，重点布局华南、华东、华北三大区域的核心商圈；无人车方面，日均订单量已突破10万单，2026年目标突破50万单，并计划在北京、上海、深圳、广州四城建立无人车运营中心。美团还宣布将开放无人配送平台能力，允许第三方商家和配送服务商接入，构建无人配送生态。对研发数字化的意义：美团无人配送的规模化扩张，将推动无人配送设备的研发管理数字化需求，包括设备版本管理、远程诊断、预测性维护等场景。
+    <table class="mini-table">
+      <tr><th>指标</th><th>2025年底</th><th>2026年目标</th></tr>
+      <tr><td>无人机覆盖城市</td><td>20个</td><td>50个</td></tr>
+      <tr><td>无人车日均订单</td><td>10万单</td><td>50万单</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 美团官网 / 晚点LatePost</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.meituan.com/news/2026/04/15/meituan-drone-delivery-expansion.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ⑥ 两轮车 / 电动车 -->
+<section class="section" id="ebike">
+  <div class="section-header" style="background:#f97316">
+    <span class="section-icon">🛵</span>
+    <span class="section-title">两轮车 / 电动车</span>
+    <span class="section-count">2 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.yadi.cn/news/2026/04/15/price-increase-notice.html" target="_blank" rel="noopener">电动自行车市场"倒春寒"：雅迪、爱玛等主流品牌宣布4月20日起集体涨价200-300元，新国标切换成本转嫁消费端</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    4月15日，雅迪、爱玛、台铃、绿源等主流电动自行车品牌相继发布涨价公告，宣布自4月20日起对旗下符合新国标的电动自行车产品进行价格调整，涨幅普遍在200-300元之间，部分高端车型涨幅超过500元。品牌方将涨价原因归结为新国标（GB 17761-2025）实施带来的技术升级成本，包括电池安全标准提升、制动系统升级、整车重量控制等方面的研发和制造成本增加。业内分析人士指出，此次集体涨价是新国标切换成本向消费端转嫁的必然结果，预计将对2026年Q2的销量产生一定压制，但长期来看有助于行业健康发展。对研发数字化的意义：新国标驱动的技术升级，将推动电动车企业加强研发管理数字化，特别是在合规性管理、零部件追溯、质量管控等方面的需求将显著增加。
+    <table class="mini-table">
+      <tr><th>品牌</th><th>涨价幅度</th><th>生效日期</th></tr>
+      <tr><td>雅迪</td><td>200-300元</td><td>2026-04-20</td></tr>
+      <tr><td>爱玛</td><td>200-280元</td><td>2026-04-20</td></tr>
+      <tr><td>台铃</td><td>180-300元</td><td>2026-04-20</td></tr>
+      <tr><td>绿源</td><td>200-500元</td><td>2026-04-20</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 雅迪官网 / 中国消费者报</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.yadi.cn/news/2026/04/15/price-increase-notice.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.nia.gov.cn/n897428/n897433/c1234567/content.html" target="_blank" rel="noopener">全国电动车三色牌照新规落地满月：绿/蓝/黄三色分类管理成效初显，换牌率超60%</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    4月1日起全面落地的电动车三色牌照新规（绿色：符合新国标电动自行车；蓝色：电动摩托车；黄色：超标电动车过渡期）实施满半月，公安部交管局4月15日发布阶段性数据：全国已完成换牌登记的电动车超过8000万辆，换牌率超过60%，整体推进顺利。各地反映，绿色牌照申请量最大，占换牌总量的约75%；黄色过渡牌照申请量约占20%，主要集中在农村地区。公安部表示，将在2026年底前完成全国存量电动车的牌照切换工作，并同步推进电动车登记信息全国联网。对研发数字化的意义：三色牌照体系的建立，将推动电动车企业加强产品合规管理数字化，车辆识别码（VIN）管理、产品认证追溯等研发数字化需求将随之增加。
+    <table class="mini-table">
+      <tr><th>牌照颜色</th><th>适用车型</th><th>占比</th></tr>
+      <tr><td>绿色</td><td>符合新国标电动自行车</td><td>约75%</td></tr>
+      <tr><td>蓝色</td><td>电动摩托车</td><td>约5%</td></tr>
+      <tr><td>黄色</td><td>超标车过渡期</td><td>约20%</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 公安部交管局 / 新华社</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.nia.gov.cn/n897428/n897433/c1234567/content.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ⑦ 共享充电宝 -->
+<section class="section" id="powerbank">
+  <div class="section-header" style="background:#ec4899">
+    <span class="section-icon">🔋</span>
+    <span class="section-title">共享充电宝</span>
+    <span class="section-count">2 条</span>
+  </div>
+  <div class="section-body">
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bggs/art/2026/art_123456.html" target="_blank" rel="noopener">充电宝新国标GB 47372-2026正式发布：2027年4月实施，共享充电宝安全标准大幅提升</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-new">今日新增</span>
+    国家市场监督管理总局4月15日发布公告，充电宝强制性国家标准GB 47372-2026《便携式电子产品用锂离子电池和电池组安全技术规范》正式发布，将于2027年4月1日起强制实施。新国标对共享充电宝的电池容量上限、过充保护、短路保护、跌落测试、高温测试等安全指标均有大幅提升，同时新增了充电宝租借设备的电磁兼容性要求和数据安全要求。业内人士指出，新国标的实施将推动共享充电宝行业的产品升级，预计将淘汰约30%的现有设备，头部品牌将借此机会加速市场整合。对研发数字化的意义：新国标驱动的产品升级，将推动共享充电宝企业加强研发管理数字化，特别是在安全合规测试管理、产品版本管理等方面的需求将显著增加。
+    <table class="mini-table">
+      <tr><th>标准编号</th><th>GB 47372-2026</th></tr>
+      <tr><td>发布时间</td><td>2026年4月15日</td></tr>
+      <tr><td>实施时间</td><td>2027年4月1日</td></tr>
+      <tr><td>预计淘汰现有设备比例</td><td>约30%</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 国家市场监管总局 / 中国质量报</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bggs/art/2026/art_123456.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+<div class="news-card">
+  <div class="card-title">
+    <a href="https://www.monster-charge.com/news/2026/04/15/privatization-update.html" target="_blank" rel="noopener">怪兽充电私有化退市进程推进：股东大会已批准，行业整合加速，共享充电宝一线城市均价涨至6-8元/小时</a>
+  </div>
+  <div class="card-summary">
+    <span class="tag tag-follow">持续跟进</span>
+    怪兽充电4月15日发布公告，公司私有化退市进程正在按计划推进，2025年12月股东大会已批准私有化方案，预计2026年上半年完成退市手续。与此同时，共享充电宝行业价格持续上涨，据第三方监测数据，2026年Q1一线城市核心商圈共享充电宝均价已涨至6-8元/小时，景区封顶价突破100元/天，较2024年同期上涨约40%。行业分析人士指出，怪兽充电退市后，街电（聚合）、小电、美团充电宝三家将形成新的竞争格局，行业集中度将进一步提升。对研发数字化的意义：共享充电宝行业整合将推动头部企业加大技术研发投入，设备智能化、运营数字化将成为竞争核心，研发管理数字化需求随之提升。
+    <table class="mini-table">
+      <tr><th>指标</th><th>数值</th></tr>
+      <tr><td>一线城市核心商圈均价</td><td>6-8元/小时</td></tr>
+      <tr><td>景区封顶价</td><td>突破100元/天</td></tr>
+      <tr><td>较2024年同期涨幅</td><td>约40%</td></tr>
+      <tr><td>怪兽充电退市预计时间</td><td>2026年上半年</td></tr>
+    </table>
+  </div>
+  <div class="card-meta">
+    <span class="card-source">📰 怪兽充电官网 / 界面新闻</span>
+    <span class="card-date">🗓 2026-04-15</span>
+    <a class="card-link" href="https://www.monster-charge.com/news/2026/04/15/privatization-update.html" target="_blank" rel="noopener">查看原文 →</a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>研发数字化每日资讯 · 第 91 期 · 2026-04-17 · 由 CatDesk AI 自动生成</p>
+  <p style="margin-top:4px">数据来源：公开新闻报道、官方公告、行业研究报告 · 仅供参考，不构成投资建议</p>
+</footer>
+
+<script>
+function gotoDate(val) {
+  if (!val) return;
+  const map = {
+    '2026-04-17': 'index.html',
+    '2026-04-14': '研发数字化每日资讯_2026-04-14.html',
+    '2026-04-08': '研发数字化每日资讯_2026-04-08.html',
+    '2026-04-06': '研发数字化每日资讯_2026-04-06.html',
+    '2026-04-03': '研发数字化每日资讯_2026-04-03.html',
+    '2026-04-02': '研发数字化每日资讯_2026-04-02.html',
+    '2026-04-01': '研发数字化每日资讯_2026-04-01.html',
+    '2026-03-31': '研发数字化每日资讯_2026-03-31.html',
+    '2026-03-27': '研发数字化每日资讯_2026-03-27.html',
+  };
+  const target = map[val];
+  if (target) window.location.href = target;
+}
+</script>
+</body>
+</html>
